@@ -1,13 +1,39 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
+import NavBar from "../components/Navbar"
+
+import { motion } from "framer-motion"
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5
+    }
+  }
+}
+
+const child = {
+  hidden: {
+    opacity: 0,
+    y: -20
+  },
+  show: {
+    opacity: 1,
+    y: 0
+  }
+}
+
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Braden Dubois</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      {NavBar()}
 
       <main className={styles.main}>
         <h1 className={styles.title}>
@@ -19,26 +45,31 @@ export default function Home() {
           <code className={styles.code}>pages/index.js</code>
         </p>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
+        <motion.div
+            className={styles.grid}
+            variants={container}
+            initial={"hidden"}
+            animate={"show"}
+        >
+          <motion.a variants={child} href="https://nextjs.org/docs" className={styles.card}>
             <h3>Documentation &rarr;</h3>
             <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          </motion.a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
+          <motion.a variants={child} href="https://nextjs.org/learn" className={styles.card}>
             <h3>Learn &rarr;</h3>
             <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+          </motion.a>
 
-          <a
+          <motion.a variants={child}
             href="https://github.com/vercel/next.js/tree/master/examples"
             className={styles.card}
           >
             <h3>Examples &rarr;</h3>
             <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+          </motion.a>
 
-          <a
+          <motion.a variants={child}
             href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             className={styles.card}
           >
@@ -46,8 +77,8 @@ export default function Home() {
             <p>
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </main>
 
       <footer className={styles.footer}>

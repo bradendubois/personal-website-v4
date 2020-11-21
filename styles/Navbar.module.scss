@@ -1,0 +1,25 @@
+.container {
+
+ display: flex;
+ flex-direction: row;
+
+ width: 100%;
+
+ border-bottom: 1px solid black;
+
+ .navLink {
+  cursor: pointer;
+  padding: 15px;
+  margin-left: 10px;
+ }
+
+ .current {
+  color: #297ce2;
+  font-weight: 500;
+  border-bottom: 2px solid black;
+ }
+
+ .default {
+  font-weight: 300;
+ }
+}
