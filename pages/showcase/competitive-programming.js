@@ -1,3 +1,5 @@
+import NavBar from "../../components/NavBar/Navbar";
+
 export const CompetitiveProgrammingDetails = {
     title: "Competitive Programming",
     description: "Comp.",
@@ -15,6 +17,7 @@ const CompetitiveProgramming = () => {
 
     return (
         <div>
+            <NavBar />
             Hey
         </div>
     )

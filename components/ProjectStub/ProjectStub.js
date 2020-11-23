@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import {motion} from "framer-motion";
 
-import style from "../../styles/Showcase.module.scss";
+import style from "./ProjectStub.module.scss";
 
 const project = {
     hidden: { opacity: 0 },
@@ -33,7 +33,7 @@ export const ProjectStub = ({data}) => {
                         variants={{
                             hidden: { opacity: 0 },
                             show: { opacity: 1},
-                            hover: { opacity: 0.5 }
+                            hover: { opacity: 0.2 }
                         }}
                     >{data.title}</motion.h3>
                     <motion.div
@@ -42,9 +42,7 @@ export const ProjectStub = ({data}) => {
                             show: { opacity: 0},
                             hover: { opacity: 1 }
                         }}
-                    >
-                        <p>{data.description}</p>
-                    </motion.div>
+                    >{data.description}</motion.div>
                 </motion.div>
             </a>
         </Link>

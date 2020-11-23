@@ -1,10 +1,10 @@
 import Head from "next/head"
-import NavBar from "../../components/Navbar";
+import NavBar from "../../components/NavBar/Navbar";
 
-export const CausalityProjectDetails = {
-    title: "Causality Project",
-    description: "A software package supporting do-calculus and other causal inference tools.",
-    href: "/showcase/causality",
+export const StatisticsProjectDetails = {
+    title: "Statistics Software",
+    description: <p>A software package supporting <i>do-calculus</i> and other causal inference tools.</p>,
+    href: "/showcase/statistics",
     links: [
         {
             href: "https://github.com/bradendubois/probability-code",
@@ -14,7 +14,7 @@ export const CausalityProjectDetails = {
     ]
 }
 
-const Causality = () => {
+const Statistics = () => {
 
     return (
         <div>
@@ -27,4 +27,4 @@ const Causality = () => {
     )
 }
 
-export default Causality
+export default Statistics

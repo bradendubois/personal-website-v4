@@ -5,9 +5,9 @@ import router from "next/router"
 import {motion} from "framer-motion"
 
 import {ProjectStub} from "../../components/ProjectStub/ProjectStub";
-import NavBar from "../../components/Navbar";
+import NavBar from "../../components/NavBar/Navbar";
 
-import {CausalityProjectDetails} from "./causality";
+import {StatisticsProjectDetails} from "./statistics";
 import {CompetitiveProgrammingDetails} from "./competitive-programming";
 
 import style from "../../styles/Showcase.module.scss"
@@ -31,14 +31,10 @@ const child = {
     }
 }
 
-
-
-
-
 const Showcase = () => {
 
     const Projects = [
-        CausalityProjectDetails,
+        StatisticsProjectDetails,
         CompetitiveProgrammingDetails
     ]
 
@@ -64,7 +60,7 @@ const Showcase = () => {
                 initial={"hidden"}
                 animate={"show"}
             >
-                {Projects.map(details => <ProjectStub data={details} />)}
+                {Projects.map((details, i) => <ProjectStub key={i} data={details} />)}
             </motion.div>
 
         </div>

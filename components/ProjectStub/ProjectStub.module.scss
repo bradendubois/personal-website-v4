@@ -1,0 +1,24 @@
+.projectStub {
+
+  outline: 1px solid black;
+  width: 350px;
+  height: 150px;
+
+  cursor: pointer;
+
+  h3 {
+    font-size: 16pt;
+  }
+
+  div {
+
+    p {
+
+    }
+
+    div {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

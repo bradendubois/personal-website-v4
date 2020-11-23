@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-import NavBar from "../components/Navbar"
+import NavBar from "../components/NavBar/Navbar"
 
 import { motion } from "framer-motion"
 

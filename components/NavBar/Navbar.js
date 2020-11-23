@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { motion } from "framer-motion"
 
-import style from "../styles/Navbar.module.scss";
+import style from "./Navbar.module.scss";
 
 // Motion variant for containing div
 const container = {
