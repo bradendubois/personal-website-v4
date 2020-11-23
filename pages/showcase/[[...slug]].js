@@ -4,7 +4,7 @@ import Link from "next/link"
 import router from "next/router"
 import useSWR from "swr"
 
-import {Github} from "../../components/GithubProfile/GithubProfile"
+import {GithubProfile} from "../../components/GithubProfile/GithubProfile"
 
 import {motion} from "framer-motion"
 
@@ -49,7 +49,7 @@ const Showcase = () => {
             </Head>
             <NavBar />
 
-            <Github />
+            <GithubProfile />
 
             <motion.div
                 className={style.headerDiv}

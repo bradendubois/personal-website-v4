@@ -1,15 +1,21 @@
 import Head from "next/head"
 import NavBar from "../../../components/NavBar/Navbar";
 
+import { GithubProfile } from "../../../components/GithubProfile/GithubProfile"
+import { GithubRepositories } from "../../../components/GithubRepositories/GithubRepositories"
+
 const Github = () => {
 
     return (
         <div>
             <Head>
-                <title>Test</title>
+                <title>Github</title>
             </Head>
             <NavBar />
-            TEST
+
+            <GithubProfile />
+            <GithubRepositories />
+
         </div>
     )
 }
