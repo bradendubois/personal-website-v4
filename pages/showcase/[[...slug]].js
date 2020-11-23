@@ -2,6 +2,10 @@ import React from "react"
 import Head from "next/head"
 import Link from "next/link"
 import router from "next/router"
+import useSWR from "swr"
+
+import {Github} from "../../components/GithubProfile/GithubProfile"
+
 import {motion} from "framer-motion"
 
 import {ProjectStub} from "../../components/ProjectStub/ProjectStub";
@@ -44,6 +48,8 @@ const Showcase = () => {
                 <title>Showcase</title>
             </Head>
             <NavBar />
+
+            <Github />
 
             <motion.div
                 className={style.headerDiv}
