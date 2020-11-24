@@ -1,6 +1,29 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
+import {motion} from "framer-motion"
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5
+    }
+  }
+}
+
+const child = {
+  hidden: {
+    opacity: 0,
+    y: -20
+  },
+  show: {
+    opacity: 1,
+    y: 0
+  }
+}
+
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -9,46 +32,34 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <motion.main
+          variants={container}
+          className={styles.main}
+          initial={"hidden"}
+          animate={"show"}
+      >
+        <motion.h1
+            className={styles.title}
+            variants={child}
+        >Hello!</motion.h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        <motion.p
+            className={styles.description}
+            variants={child}
+        >I'm Braden, a Computer Science / Philosophy student and student research assistant.</motion.p>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+        <motion.p
+            className={styles.description}
+            variants={child}
+        >I'm currently re-building my personal website (again) due to being quite unhappy with the old version. I
+          hope to have this version up and running by the end of <strong>December 2020</strong>.</motion.p>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+        <motion.p
+            className={styles.description}
+            variants={child}
+        >In the meantime, <a href={"mailto:braden.dubois@usask.ca"}>email me</a>, or check out my <a href={"https://github.com/bradendubois"}>Github</a> or <a href={"https://linkedin.com/in/bradendubois"}>LinkedIn</a>.</motion.p>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+      </motion.main>
 
       <footer className={styles.footer}>
         <a
