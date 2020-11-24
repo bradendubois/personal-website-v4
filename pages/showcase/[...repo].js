@@ -1,17 +1,17 @@
 import Head from "next/head"
-import NavBar from "../../../components/NavBar/Navbar";
+import NavBar from "../../components/NavBar/Navbar";
 
 import {useRouter} from "next/router"
 
 import { useState, useEffect } from "react"
 
-import {Github} from "../../../components/GithubProfile/GithubProfile"
+import {Github} from "../../components/GithubProfile/GithubProfile"
 import useSWR from "swr";
 
 import {motion} from "framer-motion"
-import styles from "../../../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 
-import {GithubProject} from "../../../components/GithubProject/GithubProject";
+import {GithubProject} from "../../components/GithubProject/GithubProject";
 
 const container = {
     hidden: { opacity: 0 },
@@ -44,7 +44,7 @@ const Repo = () => {
             <Head>
                 <title>Repo</title>
             </Head>
-            <NavBar />
+            {/* <NavBar /> */}
 
             {repo && <GithubProject repository={repo} />}
 

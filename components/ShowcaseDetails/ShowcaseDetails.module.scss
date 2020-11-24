@@ -1,0 +1,50 @@
+.showcaseDetails {
+
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+
+  div {
+    margin: 10px;
+
+    &:first-of-type {
+      margin-right: 25px;
+    }
+
+    &:not(:first-of-type) {
+      flex: 1 1 0;
+    }
+
+    h4 {
+      margin-bottom: 5px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    p, a, li {
+      font-weight: 300;
+    }
+
+    img {
+      margin: 10px auto;
+      width: 48px;
+      opacity: 0.6;
+      transition: 0.1s;
+
+      &:hover { opacity: 0.8 }
+      &:active,
+      &:focus { opacity: 1 }
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 25px;
+      list-style: circle;
+    }
+  }
+}
