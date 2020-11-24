@@ -47,7 +47,7 @@ const Showcase = () => {
             <Head>
                 <title>Showcase</title>
             </Head>
-            <NavBar />
+            {/* <NavBar /> */}
 
             <GithubProfile />
 

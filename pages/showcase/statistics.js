@@ -21,7 +21,8 @@ const Statistics = () => {
             <Head>
                 <title>Causality</title>
             </Head>
-            <NavBar />
+            {/* <NavBar /> */}
+
             Hey
         </div>
     )

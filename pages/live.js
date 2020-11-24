@@ -9,7 +9,7 @@ const Me = () => {
             <Head>
                 <title>Live</title>
             </Head>
-            <NavBar />
+            {/* <NavBar /> */}
             Live
         </div>
     )

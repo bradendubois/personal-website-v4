@@ -9,7 +9,8 @@ const Research = () => {
             <Head>
                 <title>Research</title>
             </Head>
-            <NavBar />
+            {/* <NavBar /> */}
+
             Research
         </div>
     )

@@ -9,7 +9,8 @@ const Me = () => {
             <Head>
                 <title>Me</title>
             </Head>
-            <NavBar />
+            {/* <NavBar /> */}
+
             Me
         </div>
     )

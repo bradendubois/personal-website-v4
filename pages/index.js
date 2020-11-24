@@ -33,7 +33,7 @@ export default function Home() {
         <title>Braden Dubois</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {NavBar()}
+      {/* <NavBar /> */}
 
       <main className={styles.main}>
         <h1 className={styles.title}>

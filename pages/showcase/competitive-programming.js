@@ -17,8 +17,8 @@ const CompetitiveProgramming = () => {
 
     return (
         <div>
-            <NavBar />
-            Hey
+            {/* <NavBar /> */}
+
         </div>
     )
 }

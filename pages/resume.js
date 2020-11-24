@@ -9,7 +9,8 @@ const Resume = () => {
             <Head>
                 <title>Resume</title>
             </Head>
-            <NavBar />
+            {/* <NavBar /> */}
+
             Resume
         </div>
     )
