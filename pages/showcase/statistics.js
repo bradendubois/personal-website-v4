@@ -75,10 +75,6 @@ const Statistics = () => {
                     </p>
                 </motion.div>
 
-                <motion.div>
-
-                </motion.div>
-
                 <motion.div className={showcaseStyle.textBlock} {...motionChild}>
                     <h3>Technical Details</h3>
                     <p>

@@ -27,7 +27,7 @@ const child = {
 
 export const GithubProject = ({ repository }) => {
 
-    const {data} = useSWR(`/api/github/repository/${repository}`, fetch)
+    const { data, error } = useSWR(`/api/github/repository/${repository}`, fetch)
 
     const [json, setJSON] = useState()
 
@@ -37,6 +37,8 @@ export const GithubProject = ({ repository }) => {
             console.log(r.data)
         })
     }, [data])
+
+    if (error) return <div>NOT A REPO</div>
 
     return (
         <div>
