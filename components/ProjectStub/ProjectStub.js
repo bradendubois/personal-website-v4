@@ -4,6 +4,7 @@ import Link from "next/link";
 import {motion} from "framer-motion";
 
 import style from "./ProjectStub.module.scss";
+import {motionChild} from "../motions";
 
 const project = {
     hidden: { opacity: 0 },
@@ -20,7 +21,7 @@ const project = {
 export const ProjectStub = ({data}) => {
 
     return (
-        <Link href={data.href}>
+        <Link href={data.href} {...motionChild}>
             <a>
                 <motion.div
                     className={style.projectStub}

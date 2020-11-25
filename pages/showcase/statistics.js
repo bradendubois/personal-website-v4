@@ -4,12 +4,13 @@ import Link from "next/link"
 
 import NavBar from "../../components/NavBar/Navbar";
 
+import { ShowcaseDetails } from "../../components/ShowcaseDetails/ShowcaseDetails"
+
 import { motion } from "framer-motion"
 import { motionContainer, motionChild } from "../../components/motions"
 
 import showcaseStyle from "../../styles/Showcase.module.scss"
-import styles from "../../styles/Home.module.css";
-import { ShowcaseDetails } from "../../components/ShowcaseDetails/ShowcaseDetails"
+
 export const StatisticsProjectDetails = {
     title: "Statistics Software",
     description: <p>A software package supporting <i>do-calculus</i> and other causal inference tools.</p>,
@@ -92,7 +93,7 @@ const Statistics = () => {
                     <h3>Implementation Details</h3>
                     <p>
                         Measurements of interventional distributions in semi-Markovian models (a sentence that would've
-                        made me faint in May!) is completely possible through the "backdoor-criterion" or "front-door
+                        made me faint when starting!) is completely possible through the "backdoor-criterion" or "front-door
                         criterion", or by Shpitser and Pearl, 2006. At its core, it is basic inference rules, performed
                         on an augmented graph space, in either approach. With <i>do-calculus</i>, we also add three
                         additional rules. A further write-up showcasing each step will be made available on this website

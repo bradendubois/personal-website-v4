@@ -16,6 +16,12 @@
   }
 }
 
+.showcasePreviews {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
 
 .content {
@@ -32,7 +38,7 @@
     border-bottom: 1px solid black;
 
     h1, p {
-      flex: 1 1 0;
+      // flex: 1 1 0;
     }
 
     h1 {
@@ -41,6 +47,9 @@
 
     p {
       margin: auto;
+      padding: 0 60px;
+      flex: 1;
+      text-align: center;
     }
   }
 

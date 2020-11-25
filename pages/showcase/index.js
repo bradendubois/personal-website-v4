@@ -15,6 +15,7 @@ import {StatisticsProjectDetails} from "./statistics";
 import {CompetitiveProgrammingDetails} from "./competitive-programming";
 
 import style from "../../styles/Showcase.module.scss"
+import {motionChild, motionContainer} from "../../components/motions";
 
 const container = {
     hidden: { opacity: 0 },
@@ -49,7 +50,7 @@ const Showcase = () => {
             </Head>
             {/* <NavBar /> */}
 
-            <GithubProfile />
+            {/* <GithubProfile /> */}
 
             <motion.div
                 className={style.headerDiv}
@@ -62,6 +63,7 @@ const Showcase = () => {
             </motion.div>
 
             <motion.div
+                className={style.showcasePreviews}
                 variants={container}
                 initial={"hidden"}
                 animate={"show"}
