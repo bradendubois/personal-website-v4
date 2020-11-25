@@ -54,22 +54,29 @@ const Showcase = () => {
 
             <motion.div
                 className={style.headerDiv}
-                variants={container}
-                initial={"hidden"}
-                animate={"show"}
+                {...motionContainer}
             >
-                <motion.h1 variants={child}>Showcase</motion.h1>
-                {/*<motion.p variants={child}>A collection of </motion.p> */}
+                <motion.h1 {...motionChild}>Showcase</motion.h1>
+                <motion.p {...motionChild}>
+                    Selected projects from my <Link href={"/research"}>research</Link> or done out of personal interest.
+                </motion.p>
             </motion.div>
 
-            <motion.div
-                className={style.showcasePreviews}
-                variants={container}
-                initial={"hidden"}
-                animate={"show"}
-            >
-                {Projects.map((details, i) => <ProjectStub key={i} data={details} />)}
-            </motion.div>
+            <motion.main {...motionContainer}>
+
+                <div {...motionChild}>
+                    Ideally, lots of content here!
+                </div>
+
+                <motion.div
+                    className={style.showcasePreviews}
+                    {...motionContainer}
+                >
+                    {Projects.map((details, i) => <ProjectStub key={i} data={details} />)}
+                </motion.div>
+
+            </motion.main>
+
 
         </div>
     )

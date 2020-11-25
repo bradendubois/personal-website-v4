@@ -13,27 +13,6 @@ import styles from "../../styles/Home.module.css";
 
 import {GithubProject} from "../../components/GithubProject/GithubProject";
 
-const container = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.5
-        }
-    }
-}
-
-const child = {
-    hidden: {
-        opacity: 0,
-        y: -20
-    },
-    show: {
-        opacity: 1,
-        y: 0
-    }
-}
-
 const Repo = () => {
 
     const router = useRouter()
