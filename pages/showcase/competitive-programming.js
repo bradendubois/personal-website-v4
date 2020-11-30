@@ -10,6 +10,7 @@ export const CompetitiveProgrammingDetails = {
     title: "Competitive Programming",
     description: <p>Involvement in Competitive Programming on online judges such as Kattis, as well as in the ICPC.</p>,
     href: "/showcase/competitive-programming",
+    id: "competitive-programming",
     links: [
         {
             href: `https://github.com/${process.env.github}/${process.env.competitive}`,
@@ -64,8 +65,10 @@ const CompetitiveProgramming = () => {
                 <motion.div className={showcaseStyle.textBlock} {...motionChild}>
                     <h3>Online Judges</h3>
                     <p>
-                        I've maintained a <a href={"https://github.com/bradendubois/competitive-programming"}>repository
-                        of solutions</a> to <strong>competitive programming problems</strong> on <a href={"https://open.kattis.com"}>Kattis</a>.
+                        I've maintained
+                        a <a href={`https://github.com/${process.env.github}/${process.env.competitive}`}>repository
+                        of solutions</a> to <strong>competitive programming
+                        problems</strong> on <a href={"https://open.kattis.com"}>Kattis</a>.
                         Generally, I use easier problems as a means to practice a particular programming language, since
                         the solutions are not typically very deep in theory, or better in one language over another.
                         Anything <strong>below ~3.0</strong> is used to practice <strong>C++</strong>.
@@ -79,7 +82,8 @@ const CompetitiveProgramming = () => {
                         Advent calendar of programming puzzles that runs from <strong>Dec. 1 - 25</strong>. They are
                         tons of fun, and these problems are used in interviews, university courses, and (mostly)
                         friendly rivalry. I keep a collection of my
-                        own <a href={"https://github.com/bradendubois/advent-of-code"}>personal solutions here</a>.
+                        own <a href={`https://github.com/${process.env.github}/${process.env.advent}`}>personal
+                        solutions here</a>.
                     </p>
                 </motion.div>
 

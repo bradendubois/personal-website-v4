@@ -1,13 +1,16 @@
 .stubContainer {
   margin: 10px;
+  display: flex;
 }
 .stubContainer .projectStub {
   outline: 1px solid black;
-  width: 250px;
-  height: 125px;
+  flex: 1 1 0;
+  max-width: 400px;
+  max-height: 100px;
   cursor: pointer;
   color: black;
   padding: 10px;
+  box-shadow: 1px 0 5px #454545;
 }
 .stubContainer .projectStub h3 {
   font-size: 12pt;

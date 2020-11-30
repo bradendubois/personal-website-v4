@@ -1,0 +1,83 @@
+.showcaseDetails {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.showcaseDetails .back {
+  height: min-content;
+  margin: auto;
+}
+.showcaseDetails .back a {
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #1695f6;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px #565656;
+  color: #1695f6;
+  transition: 0.2s;
+}
+.showcaseDetails .back a:hover {
+  color: #1171ba;
+  box-shadow: 0 2px 3px #565656;
+}
+.showcaseDetails .back a:active, .showcaseDetails .back a:focus {
+  color: #097cd4;
+  box-shadow: 0 3px 3px #565656;
+}
+.showcaseDetails .links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.showcaseDetails div {
+  margin: 10px;
+  /*
+  &:nth-of-type(2) {
+    margin-right: 25px;
+  }
+
+   */
+}
+.showcaseDetails div:nth-of-type(n + 2) {
+  flex: 1 1 0;
+}
+.showcaseDetails div h4 {
+  margin-bottom: 5px;
+}
+.showcaseDetails div p {
+  margin: 0;
+}
+.showcaseDetails div p, .showcaseDetails div a, .showcaseDetails div li {
+  font-weight: 300;
+}
+.showcaseDetails div a {
+  color: #1695f6;
+  transition: 0.2s;
+  display: flex;
+}
+.showcaseDetails div a:hover {
+  color: #1171ba;
+}
+.showcaseDetails div a:active, .showcaseDetails div a:focus {
+  color: #097cd4;
+}
+.showcaseDetails div img {
+  opacity: 0.6;
+  transition: 0.1s;
+  margin: auto;
+  max-height: 48px;
+}
+.showcaseDetails div img:hover {
+  opacity: 0.8;
+}
+.showcaseDetails div img:active, .showcaseDetails div img:focus {
+  opacity: 1;
+}
+.showcaseDetails div ul {
+  margin: 0;
+  padding-left: 25px;
+  list-style: circle;
+}
+
+/*# sourceMappingURL=ShowcaseDetails.module.css.map */

@@ -78,8 +78,9 @@
 
     a {
       color: #1695f6;
-
       transition: 0.2s;
+
+      display: flex;
 
       &:hover {
         color: #1171ba;
@@ -92,10 +93,12 @@
     }
 
     img {
-      margin: 10px auto;
-      width: 48px;
+
       opacity: 0.6;
       transition: 0.1s;
+
+      margin: auto;
+      max-height: 48px;
 
       &:hover { opacity: 0.8 }
       &:active,

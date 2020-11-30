@@ -19,7 +19,7 @@ export const ShowcaseDetails = ({ data }) => {
             {data.links && <>
                 <motion.div className={style.links} {...motionChild}>
                     {data.links.map((link, i) => <Link key={i} href={link.href}><a>
-                        <Image unsized src={link.image} alt={link.alt} />
+                        <img src={link.image} alt={link.alt} />
                     </a></Link>)}
                 </motion.div>
             </>}

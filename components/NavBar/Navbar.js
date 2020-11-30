@@ -34,7 +34,6 @@ const settings = {
 
 const nav = [
     "/",
-    "/me",
     "/showcase",
     "/research",
     "/resume",
@@ -44,7 +43,6 @@ const nav = [
 // Map a link to its displayed title
 const mapping = {
     "/": "Home",
-    "/me": "Me",
     "/showcase": "Showcase",
     "/research": "Research",
     "/resume": "Resume",
@@ -77,16 +75,15 @@ export const NavBar = () => {
     }
 
     return (
-        <motion.div{...motionContainer} className={style.container}>
+        <motion.nav{...motionContainer} className={style.container}>
             {/* nav.map((link, i) => <Link href={link} key={i} />) */}
 
             <AltLink href={"/"} display={"Home"} />
-            <AltLink href={"/me"} display={"Me"} />
             <AltLink href={"/showcase"} display={"Showcase"} />
             <AltLink href={"/research"} display={"Research"} />
             <AltLink href={"/resume"} display={"Resume"} />
             <AltLink href={"/live"} display={"Live"} />
-        </motion.div>
+        </motion.nav>
     )
 }
 

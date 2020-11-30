@@ -3,22 +3,20 @@
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 1px solid black;
-  margin: 30px;
-}
-.headerDiv h1 {
-  font-size: 32pt;
+  margin-top: 10px;
 }
 .headerDiv p {
   margin: auto;
   padding: 0 60px;
   flex: 1;
-  text-align: center;
+  text-align: right;
 }
 
 .mainTextContainer {
   font-weight: 300;
-  font-size: 12pt;
+  font-size: 17pt;
   padding: 0 50px 50px 50px;
+  margin-top: 20px;
 }
 
 .showcasePreviews {

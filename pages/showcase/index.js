@@ -52,19 +52,19 @@ const Showcase = () => {
             </Head>
 
 
-            <motion.div
-                className={style.headerDiv}
-                {...motionContainer}
-            >
-                <motion.h1 {...motionChild}>Showcase</motion.h1>
-                <motion.p {...motionChild}>
-                    Selected projects from my <Link href={"/research"}>research</Link> or done out of personal interest.
-                </motion.p>
-            </motion.div>
-
             <motion.main {...motionContainer}>
 
-                <div className={style.mainTextContainer} {...motionChild}>
+                <motion.div
+                    className={style.headerDiv}
+                    {...motionContainer}
+                >
+                    <motion.h1 {...motionChild}>Showcase</motion.h1>
+                    <motion.p {...motionChild}>
+                        Selected projects from my <Link href={"/research"}>research</Link> or done out of personal interest.
+                    </motion.p>
+                </motion.div>
+
+                <motion.div className={style.mainTextContainer} {...motionChild}>
                     <p>
                         I write software as a part of my <Link href={"/research"}>Research</Link>, as well in various
                         projects of personal interest. Any publicly-available project is accessible from
@@ -72,9 +72,10 @@ const Showcase = () => {
                         Particular areas of interest are <strong>web-projects</strong> and <strong>competitive
                         programming</strong>.
                     </p>
-                </div>
+                </motion.div>
 
                 <motion.h2 {...motionChild}>Featured Projects</motion.h2>
+                <hr />
 
                 <motion.div
                     className={style.showcasePreviews}

@@ -15,6 +15,7 @@ export const StatisticsProjectDetails = {
     title: "Statistics Software",
     description: <p>A software package supporting <i>do-calculus</i> and other causal inference tools.</p>,
     href: "/showcase/statistics",
+    id: "statistics",
     links: [
         {
             href: `https://github.com/${process.env.github}/${process.env.statistics}`,
@@ -42,7 +43,7 @@ const Statistics = () => {
                 <title>Statistics</title>
             </Head>
 
-            <motion.main {...motionContainer} className={showcaseStyle.content}>
+            <motion.main {...motionContainer} className={showcaseStyle.content} >
 
                 <motion.div className={showcaseStyle.header} {...motionChild}>
                     <h1>{StatisticsProjectDetails.title}</h1>
