@@ -1,0 +1,25 @@
+.stubContainer {
+  margin: 10px;
+}
+.stubContainer .projectStub {
+  outline: 1px solid black;
+  width: 250px;
+  height: 125px;
+  cursor: pointer;
+  color: black;
+  padding: 10px;
+}
+.stubContainer .projectStub h3 {
+  font-size: 12pt;
+  font-weight: 400;
+  margin: 0;
+}
+.stubContainer .projectStub div p {
+  font-weight: 300;
+}
+.stubContainer .projectStub div div {
+  display: flex;
+  flex-direction: row;
+}
+
+/*# sourceMappingURL=ProjectStub.module.css.map */

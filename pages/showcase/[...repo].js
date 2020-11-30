@@ -21,9 +21,8 @@ const Repo = () => {
     return (
         <div>
             <Head>
-                <title>Repo</title>
+                <title>{ repo }</title>
             </Head>
-            {/* <NavBar /> */}
 
             {repo && <GithubProject repository={repo} />}
 

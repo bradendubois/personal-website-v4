@@ -12,12 +12,12 @@ export const CompetitiveProgrammingDetails = {
     href: "/showcase/competitive-programming",
     links: [
         {
-            href: "https://github.com/bradendubois/competitive-programming",
+            href: `https://github.com/${process.env.github}/${process.env.competitive}`,
             alt: "Github",
             image: "/github-icon.png"
         },
         {
-            href: "https://github.com/bradendubois/advent-of-code",
+            href: `https://github.com/${process.env.github}/${process.env.advent}`,
             alt: "Github",
             image: "/github-icon.png"
         }

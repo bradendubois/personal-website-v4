@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 import {motion} from "framer-motion"
+import NavBar from "../components/NavBar/Navbar";
 
 const container = {
   hidden: { opacity: 0 },

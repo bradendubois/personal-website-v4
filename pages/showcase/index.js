@@ -6,6 +6,8 @@ import useSWR from "swr"
 
 import {GithubProfile} from "../../components/GithubProfile/GithubProfile"
 
+import Particles from "react-particles-js";
+
 import {motion} from "framer-motion"
 
 import {ProjectStub} from "../../components/ProjectStub/ProjectStub";
@@ -48,9 +50,7 @@ const Showcase = () => {
             <Head>
                 <title>Showcase</title>
             </Head>
-            {/* <NavBar /> */}
 
-            {/* <GithubProfile /> */}
 
             <motion.div
                 className={style.headerDiv}
@@ -64,9 +64,17 @@ const Showcase = () => {
 
             <motion.main {...motionContainer}>
 
-                <div {...motionChild}>
-                    Ideally, lots of content here!
+                <div className={style.mainTextContainer} {...motionChild}>
+                    <p>
+                        I write software as a part of my <Link href={"/research"}>Research</Link>, as well in various
+                        projects of personal interest. Any publicly-available project is accessible from
+                        my <a href={`https://github.com/${process.env.github}`}>Github (/{`${process.env.github}`})</a>.
+                        Particular areas of interest are <strong>web-projects</strong> and <strong>competitive
+                        programming</strong>.
+                    </p>
                 </div>
+
+                <motion.h2 {...motionChild}>Featured Projects</motion.h2>
 
                 <motion.div
                     className={style.showcasePreviews}
@@ -76,7 +84,6 @@ const Showcase = () => {
                 </motion.div>
 
             </motion.main>
-
 
         </div>
     )

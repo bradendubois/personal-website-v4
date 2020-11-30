@@ -20,7 +20,7 @@ const project = {
 export const ProjectStub = ({data}) => {
 
     return (
-        <motion.div {...motionChild}>
+        <motion.div {...motionChild} className={style.stubContainer}>
             <Link href={data.href} >
                 <a>
                     <motion.div

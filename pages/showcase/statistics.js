@@ -17,7 +17,7 @@ export const StatisticsProjectDetails = {
     href: "/showcase/statistics",
     links: [
         {
-            href: "https://github.com/bradendubois/probability-code",
+            href: `https://github.com/${process.env.github}/${process.env.statistics}`,
             alt: "Github",
             image: "/github-icon.png"
         }
@@ -41,7 +41,6 @@ const Statistics = () => {
             <Head>
                 <title>Statistics</title>
             </Head>
-            {/* <NavBar /> */}
 
             <motion.main {...motionContainer} className={showcaseStyle.content}>
 
@@ -80,12 +79,13 @@ const Statistics = () => {
                     <h3>Technical Details</h3>
                     <p>
                         The project is built entirely in <strong>Python</strong>, and is
-                        hosted <a href={"https://github.com/radendubois/probability-code"}>on Github</a>. There is
-                        currently a main REPL system that allows the user to examine the graphical models presented
+                        hosted <a href={`https://github.com/${process.env.github}/${process.env.statistics}`}>on Github</a>.
+                        There is currently a main REPL system that allows the user to examine the graphical models presented
                         throughout <i>Causality</i> (Pearl 2000, 2009), and <i>The Book of Why</i> (Pearl, Mackenzie,
                         2018), though models can be added to the software. As well, an <strong>API</strong> and,
                         subsequently, availability on the <strong>Python Package Index</strong> (PyPI) for integration
-                        into other projects is planned. Documentation on adding models is <a href={"https://github.com/bradendubois/probability-code/blob/master/documentation/causal_graph_files.md"}>available here</a>.
+                        into other projects is planned. Documentation on adding models
+                        is <a href={`https://github.com/${process.env.github}/${process.env.statistics}/blob/master/documentation/causal_graph_files.md`}>available here</a>.
                     </p>
                 </motion.div>
 

@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 import { motion } from "framer-motion"
 
 import style from "./Navbar.module.scss";
+import {motionContainer, motionChild} from "../motions";
 
 // Motion variant for containing div
 const container = {
@@ -59,7 +60,7 @@ export const NavBar = () => {
 
         return (
             <motion.a
-                {...settings}
+                {...motionChild}
                 custom={Math.abs(nav.indexOf(page) - nav.indexOf(href))}
                 onClick={() => router.push(href)}
                 className={`${style.navLink} ${page === href ? style.current : style.default}`}
@@ -67,14 +68,24 @@ export const NavBar = () => {
         )
     }
 
+    const AltLink = ({href, display}) => {
+
+        return (
+            <Link href={href} className={`${style.navLink} ${page === href ? style.current : style.default}`}
+            >{display}</Link>
+        )
+    }
+
     return (
-        <motion.div
-            className={style.container}
-            variants={container}
-            initial={"hidden"}
-            animate={"show"}
-        >
-            {nav.map((link, i) => <Link href={link} key={i} />)}
+        <motion.div{...motionContainer} className={style.container}>
+            {/* nav.map((link, i) => <Link href={link} key={i} />) */}
+
+            <AltLink href={"/"} display={"Home"} />
+            <AltLink href={"/me"} display={"Me"} />
+            <AltLink href={"/showcase"} display={"Showcase"} />
+            <AltLink href={"/research"} display={"Research"} />
+            <AltLink href={"/resume"} display={"Resume"} />
+            <AltLink href={"/live"} display={"Live"} />
         </motion.div>
     )
 }

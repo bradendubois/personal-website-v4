@@ -1,0 +1,75 @@
+.headerDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  margin: 30px;
+}
+.headerDiv h1 {
+  font-size: 32pt;
+}
+.headerDiv p {
+  margin: auto;
+  padding: 0 60px;
+  flex: 1;
+  text-align: center;
+}
+
+.mainTextContainer {
+  font-weight: 300;
+  font-size: 12pt;
+  padding: 0 50px 50px 50px;
+}
+
+.showcasePreviews {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.content .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding-bottom: 30px;
+}
+.content .header h1 {
+  font-size: 32pt;
+}
+.content .header p {
+  margin: auto;
+  padding: 0 60px;
+  flex: 1;
+  text-align: center;
+}
+.content .details {
+  display: flex;
+  flex-direction: row;
+}
+.content .details div {
+  flex: 1 1 0;
+}
+.content .textBlock {
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  /*
+  &:nth-of-type(2n + 1) {
+    flex-direction: row-reverse;
+    h3 {
+      text-align: right;
+    }
+  }
+   */
+}
+.content .textBlock h3 {
+  flex: 1 1 0;
+}
+.content .textBlock p {
+  flex: 2 1 0;
+  text-align: justify;
+}
+
+/*# sourceMappingURL=Showcase.module.css.map */
