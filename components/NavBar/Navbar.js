@@ -60,7 +60,7 @@ export const NavBar = () => {
             <motion.a
                 {...motionChild}
                 custom={Math.abs(nav.indexOf(page) - nav.indexOf(href))}
-                onClick={() => router.push(href)}
+                onClick={() => { page !== href && router.push(href) }}
                 className={`${style.navLink} ${page === href ? style.current : style.default}`}
             >{mapping[href]}</motion.a>
         )

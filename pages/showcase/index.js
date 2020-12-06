@@ -1,12 +1,11 @@
 import React from "react"
 import Head from "next/head"
 import Link from "next/link"
+
 import router from "next/router"
 import useSWR from "swr"
 
 import {GithubProfile} from "../../components/GithubProfile/GithubProfile"
-
-import Particles from "react-particles-js";
 
 import {motion} from "framer-motion"
 
