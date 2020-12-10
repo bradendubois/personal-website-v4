@@ -25,6 +25,11 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+@media screen and (max-width: 800px) {
+  .showcasePreviews {
+    flex-direction: column;
+  }
+}
 
 .content .header {
   display: flex;

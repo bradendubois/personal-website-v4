@@ -13,8 +13,8 @@
 }
 @media (max-width: 1200px) {
   .container .navLink {
-    padding: 8px;
-    font-size: 10pt;
+    padding: 10px;
+    font-size: 11pt;
   }
 }
 .container .navLink:hover {

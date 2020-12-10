@@ -2,6 +2,11 @@
   margin: 10px;
   display: flex;
 }
+@media screen and (max-width: 800px) {
+  .stubContainer {
+    margin: 10px auto;
+  }
+}
 .stubContainer .projectStub {
   outline: 1px solid black;
   flex: 1 1 0;
@@ -11,6 +16,11 @@
   color: black;
   padding: 10px;
   box-shadow: 1px 0 5px #454545;
+}
+@media screen and (max-width: 800px) {
+  .stubContainer .projectStub {
+    margin: 0;
+  }
 }
 .stubContainer .projectStub h3 {
   font-size: 12pt;

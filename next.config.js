@@ -14,6 +14,9 @@ module.exports = {
         competitive: 'competitive-programming',
 
         // Repository of advent of code solutions
-        advent: 'advent-of-code'
+        advent: 'advent-of-code',
+
+        // Course Catalogue Prefix for uSask
+        catalogue_prefix: 'https://catalogue.usask.ca/'
     }
 }

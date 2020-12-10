@@ -1,0 +1,204 @@
+.programContainer {
+
+  * {
+    font-family: "Inter", sans-serif;
+  }
+
+  // First Level Divs - Sections of Content
+  > div {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    &:nth-child(n + 3) {
+      border-top: 1px solid black;
+    }
+
+    &:not(:first-of-type) {
+      margin-left: 50px;
+    }
+
+    // hr title
+    &:first-of-type {
+      display: flex;
+      flex-direction: row;
+
+      h1 {
+        font-size: 18pt;
+        font-style: italic;
+      }
+
+      hr {
+        flex: 1;
+        height: 1px;
+        margin: auto;
+        border: 0;
+
+        &:first-of-type {
+          margin-right: 10px;
+          background-image: linear-gradient(to right, #333, #707070);
+        }
+
+        &:last-of-type {
+          margin-left: 10px;
+          background-image: linear-gradient(to right, #707070, #333);
+        }
+      }
+    }
+
+    // Control column appearance
+    h2 {
+      flex: 0 0 calc(30% - 10px);
+    }
+
+    div {
+      flex: 0 0 calc(70% - 10px);
+    }
+
+    &:nth-child(2) {
+
+      a, img {
+        cursor: pointer;
+      }
+
+      img {
+        border-radius: 50%;
+        max-width: 64px;
+        max-height: 64px;
+
+        @media screen and (min-width: 800px) {
+          margin-left: 5%;
+        }
+      }
+
+      justify-content: space-between;
+
+      // Main Degree Title
+      > div {
+
+        h3, h4 {
+          font-family: "Raleway", sans-serif;
+          font-weight: 400;
+        }
+
+        flex: 1 1 0;
+        margin: 10px auto 10px 30px;
+
+        h3, h4 { margin: 0 }
+
+        h3 {
+          font-size: 14pt;
+        }
+
+        h4 {
+          font-size: 12pt;
+        }
+      }
+
+      // Timeframe
+      div:last-of-type {
+        flex: 0;
+        width: max-content;
+        text-align: right;
+
+        p {
+          margin: 0;
+          width: max-content;
+          font-weight: 300;
+
+          &:last-child {
+            font-style: italic;
+            font-weight: 200;
+          }
+        }
+      }
+    }
+  }
+
+
+  h1, h2, h3, h4 {
+    font-weight: 300;
+  }
+
+  ul {
+
+    margin: 0;
+
+    li {
+      font-size: 10pt;
+    }
+  }
+
+  .courseListsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    * {
+      width: max-content;
+      margin: 0;
+    }
+
+    h3 {
+      margin-top: 20px;
+      margin-right: 0;
+    }
+
+    ul {
+      margin: 10px 0 0 0;
+    }
+
+    ul li a {
+      font-size: 9pt;
+    }
+  }
+
+  // Style the divs that conform to a similar style. Experience, Acheivements, etc.
+  > div {
+
+    &:nth-of-type(n + 4) {
+
+      h3, h4 { margin: 0 }
+
+      > div div {
+
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+
+        // Header
+        div {
+
+          flex-direction: row;
+          flex: 1;
+
+          // Right-hand side with member/time information
+          div {
+            flex-direction: column;
+            margin: 0;
+            text-align: right;
+
+            h4 {
+              font-size: 10pt;
+
+              &:nth-of-type(2) {
+                font-style: italic;
+                font-weight: 200;
+              }
+            }
+          }
+        }
+
+        p, li {
+          font-weight: 200;
+          &:first-of-type { margin-top: 10px; }
+        }
+      }
+    }
+  }
+
+  padding-bottom: 30px;
+}

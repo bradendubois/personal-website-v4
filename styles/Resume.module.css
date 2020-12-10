@@ -1,0 +1,153 @@
+.programContainer {
+  padding-bottom: 30px;
+}
+.programContainer * {
+  font-family: "Inter", sans-serif;
+}
+.programContainer > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.programContainer > div:nth-child(n+3) {
+  border-top: 1px solid black;
+}
+.programContainer > div:not(:first-of-type) {
+  margin-left: 50px;
+}
+.programContainer > div:first-of-type {
+  display: flex;
+  flex-direction: row;
+}
+.programContainer > div:first-of-type h1 {
+  font-size: 18pt;
+  font-style: italic;
+}
+.programContainer > div:first-of-type hr {
+  flex: 1;
+  height: 1px;
+  margin: auto;
+  border: 0;
+}
+.programContainer > div:first-of-type hr:first-of-type {
+  margin-right: 10px;
+  background-image: linear-gradient(to right, #333, #707070);
+}
+.programContainer > div:first-of-type hr:last-of-type {
+  margin-left: 10px;
+  background-image: linear-gradient(to right, #707070, #333);
+}
+.programContainer > div h2 {
+  flex: 0 0 calc(30% - 10px);
+}
+.programContainer > div div {
+  flex: 0 0 calc(70% - 10px);
+}
+.programContainer > div:nth-child(2) {
+  justify-content: space-between;
+}
+.programContainer > div:nth-child(2) a, .programContainer > div:nth-child(2) img {
+  cursor: pointer;
+}
+.programContainer > div:nth-child(2) img {
+  border-radius: 50%;
+  max-width: 64px;
+  max-height: 64px;
+}
+@media screen and (min-width: 800px) {
+  .programContainer > div:nth-child(2) img {
+    margin-left: 5%;
+  }
+}
+.programContainer > div:nth-child(2) > div {
+  flex: 1 1 0;
+  margin: 10px auto 10px 30px;
+}
+.programContainer > div:nth-child(2) > div h3, .programContainer > div:nth-child(2) > div h4 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+.programContainer > div:nth-child(2) > div h3, .programContainer > div:nth-child(2) > div h4 {
+  margin: 0;
+}
+.programContainer > div:nth-child(2) > div h3 {
+  font-size: 14pt;
+}
+.programContainer > div:nth-child(2) > div h4 {
+  font-size: 12pt;
+}
+.programContainer > div:nth-child(2) div:last-of-type {
+  flex: 0;
+  width: max-content;
+  text-align: right;
+}
+.programContainer > div:nth-child(2) div:last-of-type p {
+  margin: 0;
+  width: max-content;
+  font-weight: 300;
+}
+.programContainer > div:nth-child(2) div:last-of-type p:last-child {
+  font-style: italic;
+  font-weight: 200;
+}
+.programContainer h1, .programContainer h2, .programContainer h3, .programContainer h4 {
+  font-weight: 300;
+}
+.programContainer ul {
+  margin: 0;
+}
+.programContainer ul li {
+  font-size: 10pt;
+}
+.programContainer .courseListsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.programContainer .courseListsContainer * {
+  width: max-content;
+  margin: 0;
+}
+.programContainer .courseListsContainer h3 {
+  margin-top: 20px;
+  margin-right: 0;
+}
+.programContainer .courseListsContainer ul {
+  margin: 10px 0 0 0;
+}
+.programContainer .courseListsContainer ul li a {
+  font-size: 9pt;
+}
+.programContainer > div:nth-of-type(n + 4) h3, .programContainer > div:nth-of-type(n + 4) h4 {
+  margin: 0;
+}
+.programContainer > div:nth-of-type(n + 4) > div div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.programContainer > div:nth-of-type(n + 4) > div div div {
+  flex-direction: row;
+  flex: 1;
+}
+.programContainer > div:nth-of-type(n + 4) > div div div div {
+  flex-direction: column;
+  margin: 0;
+  text-align: right;
+}
+.programContainer > div:nth-of-type(n + 4) > div div div div h4 {
+  font-size: 10pt;
+}
+.programContainer > div:nth-of-type(n + 4) > div div div div h4:nth-of-type(2) {
+  font-style: italic;
+  font-weight: 200;
+}
+.programContainer > div:nth-of-type(n + 4) > div div p, .programContainer > div:nth-of-type(n + 4) > div div li {
+  font-weight: 200;
+}
+.programContainer > div:nth-of-type(n + 4) > div div p:first-of-type, .programContainer > div:nth-of-type(n + 4) > div div li:first-of-type {
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=Resume.module.css.map */
