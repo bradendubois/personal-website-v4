@@ -1,18 +1,23 @@
-import React from "react"
 import Head from "next/head"
-import NavBar from "../../components/NavBar/Navbar";
+
+import Layout from "../components/Layout";
+
 
 const Research = () => {
 
+
     return (
-        <div>
+
+        <Layout>
             <Head>
                 <title>Research</title>
             </Head>
-            {/* <NavBar /> */}
 
-            Research
-        </div>
+            <h1>Research</h1>
+
+            <p>This section is under construction!</p>
+
+        </Layout>
     )
 }
 

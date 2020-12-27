@@ -1,41 +1,18 @@
 import React from "react"
 import Head from "next/head"
 import Link from "next/link"
-
-import router from "next/router"
-import useSWR from "swr"
-
-import {GithubProfile} from "../../components/GithubProfile/GithubProfile"
+import Layout from "../../components/Layout";
+import Footer from "../../components/Footer/Footer";
 
 import {motion} from "framer-motion"
 
 import {ProjectStub} from "../../components/ProjectStub/ProjectStub";
-import NavBar from "../../components/NavBar/Navbar";
 
 import {StatisticsProjectDetails} from "./statistics";
 import {CompetitiveProgrammingDetails} from "./competitive-programming";
 
 import style from "../../styles/Showcase.module.scss"
 import {motionChild, motionContainer} from "../../components/motions";
-
-const container = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        staggerChildren: 0.3
-    }
-}
-
-const child = {
-    hidden: {
-        opacity: 0,
-        y: -20
-    },
-    show:  {
-        opacity: 1,
-        y: 0,
-    }
-}
 
 const Showcase = () => {
 
@@ -45,7 +22,7 @@ const Showcase = () => {
     ]
 
     return (
-        <div>
+        <Layout>
             <Head>
                 <title>Showcase</title>
             </Head>
@@ -73,19 +50,43 @@ const Showcase = () => {
                     </p>
                 </motion.div>
 
-                <motion.h2 {...motionChild}>Featured Projects</motion.h2>
-                <hr />
+                {/* Featured Projects */}
+                <motion.div {...motionChild}>
+                    <h2>Featured Projects</h2>
+                    <hr />
 
-                <motion.div
-                    className={style.showcasePreviews}
-                    {...motionContainer}
-                >
-                    {Projects.map((details, i) => <ProjectStub key={i} data={details} />)}
+                    <div className={style.showcasePreviews}>
+                        {Projects.map((details, i) => <ProjectStub key={i} data={details} />)}
+                    </div>
                 </motion.div>
+
+                {/* Minor / Other Projects */}
+                {/*
+                <motion.div {...motionChild}>
+                    <h2>Other Projects</h2>
+                    <hr />
+
+                    <div className={style.showcasePreviews} >
+                        {Projects.map((details, i) => <ProjectStub key={i} data={details} />)}
+                    </div>
+                </motion.div>
+                */}
+
+                {/* Github */}
+                {/*
+                <motion.div {...motionChild}>
+                    <h2>Github</h2>
+                    <hr />
+
+                    <div className={style.showcasePreviews} >
+                        {Projects.map((details, i) => <ProjectStub key={i} data={details} />)}
+                    </div>
+                </motion.div>
+                */}
 
             </motion.main>
 
-        </div>
+        </Layout>
     )
 }
 

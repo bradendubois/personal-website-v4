@@ -6,6 +6,7 @@ import {motionChild, motionContainer} from "../components/motions";
 import style from "../styles/Resume.module.scss";
 import Link from "next/link";
 import Image from "next/image"
+import Layout from "../components/Layout";
 
 const Class = ({name}) => {
 
@@ -20,7 +21,7 @@ const Class = ({name}) => {
 const Resume = () => {
 
     return (
-        <div>
+        <Layout>
             <Head>
                 <title>Resume</title>
             </Head>
@@ -276,7 +277,7 @@ const Resume = () => {
                 </motion.div>
 
             </motion.main>
-        </div>
+        </Layout>
     )
 }
 

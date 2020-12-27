@@ -5,6 +5,7 @@ import {ShowcaseDetails} from "../../components/ShowcaseDetails/ShowcaseDetails"
 import {motionChild, motionContainer} from "../../components/motions";
 
 import showcaseStyle from "../../styles/Showcase.module.scss";
+import Layout from "../../components/Layout";
 
 export const CompetitiveProgrammingDetails = {
     title: "Competitive Programming",
@@ -36,7 +37,7 @@ export const CompetitiveProgrammingDetails = {
 const CompetitiveProgramming = () => {
 
     return (
-        <div>
+        <Layout>
             {/* <NavBar /> */}
 
             <motion.main {...motionContainer} className={showcaseStyle.content}>
@@ -88,7 +89,7 @@ const CompetitiveProgramming = () => {
                 </motion.div>
 
             </motion.main>
-        </div>
+        </Layout>
     )
 }
 

@@ -10,6 +10,7 @@ import { motion } from "framer-motion"
 import { motionContainer, motionChild } from "../../components/motions"
 
 import showcaseStyle from "../../styles/Showcase.module.scss"
+import Layout from "../../components/Layout";
 
 export const StatisticsProjectDetails = {
     title: "Statistics Software",
@@ -38,7 +39,7 @@ export const StatisticsProjectDetails = {
 const Statistics = () => {
 
     return (
-        <div>
+        <Layout>
             <Head>
                 <title>Statistics</title>
             </Head>
@@ -104,7 +105,7 @@ const Statistics = () => {
 
             </motion.main>
 
-        </div>
+        </Layout>
     )
 }
 

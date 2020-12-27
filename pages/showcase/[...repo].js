@@ -9,7 +9,7 @@ import {Github} from "../../components/GithubProfile/GithubProfile"
 import useSWR from "swr";
 
 import {motion} from "framer-motion"
-import styles from "../../styles/Home.module.css";
+import styles from "../../styles/Home.module.scss";
 
 import {GithubProject} from "../../components/GithubProject/GithubProject";
 

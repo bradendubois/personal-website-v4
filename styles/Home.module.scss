@@ -1,0 +1,17 @@
+.main {
+
+  h1 {
+    font-size: 32pt;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: row;
+
+    .slider {
+      max-width: 400px;
+      margin-top: 13px;
+      margin-left: 20px;
+    }
+  }
+}

@@ -1,15 +1,8 @@
-import React, { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { motion } from "framer-motion"
 
 import style from "./Navbar.module.scss";
 import {motionContainer, motionChild} from "../motions";
-
-// Motion variant for containing div
-const container = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 }
-}
 
 // Settings / Motion variants for each respective link.
 /* show is a function that takes i (custom={} in component)
@@ -17,36 +10,18 @@ const container = {
  * a link is from the current page, to make a "wave" from the
  * current link to all others.
  */
-const settings = {
-    rel: "noopener noreferrer",
-    variants: {
-        hidden: {
-            opacity: 0,
-            y: -20
-        },
-        show:  i => ({
-            opacity: 1,
-            y: 0,
-            transition: { delay: i * 0.1 }
-        })
-    }
-}
 
 const nav = [
     "/",
     "/showcase",
-    "/research",
     "/resume",
-    "/live"
 ]
 
 // Map a link to its displayed title
 const mapping = {
     "/": "Home",
     "/showcase": "Showcase",
-    "/research": "Research",
     "/resume": "Resume",
-    "/live": "Live"
 }
 
 export const NavBar = () => {
@@ -80,9 +55,7 @@ export const NavBar = () => {
 
             <AltLink href={"/"} display={"Home"} />
             <AltLink href={"/showcase"} display={"Showcase"} />
-            <AltLink href={"/research"} display={"Research"} />
             <AltLink href={"/resume"} display={"Resume"} />
-            <AltLink href={"/live"} display={"Live"} />
         </motion.nav>
     )
 }
