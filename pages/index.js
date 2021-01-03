@@ -1,26 +1,17 @@
 import Head from 'next/head'
 import Link from "next/link"
-
 import Layout from "../components/Layout";
 
 import {motion} from "framer-motion"
-import {motionContainer, motionChild} from "../components/motions";
+import {
+    motionContainer,
+    motionChild,
+    motionContainerSlow,
+    horizontalSlideinRight,
+    horizontalSlideinLeft
+} from "../components/motions";
 
 import styles from '../styles/Home.module.scss'
-
-import Slider from "react-slick";
-
-// Styling for react-slick
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-let settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-};
 
 
 const Home = () => {
@@ -35,31 +26,51 @@ const Home = () => {
 
             <motion.main {...motionContainer} className={styles.main}>
 
-                <motion.h1 {...motionChild } className={styles.title}>Hello!</motion.h1>
+                <motion.h1 {...motionChild } >Braden Dubois</motion.h1>
 
-                <motion.p {...motionChild}>
-                    I'm Braden, a Computer Science / Philosophy student and student research assistant.
-                </motion.p>
+                <motion.div {...motionContainerSlow} className={styles.titles}>
+                    <motion.p {...horizontalSlideinRight}>Computer Science / Philosophy student</motion.p>
+                    <motion.p {...horizontalSlideinRight}>Student Research Assistant</motion.p>
+                    <motion.p {...horizontalSlideinRight}>Web dev hobbyist</motion.p>
+                </motion.div>
 
-                <motion.p {...motionChild}>
-                    I'm currently re-building my personal website (again) due to being quite unhappy with the old
-                    version. I hope to have this version up and running by the end
-                    of <strong>December 2020</strong>.</motion.p>
+                <motion.hr {...motionChild} />
 
-                <motion.p {...motionChild}>
-                    In the meantime, <a href={"mailto:braden.dubois@usask.ca"}>email me</a>, or check out
-                    my <a href={"https://github.com/bradendubois"}>Github</a> or <a href={"https://linkedin.com/in/bradendubois"}>LinkedIn</a>.</motion.p>
+                <motion.div {...motionContainerSlow} className={styles.links}>
 
-                <motion.div {...motionChild}>
+                    <motion.div {...horizontalSlideinLeft}>
+                        <motion.a href={process.env.github_profile}>
+                            <img title={"github/bradendubois"} alt={"Github Icon"} src={'/github-icon.png'} />
+                        </motion.a>
+                    </motion.div>
 
-                    <p>In the meantime, check out...</p>
+                    <motion.div {...horizontalSlideinLeft}>
+                        <motion.a href={process.env.linkedin_profile}>
+                            <img title={"linkedin/in/bradendubois"} alt={"LinkedIn Icon"} src={'/linkedin.png'} />
+                        </motion.a>
+                    </motion.div>
 
-                    <Slider {...settings} className={styles.slider}>
-                        <Link href={"/resume"}>My resume</Link>
-                        <Link href={"/showcase/statistics"}>A statistics project I maintain and develop</Link>
-                    </Slider>
+                    <motion.div {...horizontalSlideinLeft}>
+                        <motion.a href={process.env.email_link}>
+                            <img title={"braden.dubois@usask.ca"} alt={"Email Icon"} src={'/envelope.png'} />
+                        </motion.a>
+                    </motion.div>
 
-              </motion.div>
+                </motion.div>
+
+                <motion.div {...motionContainerSlow}>
+
+                    <motion.p {...motionChild}>
+                        I'm a computer science student at the University of Saskatchewan, and also a student research
+                        assistant. In my free time I enjoy competitive programming and various personal programming
+                        projects.
+                    </motion.p>
+
+                    <motion.p {...motionChild}>
+                        Check out <Link href={"/showcase"}>some of my projects</Link>, or <Link href={"/resume"}>my
+                        resume.</Link>
+                    </motion.p>
+                </motion.div>
 
             </motion.main>
 

@@ -2,6 +2,7 @@ module.exports = {
     images: {
         domains: ['avatars0.githubusercontent.com'],
     },
+
     env: {
 
         // Github username
@@ -17,6 +18,11 @@ module.exports = {
         advent: 'advent-of-code',
 
         // Course Catalogue Prefix for uSask
-        catalogue_prefix: 'https://catalogue.usask.ca/'
+        catalogue_prefix: 'https://catalogue.usask.ca/',
+
+        // Links shown on the homepage
+        github_profile: "https://github.com/bradendubois",
+        linkedin_profile: "https://linkedin.com/in/bradendubois",
+        email_link: "mailto:braden.dubois@usask.ca",
     }
 }
