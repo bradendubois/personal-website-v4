@@ -1,76 +1,81 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Link from "next/link"
+import Layout from "../components/Layout";
 
 import {motion} from "framer-motion"
+import {
+    motionContainer,
+    motionChild,
+    motionContainerSlow,
+    horizontalSlideinRight,
+    horizontalSlideinLeft
+} from "../components/motions";
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.5
-    }
-  }
+import styles from '../styles/Home.module.scss'
+
+
+const Home = () => {
+
+    return (
+
+        <Layout>
+            <Head>
+                <title>Braden Dubois</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+
+            <motion.main {...motionContainer} className={styles.main}>
+
+                <motion.h1 {...motionChild } >Braden Dubois</motion.h1>
+
+                <motion.div {...motionContainerSlow} className={styles.titles}>
+                    <motion.p {...horizontalSlideinRight}>Computer Science / Philosophy student</motion.p>
+                    <motion.p {...horizontalSlideinRight}>Student Research Assistant</motion.p>
+                    <motion.p {...horizontalSlideinRight}>Web dev hobbyist</motion.p>
+                </motion.div>
+
+                <motion.hr {...motionChild} />
+
+                <motion.div {...motionContainerSlow} className={styles.links}>
+
+                    <motion.div {...horizontalSlideinLeft}>
+                        <motion.a href={process.env.github_profile}>
+                            <img title={"github/bradendubois"} alt={"Github Icon"} src={'/github-icon.png'} />
+                        </motion.a>
+                    </motion.div>
+
+                    <motion.div {...horizontalSlideinLeft}>
+                        <motion.a href={process.env.linkedin_profile}>
+                            <img title={"linkedin/in/bradendubois"} alt={"LinkedIn Icon"} src={'/linkedin.png'} />
+                        </motion.a>
+                    </motion.div>
+
+                    <motion.div {...horizontalSlideinLeft}>
+                        <motion.a href={process.env.email_link}>
+                            <img title={"braden.dubois@usask.ca"} alt={"Email Icon"} src={'/envelope.png'} />
+                        </motion.a>
+                    </motion.div>
+
+                </motion.div>
+
+                <motion.div {...motionContainerSlow}>
+
+                    <motion.p {...motionChild}>
+                        I'm a computer science student at the University of Saskatchewan, and also a student research
+                        assistant. In my free time I enjoy competitive programming and various personal programming
+                        projects.
+                    </motion.p>
+
+                    <motion.p {...motionChild}>
+                        Check out <Link href={"/showcase"}>some of my projects</Link>, or <Link href={"/resume"}>my
+                        resume.</Link>
+                    </motion.p>
+                </motion.div>
+
+            </motion.main>
+
+        </Layout>
+    )
 }
 
-const child = {
-  hidden: {
-    opacity: 0,
-    y: -20
-  },
-  show: {
-    opacity: 1,
-    y: 0
-  }
-}
-
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <motion.main
-          variants={container}
-          className={styles.main}
-          initial={"hidden"}
-          animate={"show"}
-      >
-        <motion.h1
-            className={styles.title}
-            variants={child}
-        >Hello!</motion.h1>
-
-        <motion.p
-            className={styles.description}
-            variants={child}
-        >I'm Braden, a Computer Science / Philosophy student and student research assistant.</motion.p>
-
-        <motion.p
-            className={styles.description}
-            variants={child}
-        >I'm currently re-building my personal website (again) due to being quite unhappy with the old version. I
-          hope to have this version up and running by the end of <strong>December 2020</strong>.</motion.p>
-
-        <motion.p
-            className={styles.description}
-            variants={child}
-        >In the meantime, <a href={"mailto:braden.dubois@usask.ca"}>email me</a>, or check out my <a href={"https://github.com/bradendubois"}>Github</a> or <a href={"https://linkedin.com/in/bradendubois"}>LinkedIn</a>.</motion.p>
-
-      </motion.main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
-}
+export default Home
