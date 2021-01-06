@@ -10,6 +10,11 @@
   justify-content: space-between;
   margin-top: 20px;
 }
+@media screen and (max-width: 1000px) {
+  .programContainer > div {
+    flex-direction: column;
+  }
+}
 .programContainer > div:nth-child(n+3) {
   border-top: 1px solid black;
 }

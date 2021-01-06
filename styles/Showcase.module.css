@@ -67,6 +67,11 @@
   }
    */
 }
+@media screen and (max-width: 1000px) {
+  .content .textBlock {
+    flex-direction: column;
+  }
+}
 .content .textBlock h3 {
   flex: 1 1 0;
 }

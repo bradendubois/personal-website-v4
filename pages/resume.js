@@ -276,6 +276,59 @@ const Resume = () => {
 
                 </motion.div>
 
+
+                {/* Certificate */}
+                <motion.div {...motionContainer} className={style.programContainer}>
+
+                    <motion.div {...motionChild} >
+                        <hr />
+                        <h1>Certificate</h1>
+                        <hr />
+                    </motion.div>
+
+                    <motion.div {...motionChild}>
+                        <Link href={"https://www.usask.ca"}>
+                            <img
+                                src={"/usask.png"}
+                                alt={"Logo of the University of Saskatchewan"}
+
+                            />
+                        </Link>
+
+                        <div>
+                            <h3>Certificate of Proficiency</h3>
+                            <h4>Ethics, Justice, and Law</h4>
+                        </div>
+
+                        <div>
+                            <p>2017 - 2022</p>
+                            <p>Saskatoon, SK</p>
+                        </div>
+                    </motion.div>
+
+                    {/* Courses Taken */}
+                    <motion.div {...motionChild}>
+
+                        <h2>Relevant Courses</h2>
+
+                        <div className={style.courseListsContainer}>
+
+                            <div>
+                                <ul>
+                                    <Class name={"PHIL 233 - Ethical Theory"} />
+                                    <Class name={"PHIL 236 - Ethics and Technology"} />
+                                    <Class name={"PHIL 262 - Social and Political Philosophy"} />
+                                    <Class name={"PHIL 333 - Metaethics: Morality, Objectivity, and Identity"} />
+                                    <Class name={"PHIL 433 - Kantian Ethics"} />
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </motion.div>
+
+                </motion.div>
+
             </motion.main>
         </Layout>
     )
