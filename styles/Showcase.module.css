@@ -11,12 +11,28 @@
   flex: 1;
   text-align: right;
 }
+@media screen and (max-width: 1000px) {
+  .headerDiv {
+    flex-direction: column;
+  }
+  .headerDiv p {
+    padding: 0;
+    margin: 5px 0 10px 0;
+    text-align: left;
+  }
+}
 
 .mainTextContainer {
   font-weight: 300;
   font-size: 17pt;
   padding: 0 50px 50px 50px;
   margin-top: 20px;
+}
+@media screen and (max-width: 1000px) {
+  .mainTextContainer {
+    padding: 0;
+    margin: 20px auto;
+  }
 }
 
 .showcasePreviews {
@@ -46,6 +62,16 @@
   padding: 0 60px;
   flex: 1;
   text-align: center;
+}
+@media screen and (max-width: 1000px) {
+  .content .header {
+    flex-direction: column;
+  }
+  .content .header p {
+    padding: 0;
+    margin: 5px 0 10px 0;
+    text-align: left;
+  }
 }
 .content .details {
   display: flex;

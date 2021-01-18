@@ -1,0 +1,71 @@
+.main {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 1000px) {
+  .main {
+    overflow-x: hidden;
+  }
+}
+.main h1 {
+  font-size: 48pt;
+  margin: 0 0 20px 0;
+}
+.main > div {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+.main > div:last-of-type {
+  flex-direction: column;
+}
+.main > div:last-of-type p {
+  text-align: center;
+  word-break: break-word;
+  max-width: 90%;
+  margin: 15px auto;
+  font-size: 12pt;
+}
+.main p {
+  margin: 30px;
+}
+.main h1 {
+  text-align: center;
+}
+.main hr {
+  width: 100%;
+  margin: 20px 0;
+}
+.main .titles {
+  justify-content: space-between;
+}
+.main .links {
+  justify-content: space-around;
+}
+.main div {
+  display: flex;
+  flex-direction: row;
+}
+.main div:not(:last-of-type) p {
+  text-align: center;
+  flex: 1 1 0;
+  width: max-content;
+  margin: 5px;
+  padding: 0;
+  font-size: 13pt;
+  font-weight: 600;
+}
+.main div img {
+  visibility: visible;
+  height: 48px;
+  filter: grayscale(1);
+  transition: 0.2s;
+}
+.main div img:hover {
+  cursor: pointer;
+  filter: grayscale(0);
+}
+
+/*# sourceMappingURL=Home.module.css.map */

@@ -13,10 +13,6 @@
 
     margin-top: 20px;
 
-    @media screen and (max-width: 1000px) {
-      flex-direction: column;
-    }
-
     &:nth-child(n + 3) {
       border-top: 1px solid black;
     }
@@ -91,7 +87,9 @@
         flex: 1 1 0;
         margin: 10px auto 10px 30px;
 
-        h3, h4 { margin: 0 }
+        h3, h4 {
+          margin: 0
+        }
 
         h3 {
           font-size: 14pt;
@@ -118,6 +116,10 @@
             font-weight: 200;
           }
         }
+      }
+
+      @media screen and (max-width: 1000px) {
+        margin: 0;
       }
     }
   }
@@ -163,6 +165,13 @@
   // Style the divs that conform to a similar style. Experience, Acheivements, etc.
   > div {
 
+    &:nth-of-type(n + 3) {
+      @media screen and (max-width: 1000px) {
+        flex-direction: column;
+        margin-left: 0;
+      }
+    }
+
     &:nth-of-type(n + 4) {
 
       h3, h4 { margin: 0 }
@@ -194,6 +203,10 @@
               }
             }
           }
+        }
+
+        p {
+          margin-bottom: 0;
         }
 
         p, li {

@@ -2,8 +2,6 @@
 import Head from "next/head"
 import Link from "next/link"
 
-import NavBar from "../../components/NavBar/Navbar";
-
 import { ShowcaseDetails } from "../../components/ShowcaseDetails/ShowcaseDetails"
 
 import { motion } from "framer-motion"

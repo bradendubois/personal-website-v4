@@ -10,6 +10,7 @@ import {ProjectStub} from "../../components/ProjectStub/ProjectStub";
 
 import {StatisticsProjectDetails} from "./statistics";
 import {CompetitiveProgrammingDetails} from "./competitive-programming";
+import {xv6ProjectDetails} from "./xv6";
 
 import style from "../../styles/Showcase.module.scss"
 import {motionChild, motionContainer} from "../../components/motions";
@@ -18,7 +19,8 @@ const Showcase = () => {
 
     const Projects = [
         StatisticsProjectDetails,
-        CompetitiveProgrammingDetails
+        CompetitiveProgrammingDetails,
+        // xv6ProjectDetails
     ]
 
     return (

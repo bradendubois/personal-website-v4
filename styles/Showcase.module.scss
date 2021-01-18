@@ -15,6 +15,15 @@
     text-align: right;
   }
 
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    p {
+      padding: 0;
+      margin: 5px 0 10px 0;
+      text-align: left;
+    }
+  }
+
 }
 
 .mainTextContainer {
@@ -23,6 +32,10 @@
   font-size: 17pt;
 
   padding: 0 50px 50px 50px;
+  @media screen and (max-width: 1000px) {
+    padding: 0;
+    margin: 20px auto;
+  }
 
   margin-top: 20px;
 
@@ -42,7 +55,6 @@
 .content {
 
   .header {
-
 
     display: flex;
     flex-direction: row;
@@ -64,6 +76,15 @@
       padding: 0 60px;
       flex: 1;
       text-align: center;
+    }
+
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+      p {
+        padding: 0;
+        margin: 5px 0 10px 0;
+        text-align: left;
+      }
     }
   }
 

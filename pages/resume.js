@@ -109,7 +109,7 @@ const Resume = () => {
                     {/* Experience */}
                     <motion.div {...motionChild}>
 
-                        <h2>Experience</h2>
+                        <h2>Work Experience</h2>
 
                         <div>
 
@@ -138,12 +138,10 @@ const Resume = () => {
                             <div>
                                 <div>
                                     <h3>Student Teaching Assistant / Marker</h3>
-                                    <div>
-                                        <h4>Fall 2020</h4>
-                                    </div>
                                 </div>
 
-                                <p>Marker for CMPT 140 - Introduction to Creative Computing.</p>
+                                <p>Teaching Assistant for CMPT 145 - Principles of Computer Science. (Winter 2021)</p>
+                                <p>Marking Assistant for CMPT 140 - Introduction to Creative Computing. (Fall 2020)</p>
                             </div>
 
                         </div>
