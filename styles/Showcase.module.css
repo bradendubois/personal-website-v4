@@ -105,5 +105,9 @@
   flex: 2 1 0;
   text-align: justify;
 }
+.content .textBlock em {
+  font-weight: 600;
+  font-style: normal;
+}
 
 /*# sourceMappingURL=Showcase.module.css.map */
