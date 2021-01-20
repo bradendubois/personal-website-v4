@@ -4,7 +4,6 @@
     font-family: "Inter", sans-serif;
   }
 
-  // First Level Divs - Sections of Content
   > div {
 
     display: flex;
@@ -50,19 +49,12 @@
     }
 
     // Control column appearance
-    h2 {
-      flex: 0 0 calc(30% - 10px);
-    }
-
-    div {
-      flex: 0 0 calc(70% - 10px);
-    }
+    h2 { flex: 0 0 calc(30% - 10px); }
+    div { flex: 0 0 calc(70% - 10px); }
 
     &:nth-child(2) {
 
-      a, img {
-        cursor: pointer;
-      }
+      a, img { cursor: pointer; }
 
       img {
         border-radius: 50%;
@@ -87,17 +79,9 @@
         flex: 1 1 0;
         margin: 10px auto 10px 30px;
 
-        h3, h4 {
-          margin: 0
-        }
-
-        h3 {
-          font-size: 14pt;
-        }
-
-        h4 {
-          font-size: 12pt;
-        }
+        h3, h4 { margin: 0; }
+        h3 { font-size: 14pt; }
+        h4 { font-size: 12pt; }
       }
 
       // Timeframe
@@ -122,48 +106,7 @@
         margin: 0;
       }
     }
-  }
 
-
-  h1, h2, h3, h4 {
-    font-weight: 300;
-  }
-
-  ul {
-
-    margin: 0;
-
-    li {
-      font-size: 10pt;
-    }
-  }
-
-  .courseListsContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    * {
-      width: max-content;
-      margin: 0;
-    }
-
-    h3 {
-      margin-top: 20px;
-      margin-right: 0;
-    }
-
-    ul {
-      margin: 10px 0 0 0;
-    }
-
-    ul li a {
-      font-size: 9pt;
-    }
-  }
-
-  // Style the divs that conform to a similar style. Experience, Acheivements, etc.
-  > div {
 
     &:nth-of-type(n + 3) {
       @media screen and (max-width: 1000px) {
@@ -181,6 +124,22 @@
         display: flex;
         flex-direction: column;
         margin-top: 10px;
+
+
+        .term_roles {
+          flex-direction: column;
+
+          div {
+            flex-direction: row;
+            text-align: left;
+
+            h4 {
+              text-align: right;
+              margin-top: 10px;
+              margin-left: auto;
+            }
+          }
+        }
 
         // Header
         div {
@@ -214,6 +173,37 @@
           &:first-of-type { margin-top: 10px; }
         }
       }
+    }
+  }
+
+
+  h1, h2, h3, h4 { font-weight: 300; }
+
+  ul {
+
+    margin: 0;
+
+    li { font-size: 10pt; }
+  }
+
+  .courseListsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    * {
+      width: max-content;
+      margin: 0;
+    }
+
+    h3 {
+      margin-top: 20px;
+      margin-right: 0;
+    }
+
+    ul { margin: 10px 0 0 0; }
+    ul li a {
+      font-size: 9pt;
     }
   }
 

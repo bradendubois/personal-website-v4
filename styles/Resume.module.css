@@ -96,6 +96,57 @@
     margin: 0;
   }
 }
+@media screen and (max-width: 1000px) {
+  .programContainer > div:nth-of-type(n + 3) {
+    flex-direction: column;
+    margin-left: 0;
+  }
+}
+.programContainer > div:nth-of-type(n + 4) h3, .programContainer > div:nth-of-type(n + 4) h4 {
+  margin: 0;
+}
+.programContainer > div:nth-of-type(n + 4) > div div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.programContainer > div:nth-of-type(n + 4) > div div .term_roles {
+  flex-direction: column;
+}
+.programContainer > div:nth-of-type(n + 4) > div div .term_roles div {
+  flex-direction: row;
+  text-align: left;
+}
+.programContainer > div:nth-of-type(n + 4) > div div .term_roles div h4 {
+  text-align: right;
+  margin-top: 10px;
+  margin-left: auto;
+}
+.programContainer > div:nth-of-type(n + 4) > div div div {
+  flex-direction: row;
+  flex: 1;
+}
+.programContainer > div:nth-of-type(n + 4) > div div div div {
+  flex-direction: column;
+  margin: 0;
+  text-align: right;
+}
+.programContainer > div:nth-of-type(n + 4) > div div div div h4 {
+  font-size: 10pt;
+}
+.programContainer > div:nth-of-type(n + 4) > div div div div h4:nth-of-type(2) {
+  font-style: italic;
+  font-weight: 200;
+}
+.programContainer > div:nth-of-type(n + 4) > div div p {
+  margin-bottom: 0;
+}
+.programContainer > div:nth-of-type(n + 4) > div div p, .programContainer > div:nth-of-type(n + 4) > div div li {
+  font-weight: 200;
+}
+.programContainer > div:nth-of-type(n + 4) > div div p:first-of-type, .programContainer > div:nth-of-type(n + 4) > div div li:first-of-type {
+  margin-top: 10px;
+}
 .programContainer h1, .programContainer h2, .programContainer h3, .programContainer h4 {
   font-weight: 300;
 }
@@ -123,45 +174,6 @@
 }
 .programContainer .courseListsContainer ul li a {
   font-size: 9pt;
-}
-@media screen and (max-width: 1000px) {
-  .programContainer > div:nth-of-type(n + 3) {
-    flex-direction: column;
-    margin-left: 0;
-  }
-}
-.programContainer > div:nth-of-type(n + 4) h3, .programContainer > div:nth-of-type(n + 4) h4 {
-  margin: 0;
-}
-.programContainer > div:nth-of-type(n + 4) > div div {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
-.programContainer > div:nth-of-type(n + 4) > div div div {
-  flex-direction: row;
-  flex: 1;
-}
-.programContainer > div:nth-of-type(n + 4) > div div div div {
-  flex-direction: column;
-  margin: 0;
-  text-align: right;
-}
-.programContainer > div:nth-of-type(n + 4) > div div div div h4 {
-  font-size: 10pt;
-}
-.programContainer > div:nth-of-type(n + 4) > div div div div h4:nth-of-type(2) {
-  font-style: italic;
-  font-weight: 200;
-}
-.programContainer > div:nth-of-type(n + 4) > div div p {
-  margin-bottom: 0;
-}
-.programContainer > div:nth-of-type(n + 4) > div div p, .programContainer > div:nth-of-type(n + 4) > div div li {
-  font-weight: 200;
-}
-.programContainer > div:nth-of-type(n + 4) > div div p:first-of-type, .programContainer > div:nth-of-type(n + 4) > div div li:first-of-type {
-  margin-top: 10px;
 }
 
 /*# sourceMappingURL=Resume.module.css.map */

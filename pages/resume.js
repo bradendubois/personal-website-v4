@@ -140,8 +140,17 @@ const Resume = () => {
                                     <h3>Student Teaching Assistant / Marker</h3>
                                 </div>
 
-                                <p>Teaching Assistant for CMPT 145 - Principles of Computer Science. (Winter 2021)</p>
-                                <p>Marking Assistant for CMPT 140 - Introduction to Creative Computing. (Fall 2020)</p>
+                                <div className={style.term_roles}>
+                                    <div>
+                                        <p>Teaching Assistant for CMPT 145 - Principles of Computer Science.</p>
+                                        <h4>Winter 2021</h4>
+                                    </div>
+
+                                    <div>
+                                        <p>Marking Assistant for CMPT 140 - Introduction to Creative Computing.</p>
+                                        <h4>Fall 2020</h4>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>

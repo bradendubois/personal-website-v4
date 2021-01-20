@@ -20,7 +20,7 @@ const Showcase = () => {
     const Projects = [
         StatisticsProjectDetails,
         CompetitiveProgrammingDetails,
-        // xv6ProjectDetails
+        xv6ProjectDetails
     ]
 
     return (
@@ -28,7 +28,6 @@ const Showcase = () => {
             <Head>
                 <title>Showcase</title>
             </Head>
-
 
             <motion.main {...motionContainer}>
 
