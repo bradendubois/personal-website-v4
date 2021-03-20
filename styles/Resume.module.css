@@ -1,178 +1,178 @@
-.programContainer {
+.container {
   padding-bottom: 30px;
 }
-.programContainer * {
+.container * {
   font-family: "Inter", sans-serif;
 }
-.programContainer > div {
+.container > div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-top: 20px;
 }
-.programContainer > div:nth-child(n+3) {
+.container > div:nth-child(n+3) {
   border-top: 1px solid black;
 }
-.programContainer > div:not(:first-of-type) {
+.container > div:not(:first-of-type) {
   margin-left: 50px;
 }
-.programContainer > div:first-of-type {
+.container > div:first-of-type {
   display: flex;
   flex-direction: row;
 }
-.programContainer > div:first-of-type h1 {
+.container > div:first-of-type h1 {
   font-size: 18pt;
   font-style: italic;
 }
-.programContainer > div:first-of-type hr {
+.container > div:first-of-type hr {
   flex: 1;
   height: 1px;
   margin: auto;
   border: 0;
 }
-.programContainer > div:first-of-type hr:first-of-type {
+.container > div:first-of-type hr:first-of-type {
   margin-right: 10px;
   background-image: linear-gradient(to right, #333, #707070);
 }
-.programContainer > div:first-of-type hr:last-of-type {
+.container > div:first-of-type hr:last-of-type {
   margin-left: 10px;
   background-image: linear-gradient(to right, #707070, #333);
 }
-.programContainer > div h2 {
+.container > div h2 {
   flex: 0 0 calc(30% - 10px);
 }
-.programContainer > div div {
+.container > div div {
   flex: 0 0 calc(70% - 10px);
 }
-.programContainer > div:nth-child(2) {
+.container > div:nth-child(2) {
   justify-content: space-between;
 }
-.programContainer > div:nth-child(2) a, .programContainer > div:nth-child(2) img {
+.container > div:nth-child(2) > div {
+  flex: 1 1 0;
+  margin: 10px auto 10px 30px;
+}
+.container > div:nth-child(2) > div h3, .container > div:nth-child(2) > div h4 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+.container > div:nth-child(2) > div h3, .container > div:nth-child(2) > div h4 {
+  margin: 0;
+}
+.container > div:nth-child(2) > div h3 {
+  font-size: 14pt;
+}
+.container > div:nth-child(2) > div h4 {
+  font-size: 12pt;
+}
+.container > div:nth-child(2) div:last-of-type {
+  flex: 0;
+  width: max-content;
+  text-align: right;
+}
+.container > div:nth-child(2) div:last-of-type p {
+  margin: 0;
+  width: max-content;
+  font-weight: 300;
+}
+.container > div:nth-child(2) div:last-of-type p:last-child {
+  font-style: italic;
+  font-weight: 200;
+}
+@media screen and (max-width: 1000px) {
+  .container > div:nth-child(2) {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .container > div:nth-of-type(n + 3) {
+    flex-direction: column;
+    margin-left: 0;
+  }
+}
+.container > div:nth-of-type(n + 4) h3, .container > div:nth-of-type(n + 4) h4 {
+  margin: 0;
+}
+.container > div:nth-of-type(n + 4) > div div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.container > div:nth-of-type(n + 4) > div div .term_roles {
+  flex-direction: column;
+}
+.container > div:nth-of-type(n + 4) > div div .term_roles div {
+  flex-direction: row;
+  text-align: left;
+}
+.container > div:nth-of-type(n + 4) > div div .term_roles div h4 {
+  text-align: right;
+  margin-top: 10px;
+  margin-left: auto;
+}
+.container > div:nth-of-type(n + 4) > div div div {
+  flex-direction: row;
+  flex: 1;
+}
+.container > div:nth-of-type(n + 4) > div div div div {
+  flex-direction: column;
+  margin: 0;
+  text-align: right;
+}
+.container > div:nth-of-type(n + 4) > div div div div h4 {
+  font-size: 10pt;
+}
+.container > div:nth-of-type(n + 4) > div div div div h4:nth-of-type(2) {
+  font-style: italic;
+  font-weight: 200;
+}
+.container > div:nth-of-type(n + 4) > div div p {
+  margin-bottom: 0;
+}
+.container > div:nth-of-type(n + 4) > div div p, .container > div:nth-of-type(n + 4) > div div li {
+  font-weight: 200;
+}
+.container > div:nth-of-type(n + 4) > div div p:first-of-type, .container > div:nth-of-type(n + 4) > div div li:first-of-type {
+  margin-top: 10px;
+}
+.container h1, .container h2, .container h3, .container h4 {
+  font-weight: 300;
+}
+.container ul {
+  margin: 0;
+}
+.container ul li {
+  font-size: 10pt;
+}
+.container a, .container img {
   cursor: pointer;
 }
-.programContainer > div:nth-child(2) img {
+.container img {
   border-radius: 50%;
   max-width: 64px;
   max-height: 64px;
 }
 @media screen and (min-width: 800px) {
-  .programContainer > div:nth-child(2) img {
+  .container img {
     margin-left: 5%;
   }
 }
-.programContainer > div:nth-child(2) > div {
-  flex: 1 1 0;
-  margin: 10px auto 10px 30px;
-}
-.programContainer > div:nth-child(2) > div h3, .programContainer > div:nth-child(2) > div h4 {
-  font-family: "Raleway", sans-serif;
-  font-weight: 400;
-}
-.programContainer > div:nth-child(2) > div h3, .programContainer > div:nth-child(2) > div h4 {
-  margin: 0;
-}
-.programContainer > div:nth-child(2) > div h3 {
-  font-size: 14pt;
-}
-.programContainer > div:nth-child(2) > div h4 {
-  font-size: 12pt;
-}
-.programContainer > div:nth-child(2) div:last-of-type {
-  flex: 0;
-  width: max-content;
-  text-align: right;
-}
-.programContainer > div:nth-child(2) div:last-of-type p {
-  margin: 0;
-  width: max-content;
-  font-weight: 300;
-}
-.programContainer > div:nth-child(2) div:last-of-type p:last-child {
-  font-style: italic;
-  font-weight: 200;
-}
-@media screen and (max-width: 1000px) {
-  .programContainer > div:nth-child(2) {
-    margin: 0;
-  }
-}
-@media screen and (max-width: 1000px) {
-  .programContainer > div:nth-of-type(n + 3) {
-    flex-direction: column;
-    margin-left: 0;
-  }
-}
-.programContainer > div:nth-of-type(n + 4) h3, .programContainer > div:nth-of-type(n + 4) h4 {
-  margin: 0;
-}
-.programContainer > div:nth-of-type(n + 4) > div div {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
-.programContainer > div:nth-of-type(n + 4) > div div .term_roles {
-  flex-direction: column;
-}
-.programContainer > div:nth-of-type(n + 4) > div div .term_roles div {
-  flex-direction: row;
-  text-align: left;
-}
-.programContainer > div:nth-of-type(n + 4) > div div .term_roles div h4 {
-  text-align: right;
-  margin-top: 10px;
-  margin-left: auto;
-}
-.programContainer > div:nth-of-type(n + 4) > div div div {
-  flex-direction: row;
-  flex: 1;
-}
-.programContainer > div:nth-of-type(n + 4) > div div div div {
-  flex-direction: column;
-  margin: 0;
-  text-align: right;
-}
-.programContainer > div:nth-of-type(n + 4) > div div div div h4 {
-  font-size: 10pt;
-}
-.programContainer > div:nth-of-type(n + 4) > div div div div h4:nth-of-type(2) {
-  font-style: italic;
-  font-weight: 200;
-}
-.programContainer > div:nth-of-type(n + 4) > div div p {
-  margin-bottom: 0;
-}
-.programContainer > div:nth-of-type(n + 4) > div div p, .programContainer > div:nth-of-type(n + 4) > div div li {
-  font-weight: 200;
-}
-.programContainer > div:nth-of-type(n + 4) > div div p:first-of-type, .programContainer > div:nth-of-type(n + 4) > div div li:first-of-type {
-  margin-top: 10px;
-}
-.programContainer h1, .programContainer h2, .programContainer h3, .programContainer h4 {
-  font-weight: 300;
-}
-.programContainer ul {
-  margin: 0;
-}
-.programContainer ul li {
-  font-size: 10pt;
-}
-.programContainer .courseListsContainer {
+.container .courseListsContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.programContainer .courseListsContainer * {
+.container .courseListsContainer * {
   width: max-content;
   margin: 0;
 }
-.programContainer .courseListsContainer h3 {
+.container .courseListsContainer h3 {
   margin-top: 20px;
   margin-right: 0;
 }
-.programContainer .courseListsContainer ul {
+.container .courseListsContainer ul {
   margin: 10px 0 0 0;
 }
-.programContainer .courseListsContainer ul li a {
+.container .courseListsContainer ul li a {
   font-size: 9pt;
 }
 

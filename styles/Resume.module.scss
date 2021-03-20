@@ -1,4 +1,4 @@
-.programContainer {
+.container {
 
   * {
     font-family: "Inter", sans-serif;
@@ -53,18 +53,6 @@
     div { flex: 0 0 calc(70% - 10px); }
 
     &:nth-child(2) {
-
-      a, img { cursor: pointer; }
-
-      img {
-        border-radius: 50%;
-        max-width: 64px;
-        max-height: 64px;
-
-        @media screen and (min-width: 800px) {
-          margin-left: 5%;
-        }
-      }
 
       justify-content: space-between;
 
@@ -184,6 +172,18 @@
     margin: 0;
 
     li { font-size: 10pt; }
+  }
+
+  a, img { cursor: pointer; }
+
+  img {
+    border-radius: 50%;
+    max-width: 64px;
+    max-height: 64px;
+
+    @media screen and (min-width: 800px) {
+      margin-left: 5%;
+    }
   }
 
   .courseListsContainer {

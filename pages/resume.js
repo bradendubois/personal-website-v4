@@ -25,14 +25,76 @@ const Resume = () => {
             <Head>
                 <title>Resume</title>
             </Head>
+
             <motion.main {...motionContainer}>
 
-                <motion.div {...motionChild} >
+                {/* Header; Title & Download button */}
+                <motion.header {...motionChild}>
                     <motion.h1 {...motionChild}>Resume</motion.h1>
+
+                    {/* Some buttons to download the resume here */}
+                    <div>
+                        <button>Download as PDF</button>
+                    </div>
+                </motion.header>
+
+
+                {/* Relevant Work Experience */}
+                <motion.div {...motionContainer} className={style.container}>
+                    <motion.div {...motionChild}>
+                        <hr /><h1>Work & Research Experience</h1><hr />
+                    </motion.div>
+
+                    <div>
+
+                        {/* Research Assistant */}
+                        <div>
+                            <div>
+                                <h3>Student Research Assistant</h3>
+                                <div>
+                                    <h4>Spring 2020 - Present</h4>
+                                </div>
+                            </div>
+
+                            <div>
+                                <p>
+                                    Work as a student research assistant has been under the supervision of <a
+                                        href={"https://www.cs.usask.ca/faculty/eric/"}
+                                        target={"_blank"}
+                                        rel={"noopener noreferrer"}
+                                    >Dr. Eric Neufeld</a>, since May 2020. This research has been focused primarily on
+                                    the work of Judea Pearl on causal inference in statistics. See more on my
+                                    research <Link href={"/research"}>here</Link> or the associated statistics
+                                    project <Link href={"/showcase/statistics"}>here</Link>.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* TA / Marking Work */}
+                        <div>
+                            <h3>Student Teaching Assistant / Marker</h3>
+
+                            <div>
+                                <div className={"horizontal"}>
+                                    <p>Teaching Assistant for CMPT 145 - Principles of Computer Science.</p>
+                                    <h4>Winter 2021</h4>
+                                </div>
+
+                                <div className={"horizontal"}>
+                                    <p>Marking Assistant for CMPT 140 - Introduction to Creative Computing.</p>
+                                    <h4>Fall 2020</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
                 </motion.div>
 
-                {/* Undergraduate */}
-                <motion.div {...motionContainer} className={style.programContainer}>
+                {/* Undergraduate + Certificate */}
+
+                <motion.div {...motionContainer} className={style.container}>
 
                     <motion.div {...motionChild} >
                         <hr />
@@ -106,54 +168,40 @@ const Resume = () => {
 
                     </motion.div>
 
-                    {/* Experience */}
-                    <motion.div {...motionChild}>
+                    {/* Certificate */}
+                    <motion.div {...motionChild} className={style.certificate}>
 
-                        <h2>Work Experience</h2>
+                        <h2>Certificate</h2>
 
                         <div>
-
-                            {/* Research Assistant */}
                             <div>
                                 <div>
-                                    <h3>Student Research Assistant</h3>
-                                    <div>
-                                        <h4>Spring 2020 - Present</h4>
-                                    </div>
+                                    <h3>Certificate of Proficiency</h3>
+                                    <h4>Ethics, Justice, and Law</h4>
                                 </div>
 
-                                <p>Work as a student research assistant has been under the supervision of <a
-                                    href={"https://www.cs.usask.ca/faculty/eric/"}
-                                    target={"_blank"}
-                                    rel={"noopener noreferrer"}
-                                >Dr. Eric Neufeld</a>, since May 2020. This research has been focused primarily on the
-                                    work of Judea Pearl on causal inference in statistics. See more on my
-                                    research <Link href={"/research"}>here</Link> or the associated statistics
-                                    project <Link href={"/showcase/statistics"}>here</Link>.
-                                </p>
-
-                            </div>
-
-                            {/* TA / Marking Work */}
-                            <div>
                                 <div>
-                                    <h3>Student Teaching Assistant / Marker</h3>
-                                </div>
-
-                                <div className={style.term_roles}>
-                                    <div>
-                                        <p>Teaching Assistant for CMPT 145 - Principles of Computer Science.</p>
-                                        <h4>Winter 2021</h4>
-                                    </div>
-
-                                    <div>
-                                        <p>Marking Assistant for CMPT 140 - Introduction to Creative Computing.</p>
-                                        <h4>Fall 2020</h4>
-                                    </div>
+                                    <p>2017 - 2022</p>
+                                    <p>Saskatoon, SK</p>
                                 </div>
                             </div>
 
+                            <h2>Relevant Courses</h2>
+
+                            <div className={style.courseListsContainer}>
+
+                                <div>
+                                    <ul>
+                                        <Class name={"PHIL 233 - Ethical Theory"} />
+                                        <Class name={"PHIL 236 - Ethics and Technology"} />
+                                        <Class name={"PHIL 262 - Social and Political Philosophy"} />
+                                        <Class name={"PHIL 333 - Metaethics: Morality, Objectivity, and Identity"} />
+                                        <Class name={"PHIL 433 - Kantian Ethics"} />
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
+
                     </motion.div>
 
                     {/* Achievements */}
@@ -279,59 +327,6 @@ const Resume = () => {
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
-
-                </motion.div>
-
-
-                {/* Certificate */}
-                <motion.div {...motionContainer} className={style.programContainer}>
-
-                    <motion.div {...motionChild} >
-                        <hr />
-                        <h1>Certificate</h1>
-                        <hr />
-                    </motion.div>
-
-                    <motion.div {...motionChild}>
-                        <Link href={"https://www.usask.ca"}>
-                            <img
-                                src={"/usask.png"}
-                                alt={"Logo of the University of Saskatchewan"}
-
-                            />
-                        </Link>
-
-                        <div>
-                            <h3>Certificate of Proficiency</h3>
-                            <h4>Ethics, Justice, and Law</h4>
-                        </div>
-
-                        <div>
-                            <p>2017 - 2022</p>
-                            <p>Saskatoon, SK</p>
-                        </div>
-                    </motion.div>
-
-                    {/* Courses Taken */}
-                    <motion.div {...motionChild}>
-
-                        <h2>Relevant Courses</h2>
-
-                        <div className={style.courseListsContainer}>
-
-                            <div>
-                                <ul>
-                                    <Class name={"PHIL 233 - Ethical Theory"} />
-                                    <Class name={"PHIL 236 - Ethics and Technology"} />
-                                    <Class name={"PHIL 262 - Social and Political Philosophy"} />
-                                    <Class name={"PHIL 333 - Metaethics: Morality, Objectivity, and Identity"} />
-                                    <Class name={"PHIL 433 - Kantian Ethics"} />
-                                </ul>
-                            </div>
-
-                        </div>
-
                     </motion.div>
 
                 </motion.div>
