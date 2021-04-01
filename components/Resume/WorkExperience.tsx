@@ -28,9 +28,9 @@ const WorkExperience = () =>
                         target={"_blank"}
                         rel={"noopener noreferrer"}
                     >Dr. Eric Neufeld</a>, since May 2020. This research has been focused primarily on
-                        the work of Judea Pearl on causal inference in statistics. See more on my
-                        research <Link href={"/research"}>here</Link> or the associated statistics
-                        project <Link href={"/showcase/statistics"}>here</Link>.
+                        the work of Judea Pearl on causal inference in statistics. See {/*more on my
+                        research <Link href={"/research"}>here</Link> or */}the associated statistics
+                        project <Link href={"/showcase/do-calculus"}>here</Link>.
                     </p>
                 </motion.div>
 

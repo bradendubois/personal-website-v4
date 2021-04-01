@@ -23,13 +23,11 @@ const Resume = () => {
 
             <motion.main {...motionContainer}>
 
-                <motion.header {...motionChild} className={style.header}>
-                    <motion.h1 {...motionChild}>Resume</motion.h1>
-
-                    <div>
-                        <button>PDF</button>
-                    </div>
+                {/*
+                <motion.header {...motionChild} className={style.pdf}>
+                    <button>PDF</button>
                 </motion.header>
+                */}
 
                 <WorkExperience />
 

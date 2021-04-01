@@ -1,5 +1,11 @@
-.header div button {
-  width: 95%;
+.pdf {
+  margin: 10px;
+  padding: 10px;
+  display: grid;
+  place-items: end;
+}
+.pdf button {
+  width: 40%;
   padding: 7px 15px;
   margin: auto;
   text-align: center;
@@ -10,11 +16,11 @@
   color: #222222;
   transition: all 0.15s;
 }
-.header div button:hover {
+.pdf button:hover {
   color: #454545;
   border-color: #454545;
 }
-.header div button:active {
+.pdf button:active {
   color: #b5b5b5;
   border-color: #b5b5b5;
 }

@@ -1,26 +1,35 @@
-.header div button {
+.pdf {
 
-  width: 95%;
+  margin: 10px;
+  padding: 10px;
 
-  padding: 7px 15px;
-  margin: auto;
-  text-align: center;
-  display: block;
+  display: grid;
+  place-items: end;
 
-  border: 1px solid #222222;
-  text-transform: uppercase;
-  font-weight: 400;
-  color: #222222;
-  transition: all 0.15s;
+  button {
 
-  &:hover {
-    color: #454545;
-    border-color: #454545;
-  }
+    width: 40%;
 
-  &:active {
-    color: #b5b5b5;
-    border-color: #b5b5b5;
+    padding: 7px 15px;
+    margin: auto;
+    text-align: center;
+    display: block;
+
+    border: 1px solid #222222;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #222222;
+    transition: all 0.15s;
+
+    &:hover {
+      color: #454545;
+      border-color: #454545;
+    }
+
+    &:active {
+      color: #b5b5b5;
+      border-color: #b5b5b5;
+    }
   }
 }
 
