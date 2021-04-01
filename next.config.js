@@ -1,7 +1,13 @@
 module.exports = {
+
+    future: {
+        webpack5: true,
+    },
+
     images: {
         domains: ['avatars0.githubusercontent.com'],
     },
+
 
     env: {
 
