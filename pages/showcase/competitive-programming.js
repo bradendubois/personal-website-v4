@@ -1,6 +1,5 @@
 import {motion} from "framer-motion";
 
-import NavBar from "../../components/NavBar/Navbar";
 import {ShowcaseDetails} from "../../components/ShowcaseDetails/ShowcaseDetails";
 import {motionChild, motionContainer} from "../../components/motions";
 
@@ -38,8 +37,6 @@ const CompetitiveProgramming = () => {
 
     return (
         <Layout>
-            {/* <NavBar /> */}
-
             <motion.main {...motionContainer} className={showcaseStyle.content}>
 
                 <motion.div className={showcaseStyle.header} {...motionChild}>

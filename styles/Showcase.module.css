@@ -11,12 +11,28 @@
   flex: 1;
   text-align: right;
 }
+@media screen and (max-width: 1000px) {
+  .headerDiv {
+    flex-direction: column;
+  }
+  .headerDiv p {
+    padding: 0;
+    margin: 5px 0 10px 0;
+    text-align: left;
+  }
+}
 
 .mainTextContainer {
   font-weight: 300;
   font-size: 17pt;
   padding: 0 50px 50px 50px;
   margin-top: 20px;
+}
+@media screen and (max-width: 1000px) {
+  .mainTextContainer {
+    padding: 0;
+    margin: 20px auto;
+  }
 }
 
 .showcasePreviews {
@@ -47,6 +63,16 @@
   flex: 1;
   text-align: center;
 }
+@media screen and (max-width: 1000px) {
+  .content .header {
+    flex-direction: column;
+  }
+  .content .header p {
+    padding: 0;
+    margin: 5px 0 10px 0;
+    text-align: left;
+  }
+}
 .content .details {
   display: flex;
   flex-direction: row;
@@ -55,17 +81,14 @@
   flex: 1 1 0;
 }
 .content .textBlock {
+  margin-top: 50px;
   display: flex;
   flex-direction: row;
-  margin-top: 50px;
-  /*
-  &:nth-of-type(2n + 1) {
-    flex-direction: row-reverse;
-    h3 {
-      text-align: right;
-    }
+}
+@media screen and (max-width: 1000px) {
+  .content .textBlock {
+    flex-direction: column;
   }
-   */
 }
 .content .textBlock h3 {
   flex: 1 1 0;
@@ -73,6 +96,12 @@
 .content .textBlock p {
   flex: 2 1 0;
   text-align: justify;
+  line-height: 1.5;
+  font-weight: 300;
+}
+.content .textBlock em {
+  font-weight: 600;
+  font-style: normal;
 }
 
 /*# sourceMappingURL=Showcase.module.css.map */
