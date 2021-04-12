@@ -2,7 +2,6 @@ import Head from "next/head"
 import Link from "next/link";
 import { InferGetStaticPropsType } from "next";
 
-import Class from "../components/Resume/Class";
 import Layout from "../components/Layout";
 
 import {motion} from "framer-motion";
@@ -34,6 +33,15 @@ const SectionTitle = ({ title }) =>
         <hr />
     </motion.div>
 
+const Class = ({ subject, course, name }) => {
+
+    const url = `${process.env.catalogue_prefix}${subject}-${course}`
+
+    return (
+        <li><a href={url}>{name}</a></li>
+    )
+}
+
 const Resume = ({ employments, programs }) => {
 
     return (
@@ -54,15 +62,15 @@ const Resume = ({ employments, programs }) => {
                 <SectionTitle title={"Work & Research Experience"} />
 
                 <div className={`${style.workContainer} ${style.container}`} >
-                    {employments.map(employment =>
-                        <motion.div {...motionChild} >
+                    {employments.map((employment, i) =>
+                        <motion.div key={i} {...motionChild} >
                             <div className={style.header}>
                                 <h3>{employment.title}</h3>
                                 <h4>{employment.start_month} {employment.start_year} - {employment.end_month} {employment.end_year ?? "Present"}</h4>
                             </div>
 
                             <ul>
-                                {employment.description.map(description => <li>{description}</li>)}
+                                {employment.description.map((description, i) => <li key={i}>{description}</li>)}
                             </ul>
                         </motion.div>
                     )}
@@ -71,9 +79,9 @@ const Resume = ({ employments, programs }) => {
 
                 {/* Programs - Undergraduate, Certificate */}
                 {programs
-                    .map(program =>
+                    .map((program, i) =>
 
-                        <div className={style.container}>
+                        <div key={i} className={style.container}>
 
                             {/* Title */}
                             <SectionTitle title={program.title} />
@@ -104,11 +112,26 @@ const Resume = ({ employments, programs }) => {
                             <motion.div {...motionChild}>
                                 <h2>Relevant Courses</h2>
                                 <div className={style.courseListsContainer}>
-                                    <ul>
-                                        {program.courses.map(course =>
-                                            <Class subject={course.subject} course={course.course} name={course.name} />
-                                        )}
-                                    </ul>
+
+                                    {Array
+                                        .from(new Set(program.courses.map(course => course.subject)))
+                                        .map((subject, i) =>
+                                            <div key={i}>
+                                                <h3>{subject}</h3>
+                                                <ul>
+                                                    {program.courses
+                                                        .filter(course => course.subject === subject)
+                                                        .map((course, i) =>
+                                                            <Class
+                                                                key={i}
+                                                                subject={course.subject}
+                                                                course={course.course}
+                                                                name={course.name}
+                                                            />
+                                                    )}
+                                                </ul>
+                                            </div>)
+                                    }
                                 </div>
                             </motion.div>
 
@@ -117,8 +140,8 @@ const Resume = ({ employments, programs }) => {
                             <motion.div {...motionChild} >
                                 <h2>Achievements</h2>
                                 <div>
-                                    {program.achievements.map(achievement =>
-                                        <div>
+                                    {program.achievements.map((achievement, i) =>
+                                        <div key={i}>
                                             <div className={style.header}>
                                                 <h3>{achievement.title}</h3>
                                                 <div><h3>{achievement.year_modifier} {achievement.year}</h3></div>
@@ -135,8 +158,8 @@ const Resume = ({ employments, programs }) => {
                             <motion.div {...motionChild}>
                                 <h2>Groups & Societies</h2>
                                 <div>
-                                    {program.groups.map(group =>
-                                    <div>
+                                    {program.groups.map((group, i) =>
+                                    <div key={i}>
                                         <div className={style.header}>
                                             <h3>{group.title}</h3>
                                             <div>
@@ -147,7 +170,7 @@ const Resume = ({ employments, programs }) => {
 
                                         {group.details &&
                                         <ul>
-                                            {group.details.map(detail => <li>{detail}</li>)}
+                                            {group.details.map((detail, i) => <li key={i}>{detail}</li>)}
                                         </ul>}
                                     </div>)}
                                 </div>
