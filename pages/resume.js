@@ -1,11 +1,9 @@
 import React from "react"
 import Head from "next/head"
-import NavBar from "../components/NavBar/Navbar";
 import {motion} from "framer-motion";
 import {motionChild, motionContainer} from "../components/motions";
 import style from "../styles/Resume.module.scss";
 import Link from "next/link";
-import Image from "next/image"
 import Layout from "../components/Layout";
 
 const Class = ({name}) => {
@@ -18,7 +16,9 @@ const Class = ({name}) => {
     )
 }
 
-const Resume = () => {
+const Resume = ({ employment, programs }) => {
+
+    console.log(employment, programs)
 
     return (
         <Layout>
@@ -64,6 +64,7 @@ const Resume = () => {
                     <motion.div {...motionChild}>
 
                         <h2>Relevant Courses</h2>
+
 
                         <div className={style.courseListsContainer}>
                             <div>
@@ -339,6 +340,81 @@ const Resume = () => {
             </motion.main>
         </Layout>
     )
+}
+
+export const getStaticProps = async (context) => {
+
+    const apiQuery = `
+        query {
+  
+          employment {
+            
+            title
+            description
+            
+            start_year
+            start_month
+            
+            end_year
+            end_month
+          }
+          
+          programs {
+            
+            title
+            field
+            institution
+            location
+            year_began
+            year_finish
+            
+            courses {
+              subject
+              course
+              name
+            }
+            
+            achievements {
+              title
+              description
+              year
+              year_modifier
+            }
+            
+            groups {
+              title
+              role
+              details
+              join_year
+              exit_year
+            }
+          }
+          
+          employment {
+            title
+            description
+            start_year
+          }
+        }
+    `
+
+    const data = await fetch("https://api.bradendubois.dev/api", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({ query: apiQuery })
+    })
+        .then(response => response.json())
+
+    return {
+        props: {
+            employment: data.data.employment,
+            programs: data.data.programs
+        }
+    }
+
 }
 
 export default Resume
