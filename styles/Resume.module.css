@@ -7,30 +7,29 @@
 #resume p, #resume li {
   font-weight: 200;
 }
-
-.pdf {
-  margin: 10px;
+#resume header {
+  margin: 25px auto 15px auto;
   padding: 10px;
-  display: grid;
-  place-items: end;
+  display: flex;
+  flex-direction: row;
 }
-.pdf button {
-  width: 40%;
-  padding: 7px 15px;
-  margin: auto;
+#resume header a {
+  flex: 1 1 0;
+  padding: 7px;
+  margin: 5px;
   text-align: center;
-  display: block;
   border: 1px solid #222222;
-  text-transform: uppercase;
-  font-weight: 400;
+  border-radius: 2px;
+  font-weight: 300;
+  font-size: 10pt;
   color: #222222;
   transition: all 0.15s;
 }
-.pdf button:hover {
+#resume header a:hover {
   color: #454545;
   border-color: #454545;
 }
-.pdf button:active {
+#resume header a:active {
   color: #b5b5b5;
   border-color: #b5b5b5;
 }

@@ -8,7 +8,6 @@ import {motion} from "framer-motion";
 import {motionChild, motionContainer} from "../components/motions";
 
 import style from "../styles/Resume.module.scss";
-import React from "react";
 
 // TODO
 type Employment = {
@@ -52,11 +51,11 @@ const Resume = ({ employments, programs }) => {
 
             <motion.main {...motionContainer} id={style.resume} >
 
-                {/*
-                <motion.header {...motionChild} className={style.pdf}>
-                    <button>PDF</button>
+                {/* Resume-related links */}
+                <motion.header {...motionChild} >
+                    {/* <a target={"_blank"} href={"/resume.pdf"}>PDF</a> */}
+                    <a target={"_blank"} href={process.env.graphql_page}>Looking for something more fun? See my resume in GraphQL.</a>
                 </motion.header>
-                */}
 
                 {/* Work / Research Experience */}
                 <SectionTitle title={"Work & Research Experience"} />
@@ -121,13 +120,7 @@ const Resume = ({ employments, programs }) => {
                                                 <ul>
                                                     {program.courses
                                                         .filter(course => course.subject === subject)
-                                                        .map((course, i) =>
-                                                            <Class
-                                                                key={i}
-                                                                subject={course.subject}
-                                                                course={course.course}
-                                                                name={course.name}
-                                                            />
+                                                        .map((course, i) => <Class key={i} {...course} />
                                                     )}
                                                 </ul>
                                             </div>)
@@ -250,11 +243,12 @@ export const getStaticProps = async (context) => {
         body: JSON.stringify({ query: apiQuery })
     })
         .then(response => response.json())
+        .then(json => json.data)
 
     return {
         props: {
-            employments: data.data.employment,
-            programs: data.data.programs
+            employments: data.employment,
+            programs: data.programs
         },
 
         revalidate: 3600 * 24   // 24 hours
