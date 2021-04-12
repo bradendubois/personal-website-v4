@@ -1,3 +1,18 @@
+#resume {
+
+  h1, h2, h3, h4 { font-weight: 300; }
+
+
+  * {
+    font-family: "Inter", sans-serif;
+  }
+
+  p, li {
+    font-weight: 200;
+  }
+
+}
+
 .pdf {
 
   margin: 10px;
@@ -35,16 +50,6 @@
 
 .container {
 
-  * {
-    font-family: "Inter", sans-serif;
-  }
-
-  p, li {
-    font-weight: 200;
-  }
-
-  h1, h2, h3, h4 { font-weight: 300; }
-
   > div {
 
     display: flex;
@@ -52,6 +57,10 @@
     justify-content: space-between;
 
     margin-top: 20px;
+
+    &:not(.sectionTitle) {
+      margin-left: 50px;
+    }
 
     &:nth-child(n + 3) {
       border-top: 1px solid black;
@@ -61,37 +70,8 @@
       }
     }
 
-    &:not(:first-of-type) {
-      margin-left: 50px;
-    }
 
-    // hr title
-    &:first-of-type {
-      display: flex;
-      flex-direction: row;
 
-      h1 {
-        font-size: 18pt;
-        font-style: italic;
-      }
-
-      hr {
-        flex: 1;
-        height: 1px;
-        margin: auto;
-        border: 0;
-
-        &:first-of-type {
-          margin-right: 10px;
-          background-image: linear-gradient(to right, #333, #707070);
-        }
-
-        &:last-of-type {
-          margin-left: 10px;
-          background-image: linear-gradient(to right, #707070, #333);
-        }
-      }
-    }
 
     // Control column appearance
     h2 { flex: 0 0 calc(30% - 10px); }
@@ -193,6 +173,12 @@
   display: flex;
   flex-direction: column;
 
+  ul {
+    margin-top: 20px;
+
+    li { font-size: 12pt; }
+  }
+
   > div {
 
 
@@ -257,4 +243,35 @@
   @media screen and (max-width: 1000px) {
     margin: 0;
   }
+}
+
+
+// hr title
+.sectionTitle {
+
+    display: flex;
+    flex-direction: row;
+
+    h1 {
+      font-size: 18pt;
+      font-style: italic;
+    }
+
+    hr {
+      flex: 1;
+      height: 1px;
+      margin: auto;
+      border: 0;
+
+      &:first-of-type {
+        margin-right: 10px;
+        background-image: linear-gradient(to right, #333, #707070);
+      }
+
+      &:last-of-type {
+        margin-left: 10px;
+        background-image: linear-gradient(to right, #707070, #333);
+      }
+    }
+
 }

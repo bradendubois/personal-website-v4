@@ -1,3 +1,13 @@
+#resume h1, #resume h2, #resume h3, #resume h4 {
+  font-weight: 300;
+}
+#resume * {
+  font-family: "Inter", sans-serif;
+}
+#resume p, #resume li {
+  font-weight: 200;
+}
+
 .pdf {
   margin: 10px;
   padding: 10px;
@@ -28,20 +38,14 @@
 .container {
   padding-bottom: 30px;
 }
-.container * {
-  font-family: "Inter", sans-serif;
-}
-.container p, .container li {
-  font-weight: 200;
-}
-.container h1, .container h2, .container h3, .container h4 {
-  font-weight: 300;
-}
 .container > div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-top: 20px;
+}
+.container > div:not(.sectionTitle) {
+  margin-left: 50px;
 }
 .container > div:nth-child(n+3) {
   border-top: 1px solid black;
@@ -50,31 +54,6 @@
   .container > div:nth-child(n+3) {
     flex-direction: column;
   }
-}
-.container > div:not(:first-of-type) {
-  margin-left: 50px;
-}
-.container > div:first-of-type {
-  display: flex;
-  flex-direction: row;
-}
-.container > div:first-of-type h1 {
-  font-size: 18pt;
-  font-style: italic;
-}
-.container > div:first-of-type hr {
-  flex: 1;
-  height: 1px;
-  margin: auto;
-  border: 0;
-}
-.container > div:first-of-type hr:first-of-type {
-  margin-right: 10px;
-  background-image: linear-gradient(to right, #333, #707070);
-}
-.container > div:first-of-type hr:last-of-type {
-  margin-left: 10px;
-  background-image: linear-gradient(to right, #707070, #333);
 }
 .container > div h2 {
   flex: 0 0 calc(30% - 10px);
@@ -162,6 +141,12 @@
   display: flex;
   flex-direction: column;
 }
+.workContainer ul {
+  margin-top: 20px;
+}
+.workContainer ul li {
+  font-size: 12pt;
+}
 .workContainer > div {
   flex: 1;
   display: flex;
@@ -217,6 +202,29 @@
   .college_info {
     margin: 0;
   }
+}
+
+.sectionTitle {
+  display: flex;
+  flex-direction: row;
+}
+.sectionTitle h1 {
+  font-size: 18pt;
+  font-style: italic;
+}
+.sectionTitle hr {
+  flex: 1;
+  height: 1px;
+  margin: auto;
+  border: 0;
+}
+.sectionTitle hr:first-of-type {
+  margin-right: 10px;
+  background-image: linear-gradient(to right, #333, #707070);
+}
+.sectionTitle hr:last-of-type {
+  margin-left: 10px;
+  background-image: linear-gradient(to right, #707070, #333);
 }
 
 /*# sourceMappingURL=Resume.module.css.map */

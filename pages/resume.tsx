@@ -1,19 +1,38 @@
-import React from "react"
-
 import Head from "next/head"
 import Link from "next/link";
+import { InferGetStaticPropsType } from "next";
 
-import style from "../styles/Resume.module.scss";
-
+import Class from "../components/Resume/Class";
 import Layout from "../components/Layout";
 
 import {motion} from "framer-motion";
 import {motionChild, motionContainer} from "../components/motions";
 
-import Undergraduate from "../components/Resume/Undergraduate"
+import style from "../styles/Resume.module.scss";
+import React from "react";
 
-import { EmploymentSection } from "../components/Resume/Employment";
-import { EducationProgram } from "../components/Resume/EducationProgram"
+// TODO
+type Employment = {
+    title: string;
+    description: string[];
+    start_year: number;
+    start_month: number;
+    end_year?: number;
+    end_month?: number;
+}
+
+// TODO
+type Program = {
+
+}
+
+const SectionTitle = ({ title }) =>
+
+    <motion.div {...motionChild} className={style.sectionTitle} >
+        <hr />
+        <h1>{title}</h1>
+        <hr />
+    </motion.div>
 
 const Resume = ({ employments, programs }) => {
 
@@ -23,7 +42,7 @@ const Resume = ({ employments, programs }) => {
                 <title>Resume</title>
             </Head>
 
-            <motion.main {...motionContainer}>
+            <motion.main {...motionContainer} id={style.resume} >
 
                 {/*
                 <motion.header {...motionChild} className={style.pdf}>
@@ -32,10 +51,111 @@ const Resume = ({ employments, programs }) => {
                 */}
 
                 {/* Work / Research Experience */}
-                <EmploymentSection data={employments} />
+                <SectionTitle title={"Work & Research Experience"} />
+
+                <div className={`${style.workContainer} ${style.container}`} >
+                    {employments.map(employment =>
+                        <motion.div {...motionChild} >
+                            <div className={style.header}>
+                                <h3>{employment.title}</h3>
+                                <h4>{employment.start_month} {employment.start_year} - {employment.end_month} {employment.end_year ?? "Present"}</h4>
+                            </div>
+
+                            <ul>
+                                {employment.description.map(description => <li>{description}</li>)}
+                            </ul>
+                        </motion.div>
+                    )}
+                </div>
+
 
                 {/* Programs - Undergraduate, Certificate */}
-                {programs.map(program => <EducationProgram data={program} />)}
+                {programs
+                    .map(program =>
+
+                        <div className={style.container}>
+
+                            {/* Title */}
+                            <SectionTitle title={program.title} />
+
+                            {/* Header */}
+                            <motion.div {...motionChild} className={style.college_info}>
+
+                                {/* TODO - Proper Image/Link lookup */}
+                                <Link href={"https://www.usask.ca"}>
+                                    <img
+                                        src={"/usask.png"}
+                                        alt={"Logo of the University of Saskatchewan"}
+                                    />
+                                </Link>
+
+                                <div>
+                                    <h3>{program.title}</h3>
+                                    <h4>{program.field}</h4>
+                                </div>
+
+                                <div>
+                                    <p>{program.year_began} - {program.year_finish ?? "Present"}</p>
+                                    <p>Saskatoon, SK</p>
+                                </div>
+                            </motion.div>
+
+                            {/* Relevant Courses */}
+                            <motion.div {...motionChild}>
+                                <h2>Relevant Courses</h2>
+                                <div className={style.courseListsContainer}>
+                                    <ul>
+                                        {program.courses.map(course =>
+                                            <Class subject={course.subject} course={course.course} name={course.name} />
+                                        )}
+                                    </ul>
+                                </div>
+                            </motion.div>
+
+                            {/* Achievements */}
+                            {program.achievements &&
+                            <motion.div {...motionChild} >
+                                <h2>Achievements</h2>
+                                <div>
+                                    {program.achievements.map(achievement =>
+                                        <div>
+                                            <div className={style.header}>
+                                                <h3>{achievement.title}</h3>
+                                                <div><h3>{achievement.year_modifier} {achievement.year}</h3></div>
+                                            </div>
+
+                                            <p>{achievement.description}</p>
+                                        </div>
+                                    )}
+                                </div>
+                            </motion.div>}
+
+                            {/* Groups */}
+                            {program.groups &&
+                            <motion.div {...motionChild}>
+                                <h2>Groups & Societies</h2>
+                                <div>
+                                    {program.groups.map(group =>
+                                    <div>
+                                        <div className={style.header}>
+                                            <h3>{group.title}</h3>
+                                            <div>
+                                                <h3>{group.role}</h3>
+                                                <h4>{group.join_year} - {group.exit_year ?? "Present"}</h4>
+                                            </div>
+                                        </div>
+
+                                        {group.details &&
+                                        <ul>
+                                            {group.details.map(detail => <li>{detail}</li>)}
+                                        </ul>}
+                                    </div>)}
+                                </div>
+                            </motion.div>}
+
+                        </div>
+                    )
+                }
 
             </motion.main>
         </Layout>
@@ -112,7 +232,9 @@ export const getStaticProps = async (context) => {
         props: {
             employments: data.data.employment,
             programs: data.data.programs
-        }
+        },
+
+        revalidate: 3600 * 24   // 24 hours
     }
 
 }

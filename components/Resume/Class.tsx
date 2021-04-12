@@ -1,12 +1,11 @@
 import React from "react";
 
-const Class = ({name}) => {
+const Class = ({ subject, course, name }) => {
 
-    const s = name.split(" - ")
-    const url = process.env.catalogue_prefix + s[0].replace(" ", "-")
+    const url = `${process.env.catalogue_prefix}${subject}-${course}`
 
     return (
-        <li><a href={url}>{s[1]}</a></li>
+        <li><a href={url}>{name}</a></li>
     )
 }
 
