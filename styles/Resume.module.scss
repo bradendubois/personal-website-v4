@@ -1,8 +1,49 @@
-.programContainer {
+.pdf {
+
+  margin: 10px;
+  padding: 10px;
+
+  display: grid;
+  place-items: end;
+
+  button {
+
+    width: 40%;
+
+    padding: 7px 15px;
+    margin: auto;
+    text-align: center;
+    display: block;
+
+    border: 1px solid #222222;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #222222;
+    transition: all 0.15s;
+
+    &:hover {
+      color: #454545;
+      border-color: #454545;
+    }
+
+    &:active {
+      color: #b5b5b5;
+      border-color: #b5b5b5;
+    }
+  }
+}
+
+.container {
 
   * {
     font-family: "Inter", sans-serif;
   }
+
+  p, li {
+    font-weight: 200;
+  }
+
+  h1, h2, h3, h4 { font-weight: 300; }
 
   > div {
 
@@ -14,6 +55,10 @@
 
     &:nth-child(n + 3) {
       border-top: 1px solid black;
+
+      @media screen and (max-width: 800px) {
+        flex-direction: column;
+      }
     }
 
     &:not(:first-of-type) {
@@ -50,140 +95,28 @@
 
     // Control column appearance
     h2 { flex: 0 0 calc(30% - 10px); }
-    div { flex: 0 0 calc(70% - 10px); }
+    h2 + div { flex: 0 0 calc(70% - 10px); }
 
-    &:nth-child(2) {
-
-      a, img { cursor: pointer; }
-
-      img {
-        border-radius: 50%;
-        max-width: 64px;
-        max-height: 64px;
-
-        @media screen and (min-width: 800px) {
-          margin-left: 5%;
-        }
-      }
-
-      justify-content: space-between;
-
-      // Main Degree Title
-      > div {
-
-        h3, h4 {
-          font-family: "Raleway", sans-serif;
-          font-weight: 400;
-        }
-
-        flex: 1 1 0;
-        margin: 10px auto 10px 30px;
-
-        h3, h4 { margin: 0; }
-        h3 { font-size: 14pt; }
-        h4 { font-size: 12pt; }
-      }
-
-      // Timeframe
-      div:last-of-type {
-        flex: 0;
-        width: max-content;
-        text-align: right;
-
-        p {
-          margin: 0;
-          width: max-content;
-          font-weight: 300;
-
-          &:last-child {
-            font-style: italic;
-            font-weight: 200;
-          }
-        }
-      }
-
-      @media screen and (max-width: 1000px) {
-        margin: 0;
-      }
-    }
-
-
-    &:nth-of-type(n + 3) {
-      @media screen and (max-width: 1000px) {
-        flex-direction: column;
-        margin-left: 0;
-      }
-    }
-
-    &:nth-of-type(n + 4) {
-
-      h3, h4 { margin: 0 }
-
-      > div div {
-
-        display: flex;
-        flex-direction: column;
-        margin-top: 10px;
-
-
-        .term_roles {
-          flex-direction: column;
-
-          div {
-            flex-direction: row;
-            text-align: left;
-
-            h4 {
-              text-align: right;
-              margin-top: 10px;
-              margin-left: auto;
-            }
-          }
-        }
-
-        // Header
-        div {
-
-          flex-direction: row;
-          flex: 1;
-
-          // Right-hand side with member/time information
-          div {
-            flex-direction: column;
-            margin: 0;
-            text-align: right;
-
-            h4 {
-              font-size: 10pt;
-
-              &:nth-of-type(2) {
-                font-style: italic;
-                font-weight: 200;
-              }
-            }
-          }
-        }
-
-        p {
-          margin-bottom: 0;
-        }
-
-        p, li {
-          font-weight: 200;
-          &:first-of-type { margin-top: 10px; }
-        }
-      }
-    }
   }
 
-
-  h1, h2, h3, h4 { font-weight: 300; }
 
   ul {
 
     margin: 0;
 
     li { font-size: 10pt; }
+  }
+
+  a, img { cursor: pointer; }
+
+  img {
+    border-radius: 50%;
+    max-width: 64px;
+    max-height: 64px;
+
+    @media screen and (min-width: 800px) {
+      margin-left: 5%;
+    }
   }
 
   .courseListsContainer {
@@ -208,4 +141,120 @@
   }
 
   padding-bottom: 30px;
+}
+
+
+.header {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  white-space: nowrap;
+
+  div {
+
+    flex-direction: column;
+    margin: 15px 0 0 auto;
+    text-align: right;
+    width: max-content;
+
+    h3, h4 { margin: 0.2em 0 auto auto; }
+
+    h3 { font-size: 11pt; }
+    h4 {
+      font-weight: 200;
+      font-size: 10pt;
+      font-style: italic;
+    }
+
+  }
+}
+
+#certificateHeader {
+
+  text-align: left;
+  margin: 10px auto auto 0;
+
+  h3 {
+    font-size: 16pt;
+  }
+
+  h4 {
+    font-size: 14pt;
+    font-style: normal;
+    font-weight: 300;
+  }
+
+}
+
+.workContainer {
+
+  display: flex;
+  flex-direction: column;
+
+  > div {
+
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    word-break: break-word;
+
+
+    &:not(:first-of-type) {
+      border-top: 1px solid black;
+    }
+  }
+
+  .header {
+    * { margin-bottom: 0; }
+    h3 { font-size: 16pt; }
+  }
+}
+
+.college_info {
+
+  justify-content: space-between;
+
+  // Main Degree Title
+  > div {
+
+    h3, h4 {
+      font-family: "Raleway", sans-serif;
+      font-weight: 400;
+    }
+
+    flex: 1 1 0;
+    margin: 10px auto 10px 30px;
+
+    h3, h4 { margin: 0; }
+    h3 { font-size: 14pt; }
+    h4 { font-size: 12pt; }
+  }
+
+  // Timeframe
+  div:last-of-type {
+    flex: 0;
+    text-align: right;
+    word-break: keep-all;
+    line-break: strict;
+
+    p {
+      margin: 0;
+      font-weight: 300;
+      white-space: nowrap;
+
+      &:last-child {
+        font-style: italic;
+        font-weight: 200;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    margin: 0;
+  }
 }

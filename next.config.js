@@ -1,7 +1,13 @@
 module.exports = {
+
+    future: {
+        webpack5: true,
+    },
+
     images: {
         domains: ['avatars0.githubusercontent.com'],
     },
+
 
     env: {
 
@@ -9,13 +15,13 @@ module.exports = {
         github: 'bradendubois',
 
         // Repository of statistics project
-        statistics: 'probability-code',
+        do_calculus: 'do-calculus',
 
         // Repository of competitive programming resources
         competitive: 'competitive-programming',
 
         // Public repository of xv6 changes
-        xv6_public: 'xv6-riscv-changes',
+        xv6_public: 'xv6-riscv-public',
 
         // Repository of advent of code solutions
         advent: 'advent-of-code',

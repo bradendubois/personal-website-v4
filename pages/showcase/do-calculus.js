@@ -13,11 +13,11 @@ import Layout from "../../components/Layout";
 export const StatisticsProjectDetails = {
     title: "Statistics Software",
     description: <p>A software package supporting <i>do-calculus</i> and other causal inference tools.</p>,
-    href: "/showcase/statistics",
-    id: "statistics",
+    href: "/showcase/do-calculus",
+    id: "do-calculus",
     links: [
         {
-            href: `https://github.com/${process.env.github}/${process.env.statistics}`,
+            href: `https://github.com/${process.env.github}/${process.env.do_calculus}`,
             alt: "Github",
             image: "/github-icon.png"
         }
@@ -79,13 +79,8 @@ const Statistics = () => {
                     <h3>Technical Details</h3>
                     <p>
                         The project is built entirely in <strong>Python</strong>, and is
-                        hosted <a href={`https://github.com/${process.env.github}/${process.env.statistics}`}>on Github</a>.
-                        There is currently a main REPL system that allows the user to examine the graphical models presented
-                        throughout <i>Causality</i> (Pearl 2000, 2009), and <i>The Book of Why</i> (Pearl, Mackenzie,
-                        2018), though models can be added to the software. As well, an <strong>API</strong> and,
-                        subsequently, availability on the <strong>Python Package Index</strong> (PyPI) for integration
-                        into other projects is planned. Documentation on adding models
-                        is <a href={`https://github.com/${process.env.github}/${process.env.statistics}/blob/master/documentation/causal_graph_files.md`}>available here</a>.
+                        hosted <a href={`https://github.com/${process.env.github}/${process.env.do_calculus}`}>on Github</a>.
+                        An <strong>API</strong> is implemented, and the package can be installed through <a href={`https://pypi.org/project/do-calculus`}>PyPI</a>.
                     </p>
                 </motion.div>
 

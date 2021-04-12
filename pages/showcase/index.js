@@ -8,7 +8,7 @@ import {motion} from "framer-motion"
 
 import {ProjectStub} from "../../components/ProjectStub/ProjectStub";
 
-import {StatisticsProjectDetails} from "./statistics";
+import {StatisticsProjectDetails} from "./do-calculus";
 import {CompetitiveProgrammingDetails} from "./competitive-programming";
 import {xv6ProjectDetails} from "./xv6";
 
