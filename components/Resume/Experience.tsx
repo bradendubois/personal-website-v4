@@ -4,7 +4,7 @@ import style from "../../styles/Resume.module.scss";
 import Link from "next/link";
 import React from "react";
 
-const WorkExperience = () =>
+const Experience = () =>
 
     <motion.div {...motionContainer} className={style.container}>
         <motion.div {...motionChild}>
@@ -57,4 +57,4 @@ const WorkExperience = () =>
 
     </motion.div>
 
-export default WorkExperience
+export default Experience
