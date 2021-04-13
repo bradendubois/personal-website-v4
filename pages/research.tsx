@@ -8,7 +8,7 @@ const Research = () => {
 
     return (
 
-        <Layout>
+        <Layout footer={false}>
             <Head>
                 <title>Research</title>
             </Head>

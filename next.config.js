@@ -8,7 +8,6 @@ module.exports = {
         domains: ['avatars0.githubusercontent.com'],
     },
 
-
     env: {
 
         // Github username
