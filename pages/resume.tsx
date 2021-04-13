@@ -253,6 +253,6 @@ export const getStaticProps = async (context) => {
 
         revalidate: 3600 * 24   // 24 hours
     }
-
 }
+
 export default Resume
