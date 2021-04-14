@@ -37,7 +37,7 @@ export const StatisticsProjectDetails = {
 const Statistics = () => {
 
     return (
-        <Layout>
+        <Layout footer={false}>
             <Head>
                 <title>Statistics</title>
             </Head>

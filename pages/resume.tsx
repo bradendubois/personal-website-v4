@@ -41,6 +41,35 @@ const Class = ({ subject, course, name }) => {
     )
 }
 
+const TimeReduce = (sy, sd, ey, ed) => {
+
+    let seasonalMap = {
+        "January": "Winter",
+        "February": "Winter",
+        "March": "Winter",
+        "April": "Winter",
+        "May": "Spring",
+        "June": "Spring",
+        "July": "Summer",
+        "August": "Summer",
+        "September": "Fall",
+        "October": "Fall",
+        "December": "Fall"
+    }
+
+    let season1 = seasonalMap[sd] ?? sd
+
+    if (ey === undefined || ey === null) {
+        return `${season1} ${sy} - Present`
+    }
+
+    let season2 = seasonalMap[ed] ?? ed
+
+    if (sy == ey && season1 === season2) {
+        return `${season1} ${sy}`
+    }
+}
+
 const Resume = ({ employments, programs }) => {
 
     return (
@@ -65,7 +94,7 @@ const Resume = ({ employments, programs }) => {
                         <motion.div key={i} {...motionChild} >
                             <div className={style.header}>
                                 <h3>{employment.title}</h3>
-                                <h4>{employment.start_month} {employment.start_year} - {employment.end_month} {employment.end_year ?? "Present"}</h4>
+                                <h4>{TimeReduce(employment.year_start, employment.year_start_detail, employment.year_end, employment.year_end_detail)}</h4>
                             </div>
 
                             <ul>
@@ -78,6 +107,7 @@ const Resume = ({ employments, programs }) => {
 
                 {/* Programs - Undergraduate, Certificate */}
                 {programs
+                    .sort((program_a, program_b) => (program_b.year_end ?? 3000) - (program_a.year_end ?? 3000))
                     .map((program, i) =>
 
                         <div key={i} className={style.container}>
@@ -102,7 +132,7 @@ const Resume = ({ employments, programs }) => {
                                 </div>
 
                                 <div>
-                                    <p>{program.year_began} - {program.year_finish ?? "Present"}</p>
+                                    <p>{program.year_start} - {program.year_end ?? "Present"}</p>
                                     <p>Saskatoon, SK</p>
                                 </div>
                             </motion.div>
@@ -129,15 +159,16 @@ const Resume = ({ employments, programs }) => {
                             </motion.div>
 
                             {/* Achievements */}
-                            {program.achievements &&
+                            {program.achievements?.length > 0 &&
                             <motion.div {...motionChild} >
                                 <h2>Achievements</h2>
                                 <div>
-                                    {program.achievements.map((achievement, i) =>
+                                    {program.achievements
+                                        .map((achievement, i) =>
                                         <div key={i}>
                                             <div className={style.header}>
                                                 <h3>{achievement.title}</h3>
-                                                <div><h3>{achievement.year_modifier} {achievement.year}</h3></div>
+                                                <div><h3>{achievement.year_detail} {achievement.year}</h3></div>
                                             </div>
 
                                             <p>{achievement.description}</p>
@@ -147,7 +178,7 @@ const Resume = ({ employments, programs }) => {
                             </motion.div>}
 
                             {/* Groups */}
-                            {program.groups &&
+                            {program.groups?.length > 0 &&
                             <motion.div {...motionChild}>
                                 <h2>Groups & Societies</h2>
                                 <div>
@@ -157,13 +188,13 @@ const Resume = ({ employments, programs }) => {
                                             <h3>{group.title}</h3>
                                             <div>
                                                 <h3>{group.role}</h3>
-                                                <h4>{group.join_year} - {group.exit_year ?? "Present"}</h4>
+                                                <h4>{group.year_start} - {group.year_end ?? "Present"}</h4>
                                             </div>
                                         </div>
 
-                                        {group.details &&
+                                        {group.details?.length > 0 &&
                                         <ul>
-                                            {group.details.map((detail, i) => <li key={i}>{detail}</li>)}
+                                            {Object.values(group.details).map((detail, i) => <li key={i}>{detail}</li>)}
                                         </ul>}
                                     </div>)}
                                 </div>
@@ -181,6 +212,7 @@ const Resume = ({ employments, programs }) => {
 export const getStaticProps = async (context) => {
 
     const apiQuery = `
+    
         query {
   
           employment {
@@ -188,11 +220,11 @@ export const getStaticProps = async (context) => {
             title
             description
             
-            start_year
-            start_month
+            year_start
+            year_start_detail
             
-            end_year
-            end_month
+            year_end
+            year_end_detail
           }
           
           programs {
@@ -201,8 +233,8 @@ export const getStaticProps = async (context) => {
             field
             institution
             location
-            year_began
-            year_finish
+            year_start
+            year_end
             
             courses {
               subject
@@ -214,22 +246,16 @@ export const getStaticProps = async (context) => {
               title
               description
               year
-              year_modifier
+              year_detail
             }
             
             groups {
               title
               role
               details
-              join_year
-              exit_year
+              year_start
+              year_end
             }
-          }
-          
-          employment {
-            title
-            description
-            start_year
           }
         }
     `
@@ -245,6 +271,8 @@ export const getStaticProps = async (context) => {
         .then(response => response.json())
         .then(json => json.data)
 
+
+    console.log(data.programs.map(p => p.groups))
     return {
         props: {
             employments: data.employment,

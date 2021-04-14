@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react"
-
 import Head from "next/head"
 import router from "next/router"
 
+import { useState, useEffect } from "react"
+
+import Layout from "../components/Layout"
+
 import { motion } from "framer-motion"
+import {motionChild, motionContainer} from "../components/motions";
 
 import style from "../styles/404.module.scss"
 
-import {motionChild, motionContainer} from "../components/motions";
 
 const Custom404 = () => {
 
@@ -27,7 +29,7 @@ const Custom404 = () => {
     }, [seconds])
 
     return (
-        <div>
+        <Layout footer={true}>
             <Head>
                 <title>Page Not Found</title>
             </Head>
@@ -46,7 +48,7 @@ const Custom404 = () => {
 
                 {cancelled && <motion.p {...motionChild}>Not a lot of reason to stay here, but alright.</motion.p>}
             </motion.main>
-        </div>
+        </Layout>
     )
 }
 

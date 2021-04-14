@@ -16,8 +16,8 @@ import styles from '../styles/Home.module.scss'
 
 const Home = ({ links }) => {
 
-    const github = links.find(link => link.network === "Github")
-    const linkedIn = links.find(link => link.network === "LinkedIn")
+    const github = links.find(link => link.network === "github")
+    const linkedIn = links.find(link => link.network === "linkedin")
     const email = links.find(link => link.network === "email")
 
     return (
