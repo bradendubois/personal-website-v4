@@ -14,17 +14,19 @@ import {xv6ProjectDetails} from "./xv6";
 
 import style from "../../styles/Showcase.module.scss"
 import {motionChild, motionContainer} from "../../components/motions";
+import {GraphQLProjectDetails} from "./GraphQL";
 
 const Showcase = () => {
 
     const Projects = [
         StatisticsProjectDetails,
         CompetitiveProgrammingDetails,
+        // GraphQLProjectDetails,
         xv6ProjectDetails
     ]
 
     return (
-        <Layout>
+        <Layout footer={false}>
             <Head>
                 <title>Showcase</title>
             </Head>

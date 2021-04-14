@@ -8,7 +8,6 @@ module.exports = {
         domains: ['avatars0.githubusercontent.com'],
     },
 
-
     env: {
 
         // Github username
@@ -33,5 +32,7 @@ module.exports = {
         github_profile: "https://github.com/bradendubois",
         linkedin_profile: "https://linkedin.com/in/bradendubois",
         email_link: "mailto:braden.dubois@usask.ca",
+
+        graphql_page: "https://api.bradendubois.dev/",
     }
 }

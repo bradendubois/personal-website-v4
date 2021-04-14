@@ -36,7 +36,7 @@ export const CompetitiveProgrammingDetails = {
 const CompetitiveProgramming = () => {
 
     return (
-        <Layout>
+        <Layout footer={false}>
             <motion.main {...motionContainer} className={showcaseStyle.content}>
 
                 <motion.div className={showcaseStyle.header} {...motionChild}>

@@ -32,7 +32,7 @@ export const xv6ProjectDetails = {
 const xv6 = () => {
 
     return (
-        <Layout>
+        <Layout footer={false}>
             <Head>
                 <title>xv6</title>
             </Head>

@@ -14,14 +14,22 @@ import {
 import styles from '../styles/Home.module.scss'
 
 
-const Home = () => {
+const Home = ({ links }) => {
+
+    const github = links.find(link => link.network === "github")
+    const linkedIn = links.find(link => link.network === "linkedin")
+    const email = links.find(link => link.network === "email")
 
     return (
-
-        <Layout>
+        <Layout footer={false}>
             <Head>
-                <title>Braden Dubois</title>
+                <title>Braden Dubois | Software Developer</title>
                 <link rel="icon" href="/favicon.ico" />
+                <meta charSet="UTF-8" />
+                <meta property="og:title" content="Braden Dubois | Software Developer" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://www.bradendubois.dev" />
+                <meta property="og:description" content="Portfolio and Resume of Braden Dubois | Software Developer, Research Assistant" />
             </Head>
 
             <motion.main {...motionContainer} className={styles.main}>
@@ -39,20 +47,20 @@ const Home = () => {
                 <motion.div {...motionContainerSlow} className={styles.links}>
 
                     <motion.div {...horizontalSlideinLeft}>
-                        <motion.a href={process.env.github_profile}>
-                            <img title={"github/bradendubois"} alt={"Github Icon"} src={'/github-icon.png'} />
+                        <motion.a href={github.link}>
+                            <img title={`github/${github.account}`} alt={"Github Icon"} src={'/github-icon.png'} />
                         </motion.a>
                     </motion.div>
 
                     <motion.div {...horizontalSlideinLeft}>
-                        <motion.a href={process.env.linkedin_profile}>
-                            <img title={"linkedin/in/bradendubois"} alt={"LinkedIn Icon"} src={'/linkedin.png'} />
+                        <motion.a href={linkedIn.link}>
+                            <img title={`linkedin/in/${linkedIn.account}`} alt={"LinkedIn Icon"} src={'/linkedin.png'} />
                         </motion.a>
                     </motion.div>
 
                     <motion.div {...horizontalSlideinLeft}>
-                        <motion.a href={process.env.email_link}>
-                            <img title={"braden.dubois@usask.ca"} alt={"Email Icon"} src={'/envelope.png'} />
+                        <motion.a href={email.link}>
+                            <img title={email.account} alt={"Email Icon"} src={'/envelope.png'} />
                         </motion.a>
                     </motion.div>
 
@@ -71,11 +79,41 @@ const Home = () => {
                         resume.</Link>
                     </motion.p>
                 </motion.div>
-
             </motion.main>
-
         </Layout>
     )
+}
+
+export const getStaticProps = async (context) => {
+
+    const apiQuery = `
+        query {
+            socials {
+                network
+                account
+                link
+            }
+        }
+    `
+
+    const data = await fetch("https://api.bradendubois.dev/api", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({ query: apiQuery })
+    })
+        .then(response => response.json())
+        .then(json => json.data)
+
+    return {
+        props: {
+            links: data.socials,
+        },
+
+        revalidate: 3600 * 24   // 24 hours
+    }
 }
 
 export default Home
