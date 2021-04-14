@@ -21,11 +21,15 @@ const Home = ({ links }) => {
     const email = links.find(link => link.network === "email")
 
     return (
-
         <Layout footer={false}>
             <Head>
-                <title>Braden Dubois</title>
+                <title>Braden Dubois | Software Developer</title>
                 <link rel="icon" href="/favicon.ico" />
+                <meta charSet="UTF-8" />
+                <meta property="og:title" content="Braden Dubois | Software Developer" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://www.bradendubois.dev" />
+                <meta property="og:description" content="Portfolio and Resume of Braden Dubois | Software Developer, Research Assistant" />
             </Head>
 
             <motion.main {...motionContainer} className={styles.main}>

@@ -90,7 +90,13 @@ const Resume = ({ employments, programs }) => {
                 <SectionTitle title={"Work & Research Experience"} />
 
                 <div className={`${style.workContainer} ${style.container}`} >
-                    {employments.map((employment, i) =>
+                    {employments
+                        .sort((a, b) => {
+                            let a_year = a.year_end ?? 3000
+                            let b_year = b.year_end ?? 3000
+                            return b_year - a_year
+                        })
+                        .map((employment, i) =>
                         <motion.div key={i} {...motionChild} >
                             <div className={style.header}>
                                 <h3>{employment.title}</h3>
@@ -271,8 +277,6 @@ export const getStaticProps = async (context) => {
         .then(response => response.json())
         .then(json => json.data)
 
-
-    console.log(data.programs.map(p => p.groups))
     return {
         props: {
             employments: data.employment,
