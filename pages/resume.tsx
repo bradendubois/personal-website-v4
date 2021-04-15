@@ -7,7 +7,7 @@ import Layout from "../components/Layout";
 import {motion} from "framer-motion";
 import {motionChild, motionContainer} from "../components/motions";
 
-import style from "../styles/Resume.module.scss";
+import style from "../styles/Resume.module.scss"
 
 // TODO
 type Employment = {

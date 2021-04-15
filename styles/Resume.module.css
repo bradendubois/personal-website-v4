@@ -33,6 +33,11 @@
   color: #b5b5b5;
   border-color: #b5b5b5;
 }
+@media screen and (max-width: 900px) {
+  #resume header {
+    flex-direction: column;
+  }
+}
 
 .container {
   padding-bottom: 30px;
@@ -140,19 +145,6 @@
     margin: 5px auto 10px 0;
     text-align: left;
   }
-}
-
-#certificateHeader {
-  text-align: left;
-  margin: 10px auto auto 0;
-}
-#certificateHeader h3 {
-  font-size: 16pt;
-}
-#certificateHeader h4 {
-  font-size: 14pt;
-  font-style: normal;
-  font-weight: 300;
 }
 
 .workContainer {

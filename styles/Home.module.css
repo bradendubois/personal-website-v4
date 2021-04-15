@@ -40,6 +40,7 @@
 }
 .main .titles {
   justify-content: space-between;
+  margin-top: 50px;
 }
 .main .links {
   justify-content: space-around;
