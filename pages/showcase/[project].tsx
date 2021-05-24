@@ -38,80 +38,76 @@ type ProjectData = {
     }[]
 }
 
-const Project = ({ project }: { project: ProjectData }) => {
+const Project = ({ project }: { project: ProjectData }) => (
 
-    console.log(project)
+    <Layout footer={false}>
+        <Head>
+            <title>{project.title}</title>
+        </Head>
 
-    return (
-        <Layout footer={false}>
-            <Head>
-                <title>{project.title}</title>
-            </Head>
+        <motion.main {...motionContainer} className={showcaseStyle.content} >
 
-            <motion.main {...motionContainer} className={showcaseStyle.content} >
+            <motion.div className={showcaseStyle.header} {...motionChild}>
+                <h1>{project.title}</h1>
+                <ReactMarkdown>{project.description}</ReactMarkdown>
+            </motion.div>
 
-                <motion.div className={showcaseStyle.header} {...motionChild}>
-                    <h1>{project.title}</h1>
-                    <ReactMarkdown>{project.description}</ReactMarkdown>
+            {/* Links */}
+            <div className={style.showcaseDetails} {...motionContainer}>
+
+                {/* Back button */}
+                <motion.div className={style.back} {...motionChild} whileHover={{scale: 1.1}}>
+                    <Link href={"/showcase"}>Back</Link>
                 </motion.div>
 
-                {/* Links */}
-                <div className={style.showcaseDetails} {...motionContainer}>
-
-                    {/* Back button */}
-                    <motion.div className={style.back} {...motionChild} whileHover={{scale: 1.1}}>
-                        <Link href={"/showcase"}>Back</Link>
-                    </motion.div>
-
-                    {/* Related repositories */}
-                    {project.repositories.length > 0 && (
-                        <motion.div {...motionChild}>
-                            {project.repositories.map(link => <a><img src={"/github"} alt={link.title} /></a>)}
-                        </motion.div>
-                    )}
-
-                    {/* Timeframe */}
+                {/* Related repositories */}
+                {project.repositories.length > 0 && (
                     <motion.div {...motionChild}>
-                        <h4>Activity</h4>
-                        <p>{project.year_start_detail} {project.year_start} - {project.year_end_detail} {project.year_end}</p>
+                        {project.repositories.map(link => <a><img src={"/github"} alt={link.title} /></a>)}
                     </motion.div>
+                )}
 
-                    {/* Collaborators */}
-                    {project.collaborators.length > 0 && (
-                        <motion.div {...motionChild}>
-                            <h4>Collaborator(s)</h4>
-                            <ul>
-                                {project.collaborators.map(person => <li><a href={person.url}>{person.title}</a></li>)}
-                            </ul>
-                        </motion.div>
-                    )}
+                {/* Timeframe */}
+                <motion.div {...motionChild}>
+                    <h4>Activity</h4>
+                    <p>{project.year_start_detail} {project.year_start} - {project.year_end_detail} {project.year_end}</p>
+                </motion.div>
 
-                    {/* Any related links*/}
-                    {project.related.length > 0 && (
-                        <motion.div {...motionChild}>
-                            <h4>Further</h4>
-                            <ul>
-                                {project.related.map(item => <li><a href={item.url}>{item.title}</a></li>)}
-                            </ul>
-                        </motion.div>
-                    )}
-                </div>
-
-                {/* Sections of Markdown content detailing the project */}
-                {project.content.map(block => (
-                    <motion.div>
-                        <h3>{block.title}</h3>
-                        <ReactMarkdown>
-                            {block.markdown}
-                        </ReactMarkdown>
+                {/* Collaborators */}
+                {project.collaborators.length > 0 && (
+                    <motion.div {...motionChild}>
+                        <h4>Collaborator(s)</h4>
+                        <ul>
+                            {project.collaborators.map(person => <li><a href={person.url}>{person.title}</a></li>)}
+                        </ul>
                     </motion.div>
-                ))}
+                )}
 
-            </motion.main>
+                {/* Any related links*/}
+                {project.related.length > 0 && (
+                    <motion.div {...motionChild}>
+                        <h4>Further</h4>
+                        <ul>
+                            {project.related.map(item => <li><a href={item.url}>{item.title}</a></li>)}
+                        </ul>
+                    </motion.div>
+                )}
+            </div>
 
-        </Layout>
-    )
-}
+            {/* Sections of Markdown content detailing the project */}
+            {project.content.map(block => (
+                <motion.div>
+                    <h3>{block.title}</h3>
+                    <ReactMarkdown>
+                        {block.markdown}
+                    </ReactMarkdown>
+                </motion.div>
+            ))}
+
+        </motion.main>
+
+    </Layout>
+)
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
