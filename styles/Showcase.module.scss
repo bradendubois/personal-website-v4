@@ -98,33 +98,4 @@
     }
 
   }
-
-  .textBlock {
-
-    margin-top: 50px;
-
-    display: flex;
-    flex-direction: row;
-
-    @media screen and (max-width: 1000px) {
-      flex-direction: column;
-    }
-
-    h3 {
-      flex: 1 1 0;
-    }
-
-    p {
-      flex: 2 1 0;
-      text-align: justify;
-      line-height: 1.5;
-      font-weight: 300;
-    }
-
-    em {
-      font-weight: 600;
-      font-style: normal;
-    }
-  }
-
 }

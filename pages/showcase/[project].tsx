@@ -10,16 +10,17 @@ import ReactMarkdown from "react-markdown";
 
 import style from "../../styles/Project.module.scss"
 
+type RepositoryLink = {
+    host: string
+    owner?: string
+    repository: string
+    title: string
+}
 
 type ProjectData = {
     title: string
     description: string
-    repositories: {
-        host: string
-        owner?: string
-        repository: string
-        title: string
-    }[]
+    repositories: RepositoryLink[]
     collaborators: {
        title: string
        url?: string
@@ -36,6 +37,19 @@ type ProjectData = {
        title: string
        markdown: string
     }[]
+}
+
+const RepoLink = (data: RepositoryLink) => {
+
+    let image = "/github-icon.png"
+
+    // Creates a link around an image, using the host and repository name to generate a link, and will
+    //  substitute an 'owner' name if one is provided, defaulting to personal github otherwise
+    return (
+        <a href={`https://${data.host}/${data.owner ?? process.env.github}/${data.repository}`}>
+            <img src={image} alt={data.title} />
+        </a>
+    )
 }
 
 const Project = ({ project }: { project: ProjectData }) => (
@@ -62,8 +76,8 @@ const Project = ({ project }: { project: ProjectData }) => (
 
                 {/* Related repositories */}
                 {project.repositories.length > 0 && (
-                    <motion.div {...motionChild}>
-                        {project.repositories.map(link => <a><img src={"/github"} alt={link.title} /></a>)}
+                    <motion.div {...motionChild} className={style.links}>
+                        {project.repositories.map(link => RepoLink(link))}
                     </motion.div>
                 )}
 
@@ -96,7 +110,7 @@ const Project = ({ project }: { project: ProjectData }) => (
 
             {/* Sections of Markdown content detailing the project */}
             {project.content.map(block => (
-                <motion.div>
+                <motion.div className={style.markdownBlock}>
                     <h3>{block.title}</h3>
                     <ReactMarkdown>
                         {block.markdown}

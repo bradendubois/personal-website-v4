@@ -80,28 +80,5 @@
 .content .details div {
   flex: 1 1 0;
 }
-.content .textBlock {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-}
-@media screen and (max-width: 1000px) {
-  .content .textBlock {
-    flex-direction: column;
-  }
-}
-.content .textBlock h3 {
-  flex: 1 1 0;
-}
-.content .textBlock p {
-  flex: 2 1 0;
-  text-align: justify;
-  line-height: 1.5;
-  font-weight: 300;
-}
-.content .textBlock em {
-  font-weight: 600;
-  font-style: normal;
-}
 
 /*# sourceMappingURL=Showcase.module.css.map */
