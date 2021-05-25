@@ -1,17 +1,15 @@
 import {createContext, useContext, useState} from "react";
 
 interface Theming {
-    currentTheme: ThemeOptions
     toggle(): void
 }
 
-enum ThemeOptions {
-    Light,
-    Dark
+export enum ThemeOptions {
+    Light = "light",
+    Dark = "dark"
 }
 
 const ThemeContext = createContext<Theming>({
-    currentTheme: ThemeOptions.Dark,
     toggle: () => {}
 })
 
@@ -24,10 +22,11 @@ export const ThemingProvider = ({ children }) => {
     }
 
     return (
-        <ThemeContext.Provider value={{
-            currentTheme,
-            toggle
-        }}>{children}</ThemeContext.Provider>
+        <ThemeContext.Provider value={{toggle}}>
+            <div className={currentTheme === ThemeOptions.Light ? "light-theme" : "dark-theme"}>
+                {children}
+            </div>
+        </ThemeContext.Provider>
     )
 }
 
