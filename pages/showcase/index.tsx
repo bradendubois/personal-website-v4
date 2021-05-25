@@ -6,10 +6,9 @@ import Layout from "../../components/Layout";
 import {motion} from "framer-motion"
 
 
-
+import ReactMarkdown from "react-markdown";
 import style from "../../styles/Showcase.module.scss"
 import {motionChild, motionContainer} from "../../components/motions";
-import {GetStaticPaths} from "next";
 
 type Summary = {
     title: string
@@ -54,7 +53,7 @@ const ProjectStub = (data: Summary) => {
                                 show: { opacity: 0},
                                 hover: { opacity: 1 }
                             }}
-                        ><p>{data.description}</p></motion.div>
+                        ><ReactMarkdown>{data.description}</ReactMarkdown></motion.div>
                     </motion.div>
                 </a>
             </Link>
