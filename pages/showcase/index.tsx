@@ -90,8 +90,8 @@ const Showcase = ({ projects, socials }) => {
                     <hr />
 
                     <div className={style.showcasePreviews}>
-                        {projects.map((details) => (
-                            <ProjectStub {...details} />
+                        {projects.map((details, i) => (
+                            <ProjectStub key={i} {...details} />
                         ))}
                     </div>
                 </motion.div>

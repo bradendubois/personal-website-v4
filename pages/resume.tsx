@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useState } from "react";
 import Layout from "../components/Layout";
 
 import { motionChild, motionContainer } from "../types/motions";
@@ -10,21 +11,18 @@ import { TimeReduce } from "../util/timeSimplify";
 import style from "../styles/Resume.module.scss";
 
 
-const Section = ({ children, title }) => {
-
-    return (
-        <motion.div {...motionChild} className={style.section}>
-            <div className={style.title}>
-                <hr />
-                <h1>{title}</h1>
-                <hr />
-            </div>
-            <div className={`${style.content}`}>
-                {children}
-            </div>
-        </motion.div>
-    )
-}
+const Section = ({ children, title }) => (
+    <motion.div {...motionChild} className={style.section}>
+        <div className={style.title}>
+            <hr />
+            <h1>{title}</h1>
+            <hr />
+        </div>
+        <div className={`${style.content}`}>
+            {children}
+        </div>
+    </motion.div>
+)
 
 
 const Class = ({ subject, course, name }) => {
@@ -45,6 +43,7 @@ const Resume = ({ employments, programs }) => {
             </Head>
 
             <motion.main {...motionContainer} id={style.resume}>
+
                 {/* Resume-related links */}
                 <motion.header {...motionChild}>
                     <a target={"_blank"} href={"/resume.pdf"}>
@@ -92,7 +91,7 @@ const Resume = ({ employments, programs }) => {
                     .sort((program_a, program_b) => (program_b.year_end ?? 3000) - (program_a.year_end ?? 3000))
                     .map((program, i) => (
 
-                        <Section title={program.title}>
+                        <Section title={program.title} key={i}>
 
                             {/* Header */}
                             <motion.div {...motionChild} className={style.college}>
