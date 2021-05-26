@@ -2,27 +2,13 @@ import Head from "next/head"
 import Link from "next/link";
 
 import Layout from "../components/Layout";
-
-import {motion} from "framer-motion";
 import {motionChild, motionContainer} from "../components/motions";
+import {motion} from "framer-motion";
 
-import style from "../styles/Resume.module.scss"
 import {TimeReduce} from "../util/timeSimplify";
 
-// TODO
-type Employment = {
-    title: string;
-    description: string[];
-    start_year: number;
-    start_month: number;
-    end_year?: number;
-    end_month?: number;
-}
+import style from "../styles/Resume.module.scss"
 
-// TODO
-type Program = {
-
-}
 
 const SectionTitle = ({ title }) =>
 
@@ -31,6 +17,7 @@ const SectionTitle = ({ title }) =>
         <h1>{title}</h1>
         <hr />
     </motion.div>
+
 
 const Class = ({ subject, course, name }) => {
 
@@ -44,7 +31,7 @@ const Class = ({ subject, course, name }) => {
 const Resume = ({ employments, programs }) => {
 
     return (
-        <Layout footer={false}>
+        <Layout>
             <Head>
                 <title>Resume</title>
             </Head>
@@ -176,11 +163,9 @@ const Resume = ({ employments, programs }) => {
                                     </div>)}
                                 </div>
                             </motion.div>}
-
                         </div>
                     )
                 }
-
             </motion.main>
         </Layout>
     )

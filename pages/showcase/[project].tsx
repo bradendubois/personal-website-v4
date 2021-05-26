@@ -54,7 +54,7 @@ const RepoLink = (data: RepositoryLink) => {
 
 const Project = ({ project }: { project: ProjectData }) => (
 
-    <Layout footer={false}>
+    <Layout>
         <Head>
             <title>{project.title}</title>
         </Head>

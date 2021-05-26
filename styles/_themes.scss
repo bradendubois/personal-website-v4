@@ -1,0 +1,8 @@
+$light-background: blue;
+$dark-background: dark;
+
+@mixin theme-colors() {
+
+  $background: $light-background
+
+}

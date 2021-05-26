@@ -29,7 +29,7 @@ const Custom404 = () => {
     }, [seconds])
 
     return (
-        <Layout footer={true}>
+        <Layout>
             <Head>
                 <title>Page Not Found</title>
             </Head>

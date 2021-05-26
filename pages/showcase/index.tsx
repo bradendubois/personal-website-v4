@@ -1,14 +1,14 @@
-import React from "react"
 import Head from "next/head"
 import Link from "next/link"
+
 import Layout from "../../components/Layout";
 
+import {motionChild, motionContainer} from "../../components/motions";
 import {motion} from "framer-motion"
 
-
 import ReactMarkdown from "react-markdown";
+
 import style from "../../styles/Showcase.module.scss"
-import {motionChild, motionContainer} from "../../components/motions";
 
 type Summary = {
     title: string
@@ -65,7 +65,7 @@ const Showcase = ({ projects }) => {
 
 
     return (
-        <Layout footer={false}>
+        <Layout>
             <Head>
                 <title>Showcase</title>
             </Head>

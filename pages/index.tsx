@@ -21,7 +21,7 @@ const Home = ({ links }) => {
     const email = links.find(link => link.network === "email")
 
     return (
-        <Layout footer={false}>
+        <Layout>
             <Head>
                 <title>Braden Dubois | Software Developer</title>
                 <link rel="icon" href="/favicon.ico" />
