@@ -61,8 +61,9 @@ const ProjectStub = (data: Summary) => {
     )
 }
 
-const Showcase = ({ projects }) => {
+const Showcase = ({ projects, socials }) => {
 
+    const github = socials.find(x => x.network === "github")
 
     return (
         <Layout>
@@ -86,7 +87,7 @@ const Showcase = ({ projects }) => {
                     <p>
                         I write software as a part of my <Link href={"/resume"}>research</Link>, as well in various
                         projects of personal interest. Any publicly-available project is accessible from
-                        my <a href={`https://github.com/${process.env.github}`}>Github (/{`${process.env.github}`})</a>.
+                        my <a href={github.link}>Github (/{github.account})</a>.
                         Particular areas of interest are <strong>web-projects</strong> and <strong>competitive
                         programming</strong>.
                     </p>
@@ -143,6 +144,11 @@ export const getStaticProps = async (context) => {
                 description
                 id
             }
+            socials {
+                network
+                account
+                link
+            }
         }
     `
 
@@ -160,6 +166,7 @@ export const getStaticProps = async (context) => {
     return {
         props: {
             projects: data.projects,
+            socials: data.socials
         },
 
         revalidate: 3600 * 24   // 24 hours
