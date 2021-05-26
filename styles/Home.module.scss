@@ -1,88 +1,88 @@
 .main {
-	// background: #1c3c53;
-	// color: white;
+    // background: #1c3c53;
+    // color: white;
 
-	padding-top: 50px;
-	padding-bottom: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 
-	@media screen and (max-width: 1000px) {
-		overflow-x: hidden;
-	}
+    @media screen and (max-width: 1000px) {
+        overflow-x: hidden;
+    }
 
-	h1 {
-		font-size: 48pt;
-		margin: 0 0 20px 0;
-	}
+    h1 {
+        font-size: 48pt;
+        margin: 0 0 20px 0;
+    }
 
-	> div {
-		display: flex;
-		flex-direction: row;
+    > div {
+        display: flex;
+        flex-direction: row;
 
-		margin: 10px;
+        margin: 10px;
 
-		&:last-of-type {
-			flex-direction: column;
+        &:last-of-type {
+            flex-direction: column;
 
-			p {
-				text-align: center;
-				word-break: break-word;
-				max-width: 90%;
-				margin: 15px auto;
-				font-size: 12pt;
-			}
-		}
-	}
+            p {
+                text-align: center;
+                word-break: break-word;
+                max-width: 90%;
+                margin: 15px auto;
+                font-size: 12pt;
+            }
+        }
+    }
 
-	p {
-		margin: 30px;
-	}
+    p {
+        margin: 30px;
+    }
 
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-	h1 {
-		text-align: center;
-	}
+    h1 {
+        text-align: center;
+    }
 
-	hr {
-		width: 100%;
-		margin: 20px 0;
-	}
+    hr {
+        width: 100%;
+        margin: 20px 0;
+    }
 
-	.titles {
-		justify-content: space-between;
-		margin-top: 50px;
-	}
-	.links {
-		justify-content: space-around;
-	}
+    .titles {
+        justify-content: space-between;
+        margin-top: 50px;
+    }
+    .links {
+        justify-content: space-around;
+    }
 
-	div {
-		display: flex;
-		flex-direction: row;
+    div {
+        display: flex;
+        flex-direction: row;
 
-		&:not(:last-of-type) p {
-			text-align: center;
-			flex: 1 1 0;
-			width: max-content;
-			margin: 5px;
-			padding: 0;
+        &:not(:last-of-type) p {
+            text-align: center;
+            flex: 1 1 0;
+            width: max-content;
+            margin: 5px;
+            padding: 0;
 
-			font-size: 13pt;
-			font-weight: 600;
-		}
+            font-size: 13pt;
+            font-weight: 600;
+        }
 
-		img {
-			visibility: visible;
-			height: 48px;
+        img {
+            visibility: visible;
+            height: 48px;
 
-			filter: grayscale(1);
-			transition: 0.2s;
+            filter: grayscale(1);
+            transition: 0.2s;
 
-			&:hover {
-				cursor: pointer;
-				filter: grayscale(0);
-			}
-		}
-	}
+            &:hover {
+                cursor: pointer;
+                filter: grayscale(0);
+            }
+        }
+    }
 }

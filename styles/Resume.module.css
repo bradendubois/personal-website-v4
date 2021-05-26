@@ -1,10 +1,14 @@
-#resume h1, #resume h2, #resume h3, #resume h4 {
+#resume h1,
+#resume h2,
+#resume h3,
+#resume h4 {
   font-weight: 300;
 }
 #resume * {
   font-family: "Inter", sans-serif;
 }
-#resume p, #resume li {
+#resume p,
+#resume li {
   font-weight: 200;
 }
 #resume header {
@@ -76,7 +80,8 @@
 .container ul li {
   font-size: 10pt;
 }
-.container a, .container img {
+.container a,
+.container img {
   cursor: pointer;
 }
 .container img {
@@ -121,7 +126,8 @@
   text-align: right;
   width: max-content;
 }
-.header div h3, .header div h4 {
+.header div h3,
+.header div h4 {
   margin: 0.2em 0 auto auto;
 }
 .header div h3 {
@@ -141,7 +147,9 @@
     margin-top: 15px;
     margin-bottom: 5px;
   }
-  .header *, .header div, .header div * {
+  .header *,
+.header div,
+.header div * {
     margin: 5px auto 10px 0;
     text-align: left;
   }
@@ -180,11 +188,13 @@
   flex: 1 1 0;
   margin: 10px auto 10px 30px;
 }
-.college_info > div h3, .college_info > div h4 {
+.college_info > div h3,
+.college_info > div h4 {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
 }
-.college_info > div h3, .college_info > div h4 {
+.college_info > div h3,
+.college_info > div h4 {
   margin: 0;
 }
 .college_info > div h3 {
@@ -212,7 +222,8 @@
   .college_info {
     margin: 0;
   }
-  .college_info a, .college_info img {
+  .college_info a,
+.college_info img {
     display: none;
   }
   .college_info div {
