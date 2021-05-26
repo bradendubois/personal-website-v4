@@ -110,7 +110,7 @@ const Project = ({ project }: { project: ProjectData }) => (
 
             {/* Sections of Markdown content detailing the project */}
             {project.content.map(block => (
-                <motion.div className={style.markdownBlock}>
+                <motion.div {...motionChild} className={style.markdownBlock}>
                     <h3>{block.title}</h3>
                     <ReactMarkdown>
                         {block.markdown}
