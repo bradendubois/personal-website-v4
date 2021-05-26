@@ -1,41 +1,40 @@
 .container {
+	display: flex;
+	flex-direction: row;
 
- display: flex;
- flex-direction: row;
+	width: 100%;
 
- width: 100%;
+	border-bottom: 1px solid black;
 
- border-bottom: 1px solid black;
+	.navLink {
+		cursor: pointer;
+		padding: 15px;
+		margin-left: 10px;
+		transition: 0.2s;
+		border-bottom: 2px solid;
 
- .navLink {
-  cursor: pointer;
-  padding: 15px;
-  margin-left: 10px;
-  transition: 0.2s;
-  border-bottom: 2px solid;
+		@media (max-width: 1200px) {
+			padding: 10px;
+			font-size: 11pt;
+		}
 
-  @media (max-width: 1200px) {
-   padding: 10px;
-   font-size: 11pt;
-  }
+		&:hover {
+			margin-top: -3px;
+		}
+	}
 
-  &:hover {
-   margin-top: -3px;
-  }
- }
+	.current {
+		color: #297ce2;
+		font-weight: 500;
+		border-color: #143e73;
+	}
 
- .current {
-  color: #297ce2;
-  font-weight: 500;
-  border-color: #143e73;
- }
+	.default {
+		font-weight: 300;
+		border-color: transparent;
 
- .default {
-  font-weight: 300;
-  border-color: transparent;
-
-  &:hover {
-   border-color: #cbc9c9;
-  }
- }
+		&:hover {
+			border-color: #cbc9c9;
+		}
+	}
 }
