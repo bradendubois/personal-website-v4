@@ -43,75 +43,119 @@
   }
 }
 
-.container {
-  padding-bottom: 30px;
+.college {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0;
 }
-.container > div {
+.college > div {
+  flex: 1 1 0;
+  margin: 10px auto 10px 30px;
+}
+.college > div h3,
+.college > div h4 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+.college > div h3,
+.college > div h4 {
+  margin: 0;
+}
+.college > div h3 {
+  font-size: 14pt;
+}
+.college > div h4 {
+  font-size: 12pt;
+}
+.college div:last-of-type {
+  flex: 0;
+  text-align: right;
+  word-break: keep-all;
+  line-break: strict;
+}
+.college div:last-of-type p {
+  margin: 0;
+  font-weight: 300;
+  white-space: nowrap;
+}
+.college div:last-of-type p:last-child {
+  font-style: italic;
+  font-weight: 200;
+}
+@media screen and (max-width: 800px) {
+  .college {
+    margin: 0;
+  }
+  .college a,
+.college img {
+    display: none;
+  }
+  .college div {
+    margin-left: 0;
+  }
+}
+.college ~ div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-top: 20px;
 }
-.container > div:not(.sectionTitle) {
-  margin-left: 50px;
-}
 @media screen and (max-width: 800px) {
-  .container > div:not(.sectionTitle) {
-    margin-left: 10px;
-  }
-}
-.container > div:nth-child(n+3) {
-  border-top: 1px solid black;
-}
-@media screen and (max-width: 800px) {
-  .container > div:nth-child(n+3) {
+  .college ~ div {
     flex-direction: column;
   }
 }
-.container > div h2 {
+.college ~ div h2 {
   flex: 0 0 calc(30% - 10px);
 }
-.container > div h2 + div {
+.college ~ div h2 + div {
   flex: 0 0 calc(70% - 10px);
 }
-.container ul {
+.college ~ div .courseListsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.college ~ div .courseListsContainer * {
+  width: max-content;
   margin: 0;
 }
-.container ul li {
+.college ~ div .courseListsContainer h3 {
+  margin-top: 20px;
+  margin-right: 0;
+}
+.college ~ div .courseListsContainer ul {
+  margin: 10px 0 0 0;
+}
+.college ~ div .courseListsContainer ul li {
+  margin: 0;
+  padding: 0;
+  font-size: 9pt;
+}
+.college ~ div .courseListsContainer ul li a {
+  margin: 0;
+  padding: 0;
+  font-size: 9pt;
+}
+.college ul {
+  margin: 0;
+}
+.college ul li {
   font-size: 10pt;
 }
-.container a,
-.container img {
+.college a,
+.college img {
   cursor: pointer;
 }
-.container img {
+.college img {
   border-radius: 50%;
   max-width: 64px;
   max-height: 64px;
 }
 @media screen and (min-width: 800px) {
-  .container img {
+  .college img {
     margin-left: 5%;
   }
-}
-.container .courseListsContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.container .courseListsContainer * {
-  width: max-content;
-  margin: 0;
-}
-.container .courseListsContainer h3 {
-  margin-top: 20px;
-  margin-right: 0;
-}
-.container .courseListsContainer ul {
-  margin: 10px 0 0 0;
-}
-.container .courseListsContainer ul li a {
-  font-size: 9pt;
 }
 
 .header {
@@ -155,103 +199,62 @@
   }
 }
 
-.workContainer {
-  display: flex;
-  flex-direction: column;
-}
-.workContainer ul {
-  margin-top: 20px;
-}
-.workContainer ul li {
-  font-size: 12pt;
-}
-.workContainer > div {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  word-break: break-word;
-}
-.workContainer > div:not(:first-of-type) {
-  border-top: 1px solid black;
-}
-.workContainer .header * {
-  margin-bottom: 0;
-}
-.workContainer .header h3 {
-  font-size: 16pt;
-}
-
-.college_info {
-  justify-content: space-between;
-}
-.college_info > div {
-  flex: 1 1 0;
-  margin: 10px auto 10px 30px;
-}
-.college_info > div h3,
-.college_info > div h4 {
-  font-family: "Raleway", sans-serif;
-  font-weight: 400;
-}
-.college_info > div h3,
-.college_info > div h4 {
-  margin: 0;
-}
-.college_info > div h3 {
-  font-size: 14pt;
-}
-.college_info > div h4 {
-  font-size: 12pt;
-}
-.college_info div:last-of-type {
-  flex: 0;
-  text-align: right;
-  word-break: keep-all;
-  line-break: strict;
-}
-.college_info div:last-of-type p {
-  margin: 0;
-  font-weight: 300;
-  white-space: nowrap;
-}
-.college_info div:last-of-type p:last-child {
-  font-style: italic;
-  font-weight: 200;
-}
-@media screen and (max-width: 800px) {
-  .college_info {
-    margin: 0;
-  }
-  .college_info a,
-.college_info img {
-    display: none;
-  }
-  .college_info div {
-    margin-left: 0;
-  }
-}
-
-.sectionTitle {
+.section .title {
   display: flex;
   flex-direction: row;
 }
-.sectionTitle h1 {
+.section .title h1 {
   font-size: 18pt;
   font-style: italic;
 }
-.sectionTitle hr {
+.section .title hr {
   flex: 1;
   height: 1px;
   margin: auto;
   border: 0;
 }
-.sectionTitle hr:first-of-type {
+.section .title hr:first-of-type {
   margin-right: 10px;
   background-image: linear-gradient(to right, #333, #707070);
 }
-.sectionTitle hr:last-of-type {
+.section .title hr:last-of-type {
   margin-left: 10px;
   background-image: linear-gradient(to right, #707070, #333);
+}
+.section .content {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+@media screen and (max-width: 800px) {
+  .section .content {
+    margin-left: 10px;
+  }
+}
+.section .content > div:not(:first-of-type) {
+  border-top: 1px solid black;
+}
+.section .content > div:last-of-type {
+  margin-bottom: 50px;
+}
+
+.employment ul {
+  margin-top: 20px;
+}
+.employment ul li {
+  font-size: 12pt;
+}
+.employment > div {
+  flex: 1;
+  word-break: break-word;
+}
+.employment > div:not(:first-of-type) {
+  border-top: 1px solid black;
+}
+.employment .header * {
+  margin-bottom: 0;
+}
+.employment .header h3 {
+  font-size: 16pt;
 }
 
 /*# sourceMappingURL=Resume.module.css.map */

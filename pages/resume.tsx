@@ -9,13 +9,23 @@ import { TimeReduce } from "../util/timeSimplify";
 
 import style from "../styles/Resume.module.scss";
 
-const SectionTitle = ({ title }) => (
-    <motion.div {...motionChild} className={style.sectionTitle}>
-        <hr />
-        <h1>{title}</h1>
-        <hr />
-    </motion.div>
-);
+
+const Section = ({ children, title }) => {
+
+    return (
+        <motion.div {...motionChild} className={style.section}>
+            <div className={style.title}>
+                <hr />
+                <h1>{title}</h1>
+                <hr />
+            </div>
+            <div className={`${style.content}`}>
+                {children}
+            </div>
+        </motion.div>
+    )
+}
+
 
 const Class = ({ subject, course, name }) => {
     const url = `${process.env.catalogue_prefix}${subject}-${course}`;
@@ -46,9 +56,7 @@ const Resume = ({ employments, programs }) => {
                 </motion.header>
 
                 {/* Work / Research Experience */}
-                <SectionTitle title={"Work & Research Experience"} />
-
-                <div className={`${style.workContainer} ${style.container}`}>
+                <Section title={"Work & Research Experience"}>
                     {employments
                         .sort((a, b) => {
                             let a_year = a.year_end ?? 3000;
@@ -56,7 +64,7 @@ const Resume = ({ employments, programs }) => {
                             return b_year - a_year;
                         })
                         .map((employment, i) => (
-                            <motion.div key={i} {...motionChild}>
+                            <motion.div key={i} {...motionChild} className={style.employment}>
                                 <div className={style.header}>
                                     <h3>{employment.title}</h3>
                                     <h4>
@@ -76,18 +84,18 @@ const Resume = ({ employments, programs }) => {
                                 </ul>
                             </motion.div>
                         ))}
-                </div>
+                </Section>
+
 
                 {/* Programs - Undergraduate, Certificate */}
                 {programs
                     .sort((program_a, program_b) => (program_b.year_end ?? 3000) - (program_a.year_end ?? 3000))
                     .map((program, i) => (
-                        <div key={i} className={style.container}>
-                            {/* Title */}
-                            <SectionTitle title={program.title} />
+
+                        <Section title={program.title}>
 
                             {/* Header */}
-                            <motion.div {...motionChild} className={style.college_info}>
+                            <motion.div {...motionChild} className={style.college}>
                                 {/* TODO - Proper Image/Link lookup */}
                                 <Link href={"https://www.usask.ca"}>
                                     <img src={"/usask.png"} alt={"Logo of the University of Saskatchewan"} />
@@ -179,7 +187,7 @@ const Resume = ({ employments, programs }) => {
                                     </div>
                                 </motion.div>
                             )}
-                        </div>
+                        </Section>
                     ))}
             </motion.main>
         </Layout>
