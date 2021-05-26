@@ -80,28 +80,43 @@
 .content .details div {
   flex: 1 1 0;
 }
-.content .textBlock {
-  margin-top: 50px;
+
+.stubContainer {
+  margin: 10px;
   display: flex;
-  flex-direction: row;
 }
-@media screen and (max-width: 1000px) {
-  .content .textBlock {
-    flex-direction: column;
+@media screen and (max-width: 800px) {
+  .stubContainer {
+    margin: 10px auto;
   }
 }
-.content .textBlock h3 {
+.stubContainer .projectStub {
+  outline: 1px solid black;
   flex: 1 1 0;
+  max-width: 400px;
+  max-height: 100px;
+  cursor: pointer;
+  color: black;
+  padding: 10px;
+  box-shadow: 1px 0 5px #454545;
 }
-.content .textBlock p {
-  flex: 2 1 0;
-  text-align: justify;
-  line-height: 1.5;
+@media screen and (max-width: 800px) {
+  .stubContainer .projectStub {
+    margin: 0;
+  }
+}
+.stubContainer .projectStub h3 {
+  font-size: 12pt;
+  font-weight: 400;
+  margin: 0;
+}
+.stubContainer .projectStub div p {
   font-weight: 300;
 }
-.content .textBlock em {
-  font-weight: 600;
-  font-style: normal;
+.stubContainer .projectStub div div {
+  display: flex;
+  flex-direction: row;
+  font-weight: 300;
 }
 
 /*# sourceMappingURL=Showcase.module.css.map */

@@ -12,6 +12,16 @@ body {
   font-family: -apple-system, "Inter", BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #0f72e5;
+  transition: 0.2s;
+}
+a:hover {
+  color: #115fba;
+}
+
 main {
   max-width: 1000px;
   margin: auto;
@@ -27,24 +37,18 @@ h1 {
   font-size: 20pt;
 }
 
-a {
-  /* color: inherit; */
-  text-decoration: none;
-  font-weight: 600;
-  color: #0f72e5;
-  transition: 0.2s;
-}
-
-a:hover {
-  color: #115fba;
-}
-
 p {
   font-size: 11pt;
 }
 
 li {
   list-style: circle outside;
+}
+
+code {
+  border-radius: 3px;
+  background-color: #ececec;
+  padding: 0 5px;
 }
 
 /*# sourceMappingURL=globals.css.map */
