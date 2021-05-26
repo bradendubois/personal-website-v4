@@ -46,7 +46,7 @@ const RepoLink = (data: RepositoryLink) => {
     // Creates a link around an image, using the host and repository name to generate a link, and will
     //  substitute an 'owner' name if one is provided, defaulting to personal github otherwise
     return (
-        <a href={`https://${data.host}/${data.owner}/${data.repository}`}>
+        <a href={`https://${data.host}.com/${data.owner}/${data.repository}`}>
             <img src={image} alt={data.title} />
         </a>
     )
