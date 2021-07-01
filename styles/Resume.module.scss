@@ -129,6 +129,30 @@
 }
 
 
+.skills {
+
+  display: flex;
+  flex-direction: row;
+
+  h2 {
+
+    text-transform: capitalize;
+    flex: 0 0 calc(30% - 10px);
+
+    & + div {
+
+      display: flex;
+      flex-direction: row;
+      flex: 0 0 calc(70% - 10px);
+
+      ul {
+        flex: 1 1 0;
+      }
+    }
+  }
+}
+
+
 // First-level info is on the image / title of degree
 .college {
 

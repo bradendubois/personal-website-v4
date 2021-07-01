@@ -52,6 +52,8 @@ const ExperiencePosition = (a) => {
 
 const Resume = ({ employments, programs, skills }) => {
 
+    let categories = Array.from(new Set(skills.map(skill => skill.category)))
+
     return (
         <Layout>
             <Head>
@@ -101,37 +103,38 @@ const Resume = ({ employments, programs, skills }) => {
                         ))}
                 </Section>
 
-
-
                 {/* Skills - Languages & Frameworks */}
-                <Section title={"Skills"}>
+                <SectionTitle title={"Skills"} />
 
-                    {Array.from(new Set(skills.map(skill => skill.category))).map((category, i) =>
-                        <motion.div {...motionChild} className={style.skills} key={i}>
+                <div className={`${style.container} ${style.skillContainer}`}>
+                    {categories.map((category, i) =>
+                        <motion.div {...motionChild} key={i}>
                             <h2>{category}</h2>
                             <div>
-                                <ul>
-                                    {skills
-                                        .filter(skill => skill.category === category)
-                                        .sort((a, b) => (ExperiencePosition(a) - ExperiencePosition(b)))
-                                        .filter((skill, i) => i % 2 == 0)
-                                        .map((skill, i) => <li>{skill.name}</li>
-                                    )}
-                                </ul>
+                                <div>
+                                    <ul>
+                                        {skills
+                                            .filter(skill => skill.category === category)
+                                            .sort((a, b) => (ExperiencePosition(a) - ExperiencePosition(b)))
+                                            .filter((skill, i) => i % 2 == 0)
+                                            .map((skill, i) => <li>{skill.name}</li>
+                                        )}
+                                    </ul>
 
-                                <ul>
-                                    {skills
-                                        .filter(skill => skill.category === category)
-                                        .sort((a, b) => (ExperiencePosition(a) - ExperiencePosition(b)))
-                                        .filter((skill, i) => i % 2 != 0)
-                                        .map((skill, i) => <li>{skill.name}</li>
-                                    )}
-                                </ul>
+                                    <ul>
+                                        {skills
+                                            .filter(skill => skill.category === category)
+                                            .sort((a, b) => (ExperiencePosition(a) - ExperiencePosition(b)))
+                                            .filter((skill, i) => i % 2 != 0)
+                                            .map((skill, i) => <li>{skill.name}</li>
+                                        )}
+                                    </ul>
+                                </div>
+                                {i < categories.length - 1 && <hr />}
                             </div>
                         </motion.div>)
                     }
-                </Section>
-
+                </div>
 
 
                 {/* Programs - Undergraduate, Certificate */}
@@ -290,9 +293,9 @@ export const getStaticProps = async (context) => {
           }
 
           skills {
-            name
-            category
-            experience
+              name
+              category
+              experience
           }
         }
     `;
@@ -307,6 +310,7 @@ export const getStaticProps = async (context) => {
     })
         .then((response) => response.json())
         .then((json) => json.data);
+
 
     return {
         props: {
