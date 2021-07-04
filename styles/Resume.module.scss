@@ -147,6 +147,14 @@
 
       ul {
         flex: 1 1 0;
+
+        span {
+            display: none;
+        }
+
+        li:hover span {
+            display: unset;
+        }
       }
     }
   }
@@ -263,9 +271,8 @@
             }
         }
     }
+
 }
-
-
 
 .header {
     display: flex;

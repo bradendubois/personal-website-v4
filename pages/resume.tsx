@@ -25,6 +25,15 @@ const Section = ({ children, title }) => (
 )
 
 
+const SubSection = ({ children, title, ...props }) => (
+    children?.length > 0 &&
+    <motion.div {...motionChild} {...props}>
+        <h2>{title}</h2>
+        <div>{children}</div>
+    </motion.div>
+)
+
+
 const Class = ({ subject, course, name }) => {
     const url = `${process.env.catalogue_prefix}${subject}-${course}`;
 
@@ -51,6 +60,13 @@ const ExperiencePosition = (a) => {
 
 
 const Resume = ({ employments, programs, skills }) => {
+
+    const skillColumn = (column, category) => <ul>{skills
+            .filter(skill => skill.category === category)
+            .sort((a, b) => (ExperiencePosition(a) - ExperiencePosition(b)))
+            .filter((skill, i) => i % 2 == column)
+            .map((skill, i) => <li>{skill.name} &nbsp;<span>{"☆".repeat(ExperiencePosition(skill.experience))}</span></li>)}
+        </ul>
 
     return (
         <Layout>
@@ -101,38 +117,15 @@ const Resume = ({ employments, programs, skills }) => {
                         ))}
                 </Section>
 
-
-
                 {/* Skills - Languages & Frameworks */}
                 <Section title={"Skills"}>
-
                     {Array.from(new Set(skills.map(skill => skill.category))).map((category, i) =>
-                        <motion.div {...motionChild} className={style.skills} key={i}>
-                            <h2>{category}</h2>
-                            <div>
-                                <ul>
-                                    {skills
-                                        .filter(skill => skill.category === category)
-                                        .sort((a, b) => (ExperiencePosition(a) - ExperiencePosition(b)))
-                                        .filter((skill, i) => i % 2 == 0)
-                                        .map((skill, i) => <li>{skill.name}</li>
-                                    )}
-                                </ul>
-
-                                <ul>
-                                    {skills
-                                        .filter(skill => skill.category === category)
-                                        .sort((a, b) => (ExperiencePosition(a) - ExperiencePosition(b)))
-                                        .filter((skill, i) => i % 2 != 0)
-                                        .map((skill, i) => <li>{skill.name}</li>
-                                    )}
-                                </ul>
-                            </div>
-                        </motion.div>)
+                        <SubSection title={category} className={style.skills}>
+                            {skillColumn(0, category)}
+                            {skillColumn(1, category)}
+                        </SubSection>)
                     }
                 </Section>
-
-
 
                 {/* Programs - Undergraduate, Certificate */}
                 {programs
@@ -154,9 +147,7 @@ const Resume = ({ employments, programs, skills }) => {
                                 </div>
 
                                 <div>
-                                    <p>
-                                        {program.year_start} - {program.year_end ?? "Present"}
-                                    </p>
+                                    <p>{program.year_start} - {program.year_end ?? "Present"}</p>
                                     <p>Saskatoon, SK</p>
                                 </div>
                             </motion.div>
@@ -183,57 +174,44 @@ const Resume = ({ employments, programs, skills }) => {
                             </motion.div>
 
                             {/* Achievements */}
-                            {program.achievements?.length > 0 && (
-                                <motion.div {...motionChild}>
-                                    <h2>Achievements</h2>
-                                    <div>
-                                        {program.achievements.map((achievement, i) => (
-                                            <div key={i}>
-                                                <div className={style.header}>
-                                                    <h3>{achievement.title}</h3>
-                                                    <div>
-                                                        <h3>
-                                                            {achievement.year_detail} {achievement.year}
-                                                        </h3>
-                                                    </div>
-                                                </div>
-
-                                                <p>{achievement.description}</p>
+                            <SubSection title={"Achievements"}>
+                                {program.achievements.map((achievement, i) => (
+                                    <div key={i}>
+                                        <div className={style.header}>
+                                            <h3>{achievement.title}</h3>
+                                            <div>
+                                                <h3>{achievement.year_detail} {achievement.year}</h3>
                                             </div>
-                                        ))}
+                                        </div>
+                                        <p>{achievement.description}</p>
                                     </div>
-                                </motion.div>
-                            )}
+                                ))}
+                            </SubSection>
 
                             {/* Groups */}
-                            {program.groups?.length > 0 && (
-                                <motion.div {...motionChild}>
-                                    <h2>Groups & Societies</h2>
-                                    <div>
-                                        {program.groups.map((group, i) => (
-                                            <div key={i}>
-                                                <div className={style.header}>
-                                                    <h3>{group.title}</h3>
-                                                    <div>
-                                                        <h3>{group.role}</h3>
-                                                        <h4>
-                                                            {group.year_start} - {group.year_end ?? "Present"}
-                                                        </h4>
-                                                    </div>
-                                                </div>
-
-                                                {group.details?.length > 0 && (
-                                                    <ul>
-                                                        {Object.values(group.details).map((detail, i) => (
-                                                            <li key={i}>{detail}</li>
-                                                        ))}
-                                                    </ul>
-                                                )}
+                            <SubSection title={"Groups & Societies"}>
+                                {program.groups.map((group, i) => (
+                                    <div key={i}>
+                                        <div className={style.header}>
+                                            <h3>{group.title}</h3>
+                                            <div>
+                                                <h3>{group.role}</h3>
+                                                <h4>
+                                                    {group.year_start} - {group.year_end ?? "Present"}
+                                                </h4>
                                             </div>
-                                        ))}
+                                        </div>
+
+                                        {group.details?.length > 0 && (
+                                            <ul>
+                                                {Object.values(group.details).map((detail, i) => (
+                                                    <li key={i}>{detail}</li>
+                                                ))}
+                                            </ul>
+                                        )}
                                     </div>
-                                </motion.div>
-                            )}
+                                ))}
+                            </SubSection>
                         </Section>
                     ))}
             </motion.main>
