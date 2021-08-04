@@ -55,7 +55,7 @@ const Project = ({ project }: { project: ProjectData }) => (
                 <motion.div {...motionChild}>
                     <h4>Activity</h4>
                     <p>
-                        {project.year_start_detail} {project.year_start} - {project.year_end_detail} {project.year_end}
+                        {project.duration.start.detail} {project.duration.start.year} - {project.duration.end?.detail} {project.duration.end?.year}
                     </p>
                 </motion.div>
 
@@ -144,11 +144,17 @@ export const getStaticProps = async ({ params }) => {
                     title
                 }
              
-                year_start
-                year_start_detail
-                
-                year_end
-                year_end_detail
+                duration {
+                    start {
+                        year
+                        detail
+                    }
+
+                    end {
+                        year
+                        detail
+                    }
+                }
                 
                 collaborators {
                   title

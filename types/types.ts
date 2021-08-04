@@ -6,6 +6,11 @@ export type RepositoryLink = {
     title: string; // Formal title relevant if a link to the repository were being presented
 };
 
+type Time = {
+    year: number
+    detail: String
+}
+
 export type ProjectData = {
     title: string;
     description: string;
@@ -18,10 +23,12 @@ export type ProjectData = {
         title: string;
         url: string;
     }[];
-    year_start: number;
-    year_end?: number;
-    year_start_detail: string;
-    year_end_detail?: string;
+    
+    duration: {
+        start: Time
+        end?: Time
+    }
+    
     content: {
         title: string;
         markdown: string;

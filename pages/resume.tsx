@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useState } from "react";
 import Layout from "../components/Layout";
 
 import { motionChild, motionContainer } from "../types/motions";
@@ -89,21 +88,17 @@ const Resume = ({ employments, programs, skills }) => {
                 {/* Work / Research Experience */}
                 <Section title={"Work & Research Experience"}>
                     {employments
-                        .sort((a, b) => {
-                            let a_year = a.year_end ?? 3000;
-                            let b_year = b.year_end ?? 3000;
-                            return b_year - a_year;
-                        })
+                        .sort((a, b) => (b.duration.end?.year ?? 3000) - (a.duration.end?.year ?? 3000))
                         .map((employment, i) => (
                             <motion.div key={i} {...motionChild} className={style.employment}>
                                 <div className={style.header}>
                                     <h3>{employment.title}</h3>
                                     <h4>
                                         {TimeReduce(
-                                            employment.year_start,
-                                            employment.year_start_detail,
-                                            employment.year_end,
-                                            employment.year_end_detail
+                                            employment.duration.start.year,
+                                            employment.duration.start.detail,
+                                            employment.duration.end?.year,
+                                            employment.duration.end?.detail
                                         )}
                                     </h4>
                                 </div>
@@ -129,7 +124,7 @@ const Resume = ({ employments, programs, skills }) => {
 
                 {/* Programs - Undergraduate, Certificate */}
                 {programs
-                    .sort((program_a, program_b) => (program_b.year_end ?? 3000) - (program_a.year_end ?? 3000))
+                    .sort((program_a, program_b) => (program_b.duration.end.year ?? 3000) - (program_a.duration.end.year ?? 3000))
                     .map((program, i) => (
 
                         <Section title={program.title} key={i}>
@@ -147,7 +142,9 @@ const Resume = ({ employments, programs, skills }) => {
                                 </div>
 
                                 <div>
-                                    <p>{program.year_start} - {program.year_end ?? "Present"}</p>
+                                    <p>
+                                        {program.duration.start.year} - {program.duration.end?.year ?? "Present"}
+                                    </p>
                                     <p>Saskatoon, SK</p>
                                 </div>
                             </motion.div>
@@ -174,13 +171,22 @@ const Resume = ({ employments, programs, skills }) => {
                             </motion.div>
 
                             {/* Achievements */}
-                            <SubSection title={"Achievements"}>
-                                {program.achievements.map((achievement, i) => (
-                                    <div key={i}>
-                                        <div className={style.header}>
-                                            <h3>{achievement.title}</h3>
-                                            <div>
-                                                <h3>{achievement.year_detail} {achievement.year}</h3>
+                            {program.achievements?.length > 0 && (
+                                <motion.div {...motionChild}>
+                                    <h2>Achievements</h2>
+                                    <div>
+                                        {program.achievements.map((achievement, i) => (
+                                            <div key={i}>
+                                                <div className={style.header}>
+                                                    <h3>{achievement.title}</h3>
+                                                    <div>
+                                                        <h3>
+                                                            {achievement.when.detail} {achievement.when.year}
+                                                        </h3>
+                                                    </div>
+                                                </div>
+
+                                                <p>{achievement.description}</p>
                                             </div>
                                         </div>
                                         <p>{achievement.description}</p>
@@ -189,18 +195,21 @@ const Resume = ({ employments, programs, skills }) => {
                             </SubSection>
 
                             {/* Groups */}
-                            <SubSection title={"Groups & Societies"}>
-                                {program.groups.map((group, i) => (
-                                    <div key={i}>
-                                        <div className={style.header}>
-                                            <h3>{group.title}</h3>
-                                            <div>
-                                                <h3>{group.role}</h3>
-                                                <h4>
-                                                    {group.year_start} - {group.year_end ?? "Present"}
-                                                </h4>
-                                            </div>
-                                        </div>
+                            {program.groups?.length > 0 && (
+                                <motion.div {...motionChild}>
+                                    <h2>Groups & Societies</h2>
+                                    <div>
+                                        {program.groups.map((group, i) => (
+                                            <div key={i}>
+                                                <div className={style.header}>
+                                                    <h3>{group.title}</h3>
+                                                    <div>
+                                                        <h3>{group.role}</h3>
+                                                        <h4>
+                                                            {group.duration.start.year} - {group.duration.end?.year ?? "Present"}
+                                                        </h4>
+                                                    </div>
+                                                </div>
 
                                         {group.details?.length > 0 && (
                                             <ul>
@@ -228,12 +237,17 @@ export const getStaticProps = async (context) => {
 
             title
             description
-
-            year_start
-            year_start_detail
-
-            year_end
-            year_end_detail
+            
+            duration {
+              start {
+                year
+                detail
+              }
+              end {
+                year
+                detail
+              }
+            }
           }
 
           programs {
@@ -242,9 +256,16 @@ export const getStaticProps = async (context) => {
             field
             institution
             location
-            year_start
-            year_end
-
+            
+            duration {
+              start {
+                year
+              }
+              end {
+                year
+              }
+            }
+            
             courses {
               subject
               course
@@ -254,16 +275,25 @@ export const getStaticProps = async (context) => {
             achievements {
               title
               description
-              year
-              year_detail
+              when {
+                detail
+                year
+              }
             }
 
             groups {
               title
               role
               details
-              year_start
-              year_end
+              
+              duration {
+                start {
+                  year
+                }
+                end {
+                  year
+                }
+              }
             }
           }
 
