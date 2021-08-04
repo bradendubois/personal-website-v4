@@ -1,37 +1,30 @@
-import Head from "next/head"
-import Link from "next/link"
-
+import Head from "next/head";
+import Link from "next/link";
 import Layout from "../../components/Layout";
-
-import {motionChild, motionContainer} from "../../components/motions";
-import {motion} from "framer-motion"
 
 import ReactMarkdown from "react-markdown";
 
-import style from "../../styles/Showcase.module.scss"
+import { ProjectSummary } from "../../types/types";
+import { motionChild, motionContainer } from "../../types/motions";
+import { motion } from "framer-motion";
 
-type Summary = {
-    title: string
-    description: string
-    id: string
-}
+import style from "../../styles/Showcase.module.scss";
 
 const project = {
     hidden: { opacity: 0 },
     show: {
-        opacity: 1
+        opacity: 1,
     },
     hover: {
         opacity: 1,
-        scale: 1.05
-    }
-}
+        scale: 1.05,
+    },
+};
 
-const ProjectStub = (data: Summary) => {
-
+const ProjectStub = (data: ProjectSummary) => {
     return (
         <motion.div {...motionChild} className={style.stubContainer} id={data.id + "-stub"}>
-            <Link href={`/showcase/${data.id}`} >
+            <Link href={`/showcase/${data.id}`}>
                 <a>
                     <motion.div
                         className={style.projectStub}
@@ -44,26 +37,29 @@ const ProjectStub = (data: Summary) => {
                             variants={{
                                 hidden: { opacity: 0 },
                                 show: { opacity: 1, scale: 1.2, x: 40 },
-                                hover: { scale: 0.9, x: -15 }
+                                hover: { scale: 0.9, x: -15 },
                             }}
-                        >{data.title}</motion.h3>
+                        >
+                            {data.title}
+                        </motion.h3>
                         <motion.div
                             variants={{
                                 hidden: { opacity: 0 },
-                                show: { opacity: 0},
-                                hover: { opacity: 1 }
+                                show: { opacity: 0 },
+                                hover: { opacity: 1 },
                             }}
-                        ><ReactMarkdown>{data.description}</ReactMarkdown></motion.div>
+                        >
+                            <ReactMarkdown>{data.description}</ReactMarkdown>
+                        </motion.div>
                     </motion.div>
                 </a>
             </Link>
         </motion.div>
-    )
-}
+    );
+};
 
 const Showcase = ({ projects, socials }) => {
-
-    const github = socials.find(x => x.network === "github")
+    const github = socials.find((x) => x.network === "github");
 
     return (
         <Layout>
@@ -72,11 +68,7 @@ const Showcase = ({ projects, socials }) => {
             </Head>
 
             <motion.main {...motionContainer}>
-
-                <motion.div
-                    className={style.headerDiv}
-                    {...motionContainer}
-                >
+                <motion.div className={style.headerDiv} {...motionContainer}>
                     <motion.h1 {...motionChild}>Showcase</motion.h1>
                     <motion.p {...motionChild}>
                         Selected projects from my research or done out of personal interest.
@@ -86,10 +78,9 @@ const Showcase = ({ projects, socials }) => {
                 <motion.div className={style.mainTextContainer} {...motionChild}>
                     <p>
                         I write software as a part of my <Link href={"/resume"}>research</Link>, as well in various
-                        projects of personal interest. Any publicly-available project is accessible from
-                        my <a href={github.link}>Github (/{github.account})</a>.
-                        Particular areas of interest are <strong>web-projects</strong> and <strong>competitive
-                        programming</strong>.
+                        projects of personal interest. Any publicly-available project is accessible from my{" "}
+                        <a href={github.link}>Github (/{github.account})</a>. Particular areas of interest are{" "}
+                        <strong>web-projects</strong> and <strong>competitive programming</strong>.
                     </p>
                 </motion.div>
 
@@ -99,7 +90,9 @@ const Showcase = ({ projects, socials }) => {
                     <hr />
 
                     <div className={style.showcasePreviews}>
-                        {projects.map(details => <ProjectStub {...details} />) }
+                        {projects.map((details, i) => (
+                            <ProjectStub key={i} {...details} />
+                        ))}
                     </div>
                 </motion.div>
 
@@ -126,16 +119,12 @@ const Showcase = ({ projects, socials }) => {
                     </div>
                 </motion.div>
                 */}
-
             </motion.main>
-
         </Layout>
-    )
-}
-
+    );
+};
 
 export const getStaticProps = async (context) => {
-
     const apiQuery = `
     
         query {
@@ -150,28 +139,27 @@ export const getStaticProps = async (context) => {
                 link
             }
         }
-    `
+    `;
 
     const data = await fetch("https://api.bradendubois.dev/api", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         },
 
-        body: JSON.stringify({ query: apiQuery })
+        body: JSON.stringify({ query: apiQuery }),
     })
-        .then(response => response.json())
-        .then(json => json.data)
+        .then((response) => response.json())
+        .then((json) => json.data);
 
     return {
         props: {
             projects: data.projects,
-            socials: data.socials
+            socials: data.socials,
         },
 
-        revalidate: 3600 * 24   // 24 hours
-    }
-}
+        revalidate: 3600 * 24, // 24 hours
+    };
+};
 
-
-export default Showcase
+export default Showcase;

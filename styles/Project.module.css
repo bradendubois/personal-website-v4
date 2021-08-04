@@ -48,7 +48,9 @@
 .showcaseDetails div p {
   margin: 0;
 }
-.showcaseDetails div p, .showcaseDetails div a, .showcaseDetails div li {
+.showcaseDetails div p,
+.showcaseDetails div a,
+.showcaseDetails div li {
   font-weight: 300;
 }
 .showcaseDetails div a {

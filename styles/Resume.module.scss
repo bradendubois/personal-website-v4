@@ -1,296 +1,321 @@
 #resume {
 
-  h1, h2, h3, h4 { font-weight: 300; }
-
-
-  * {
-    font-family: "Inter", sans-serif;
-  }
-
-  p, li {
-    font-weight: 200;
-  }
-
-
-  header {
-
-    margin: 25px auto 15px auto;
-    padding: 10px;
-
-    display: flex;
-    flex-direction: row;
-
-    a {
-
-      flex: 1 1 0;
-
-      padding: 7px;
-      margin: 5px;
-      text-align: center;
-
-      border: 1px solid #222222;
-      border-radius: 2px;
-
-      font-weight: 300;
-      font-size: 10pt;
-      color: #222222;
-      transition: all 0.15s;
-
-      &:hover {
-        color: #454545;
-        border-color: #454545;
-      }
-
-      &:active {
-        color: #b5b5b5;
-        border-color: #b5b5b5;
-      }
+    * {
+        font-family: "Inter", sans-serif;
     }
 
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-weight: 300;
+    }
 
-    @media screen and (max-width: 900px) {
-      flex-direction: column;
+    p,
+    li {
+        font-weight: 200;
+    }
+
+    header {
+        margin: 25px auto 15px auto;
+        padding: 10px;
+
+        display: flex;
+        flex-direction: row;
+
+        a {
+            flex: 1 1 0;
+
+            padding: 7px;
+            margin: 5px;
+            text-align: center;
+
+            border: 1px solid #222222;
+            border-radius: 2px;
+
+            font-weight: 300;
+            font-size: 10pt;
+            color: #222222;
+            transition: all 0.15s;
+
+            &:hover {
+                color: #454545;
+                border-color: #454545;
+            }
+
+            &:active {
+                color: #b5b5b5;
+                border-color: #b5b5b5;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            flex-direction: column;
+        }
+    }
+}
+
+
+
+.section {
+
+    .title {
+
+        display: flex;
+        flex-direction: row;
+
+        h1 {
+            font-size: 18pt;
+            font-style: italic;
+        }
+
+        hr {
+            flex: 1;
+            height: 1px;
+            margin: auto;
+            border: 0;
+
+            &:first-of-type {
+                margin-right: 10px;
+                background-image: linear-gradient(to right, #333, #707070);
+            }
+
+            &:last-of-type {
+                margin-left: 10px;
+                background-image: linear-gradient(to right, #707070, #333);
+            }
+        }
+    }
+
+    .content {
+
+        margin-top: 20px;
+        margin-left: 50px;
+
+        @media screen and (max-width: 800px) {
+            margin-left: 10px;
+        }
+
+        > div:not(:first-of-type) {
+            border-top: 1px solid black;
+        }
+
+        > div:last-of-type {
+            margin-bottom: 50px;
+        }
+    }
+}
+
+.employment {
+
+    ul {
+        margin-top: 20px;
+        li { font-size: 12pt; }
+    }
+
+    > div {
+        flex: 1;
+        word-break: break-word;
+
+        &:not(:first-of-type) {
+            border-top: 1px solid black;
+        }
+    }
+
+    .header {
+        * { margin-bottom: 0; }
+        h3 { font-size: 16pt; }
+    }
+}
+
+
+.skills {
+
+  display: flex;
+  flex-direction: row;
+
+  h2 {
+
+    text-transform: capitalize;
+    flex: 0 0 calc(30% - 10px);
+
+    & + div {
+
+      display: flex;
+      flex-direction: row;
+      flex: 0 0 calc(70% - 10px);
+
+      ul {
+        flex: 1 1 0;
+
+        span {
+            display: none;
+        }
+
+        li:hover span {
+            display: unset;
+        }
+      }
     }
   }
 }
 
 
-.container {
+// First-level info is on the image / title of degree
+.college {
 
-  > div {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
 
+    a,
+    img {
+        cursor: pointer;
+    }
+
+    img {
+        border-radius: 50%;
+        max-width: 64px;
+        max-height: 64px;
+
+        @media screen and (min-width: 800px) {
+            margin-left: 5%;
+        }
+    }
+
+    // Main Degree Title (centered, type / major)
+    > div {
+
+        h3,
+        h4 {
+            font-family: "Raleway", sans-serif;
+            font-weight: 400;
+        }
+
+        flex: 1 1 0;
+        margin: 10px auto 10px 30px;
+
+        h3,
+        h4 {
+            margin: 0;
+        }
+        h3 {
+            font-size: 14pt;
+        }
+        h4 {
+            font-size: 12pt;
+        }
+    }
+
+    // Timeframe
+    div:last-of-type {
+        flex: 0;
+        text-align: right;
+        word-break: keep-all;
+        line-break: strict;
+
+        p {
+            margin: 0;
+            font-weight: 300;
+            white-space: nowrap;
+
+            &:last-child {
+                font-style: italic;
+                font-weight: 200;
+            }
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        margin: 0;
+
+        a, img { display: none; }
+        div {  margin-left: 0; }
+    }
+
+    // All divs that follow after the header info
+    ~ div {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        margin-top: 20px;
+
+        @media screen and (max-width: 800px) {
+            flex-direction: column;
+        }
+
+        // Control column appearance
+        h2 {
+            flex: 0 0 calc(30% - 10px);
+
+            & + div {
+                flex: 0 0 calc(70% - 10px);
+            }
+        }
+
+        .courseListsContainer {
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+
+            ul {
+                margin: 10px 0 0 0;
+
+                li {
+                    font-size: 9pt;
+                }
+            }
+        }
+    }
+
+}
+
+.header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
-    margin-top: 20px;
-
-    &:not(.sectionTitle) {
-      margin-left: 50px;
-
-      @media screen and (max-width: 800px) {
-        margin-left: 10px;
-      }
-    }
-
-    &:nth-child(n + 3) {
-      border-top: 1px solid black;
-
-      @media screen and (max-width: 800px) {
-        flex-direction: column;
-      }
-    }
-
-
-
-
-    // Control column appearance
-    h2 { flex: 0 0 calc(30% - 10px); }
-    h2 + div { flex: 0 0 calc(70% - 10px); }
-
-  }
-
-
-  ul {
-
-    margin: 0;
-
-    li { font-size: 10pt; }
-  }
-
-  a, img { cursor: pointer; }
-
-  img {
-    border-radius: 50%;
-    max-width: 64px;
-    max-height: 64px;
-
-    @media screen and (min-width: 800px) {
-      margin-left: 5%;
-    }
-  }
-
-  .courseListsContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    * {
-      width: max-content;
-      margin: 0;
-    }
-
-    h3 {
-      margin-top: 20px;
-      margin-right: 0;
-    }
-
-    ul { margin: 10px 0 0 0; }
-    ul li a {
-      font-size: 9pt;
-    }
-  }
-
-  padding-bottom: 30px;
-}
-
-
-.header {
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  white-space: nowrap;
-
-  div {
-
-    flex-direction: column;
-    margin: 15px 0 0 auto;
-    text-align: right;
-    width: max-content;
-
-    h3, h4 { margin: 0.2em 0 auto auto; }
-
-    h3 { font-size: 11pt; }
-    h4 {
-      font-weight: 200;
-      font-size: 10pt;
-      font-style: italic;
-    }
-  }
-
-
-  @media screen and (max-width: 800px) {
-
-    flex-direction: column;
-    text-align: left;
-
-    h3 {
-      margin-top: 15px;
-      margin-bottom: 5px;
-    }
-
-    *, div, div * {
-      margin: 5px auto 10px 0;
-      text-align: left;
-    }
-  }
-}
-
-.workContainer {
-
-  display: flex;
-  flex-direction: column;
-
-  ul {
-    margin-top: 20px;
-
-    li { font-size: 12pt; }
-  }
-
-  > div {
-
-
-    flex: 1;
-
-    display: flex;
-    flex-direction: column;
-
-    word-break: break-word;
-
-
-    &:not(:first-of-type) {
-      border-top: 1px solid black;
-    }
-  }
-
-  .header {
-    * { margin-bottom: 0; }
-    h3 { font-size: 16pt; }
-  }
-}
-
-
-.college_info {
-
-  justify-content: space-between;
-
-  // Main Degree Title
-  > div {
-
-    h3, h4 {
-      font-family: "Raleway", sans-serif;
-      font-weight: 400;
-    }
-
-    flex: 1 1 0;
-    margin: 10px auto 10px 30px;
-
-    h3, h4 { margin: 0; }
-    h3 { font-size: 14pt; }
-    h4 { font-size: 12pt; }
-  }
-
-  // Timeframe
-  div:last-of-type {
-    flex: 0;
-    text-align: right;
-    word-break: keep-all;
-    line-break: strict;
-
-    p {
-      margin: 0;
-      font-weight: 300;
-      white-space: nowrap;
-
-      &:last-child {
-        font-style: italic;
-        font-weight: 200;
-      }
-    }
-  }
-
-  @media screen and (max-width: 800px) {
-    margin: 0;
-
-    a, img {
-      display: none;
-    }
+    white-space: nowrap;
 
     div {
-      margin-left: 0;
-    }
-  }
-}
+        flex-direction: column;
+        margin: 15px 0 0 auto;
+        text-align: right;
+        width: max-content;
 
+        h3,
+        h4 {
+            margin: 0.2em 0 auto auto;
+        }
 
-// hr title
-.sectionTitle {
-
-    display: flex;
-    flex-direction: row;
-
-    h1 {
-      font-size: 18pt;
-      font-style: italic;
-    }
-
-    hr {
-      flex: 1;
-      height: 1px;
-      margin: auto;
-      border: 0;
-
-      &:first-of-type {
-        margin-right: 10px;
-        background-image: linear-gradient(to right, #333, #707070);
-      }
-
-      &:last-of-type {
-        margin-left: 10px;
-        background-image: linear-gradient(to right, #707070, #333);
-      }
+        h3 {
+            font-size: 11pt;
+        }
+        h4 {
+            font-weight: 200;
+            font-size: 10pt;
+            font-style: italic;
+        }
     }
 
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+        text-align: left;
+
+        h3 {
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        *,
+        div,
+        div * {
+            margin: 5px auto 10px 0;
+            text-align: left;
+        }
+    }
 }
