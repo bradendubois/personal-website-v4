@@ -172,44 +172,38 @@ const Resume = ({ employments, programs, skills }) => {
 
                             {/* Achievements */}
                             {program.achievements?.length > 0 && (
-                                <motion.div {...motionChild}>
-                                    <h2>Achievements</h2>
-                                    <div>
-                                        {program.achievements.map((achievement, i) => (
-                                            <div key={i}>
-                                                <div className={style.header}>
-                                                    <h3>{achievement.title}</h3>
-                                                    <div>
-                                                        <h3>
-                                                            {achievement.when.detail} {achievement.when.year}
-                                                        </h3>
-                                                    </div>
+                                <SubSection title={"Achievements"}>
+                                    {program.achievements.map((achievement, i) => (
+                                        <div key={i}>
+                                            <div className={style.header}>
+                                                <h3>{achievement.title}</h3>
+                                                <div>
+                                                    <h3>
+                                                        {achievement.when.detail} {achievement.when.year}
+                                                    </h3>
                                                 </div>
-
-                                                <p>{achievement.description}</p>
                                             </div>
+
+                                            <p>{achievement.description}</p>
                                         </div>
-                                        <p>{achievement.description}</p>
-                                    </div>
-                                ))}
-                            </SubSection>
+                                    ))}
+                                </SubSection>
+                            )}
 
                             {/* Groups */}
                             {program.groups?.length > 0 && (
-                                <motion.div {...motionChild}>
-                                    <h2>Groups & Societies</h2>
-                                    <div>
-                                        {program.groups.map((group, i) => (
-                                            <div key={i}>
-                                                <div className={style.header}>
-                                                    <h3>{group.title}</h3>
-                                                    <div>
-                                                        <h3>{group.role}</h3>
-                                                        <h4>
-                                                            {group.duration.start.year} - {group.duration.end?.year ?? "Present"}
-                                                        </h4>
-                                                    </div>
-                                                </div>
+                                <SubSection title={"Groups & Societies"}>
+                                {program.groups.map((group, i) => (
+                                    <div key={i}>
+                                        <div className={style.header}>
+                                            <h3>{group.title}</h3>
+                                            <div>
+                                                <h3>{group.role}</h3>
+                                                <h4>
+                                                    {group.duration.start.year} - {group.duration.end?.year ?? "Present"}
+                                                </h4>
+                                            </div>
+                                        </div>
 
                                         {group.details?.length > 0 && (
                                             <ul>
@@ -221,6 +215,7 @@ const Resume = ({ employments, programs, skills }) => {
                                     </div>
                                 ))}
                             </SubSection>
+                        )}
                         </Section>
                     ))}
             </motion.main>
