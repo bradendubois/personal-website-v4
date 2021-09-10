@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Layout from "../components/Layout";
@@ -12,6 +13,35 @@ import {
 } from "../types/motions";
 
 import style from "../styles/Home.module.scss";
+
+const nest = (x) => {
+
+
+    switch (x.type) {
+        case "p":
+            return <p>&lt;p&gt;{x.props.children}&lt;/p&gt;</p>
+        case "div":
+            return <div><p>&lt;div&gt;</p>&lt;/div&gt;</div>
+        case "ul":
+            return <>
+                <p>&lt;ul&gt;</p>
+                <ul>
+                    {x.props.children.map(c => nest(c))}
+                </ul>
+                <p>&lt;/ul&gt;</p>
+            </>
+        case "li":
+            return <li>&lt;li&gt;{x.props.children}&lt;/li&gt;</li>
+        default:
+            throw Error
+    }
+}
+
+const page = nest(<ul>
+    <li>Hi</li>
+    <li>There</li>
+</ul>)
+
 
 const Home = ({ links }) => {
     const github = links.find((link) => link.network === "github");
@@ -74,6 +104,8 @@ const Home = ({ links }) => {
                         assistant. In my free time I enjoy competitive programming and various personal programming
                         projects.
                     </motion.p>
+
+                    {page}
 
                     <motion.p {...motionChild}>
                         Check out <Link href={"/showcase"}>some of my projects</Link>, or{" "}
