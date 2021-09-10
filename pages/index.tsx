@@ -18,10 +18,12 @@ const nest = (x) => {
 
 
     switch (x.type) {
+        case "h1":
+            return <h1>&lt;h1&gt;{x.props.children}&lt;/h1&gt;</h1>
         case "p":
             return <p>&lt;p&gt;{x.props.children}&lt;/p&gt;</p>
         case "div":
-            return <div><p>&lt;div&gt;</p>&lt;/div&gt;</div>
+            return <div><p>&lt;div&gt;</p>{x.props.children.map(c => nest(c))}<p>&lt;/div&gt;</p></div>
         case "ul":
             return <>
                 <p>&lt;ul&gt;</p>
@@ -37,10 +39,11 @@ const nest = (x) => {
     }
 }
 
-const page = nest(<ul>
+const page = nest(<div>
+    <h1>Name</h1>
     <li>Hi</li>
     <li>There</li>
-</ul>)
+</div>)
 
 
 const Home = ({ links }) => {
