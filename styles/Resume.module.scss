@@ -158,6 +158,22 @@
       }
     }
   }
+
+  @media screen and (max-width: 800px) {
+
+    flex-direction: column;
+
+
+    > div {
+        flex-direction: column !important;
+        margin-bottom: 15px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0 0 0 15px;
+    }
+  }
 }
 
 
@@ -227,10 +243,16 @@
     }
 
     @media screen and (max-width: 800px) {
+
         margin: 0;
+        flex-direction: column;
 
         a, img { display: none; }
-        div {  margin-left: 0; }
+        div {
+            text-align: left !important;
+            margin-left: 0;
+        }
+
     }
 
     // All divs that follow after the header info
@@ -267,6 +289,12 @@
 
                 li {
                     font-size: 9pt;
+                }
+            }
+
+            @media screen and (max-width: 800px) {
+                ul {
+                    padding-left: 10px !important;
                 }
             }
         }

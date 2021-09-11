@@ -100,7 +100,7 @@ const Project = ({ project }: { project: ProjectData }) => (
 );
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const apiQuery = `    
+    const apiQuery = `
         query {
             projects {
                 id
@@ -129,21 +129,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
     const apiQuery = `
-    
+
         query {
 
             project(projectID: "${params.project}") {
-            
+
                 title
                 description
-            
+
                 repositories {
                     host
                     owner
                     repository
                     title
                 }
-             
+
                 duration {
                     start {
                         year
@@ -155,17 +155,17 @@ export const getStaticProps = async ({ params }) => {
                         detail
                     }
                 }
-                
+
                 collaborators {
                   title
                   url
                 }
-                
+
                 related {
                   title
                   url
                 }
-                
+
                 content {
                   title
                   markdown

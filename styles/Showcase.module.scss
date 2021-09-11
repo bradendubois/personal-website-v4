@@ -38,7 +38,7 @@
 }
 
 .showcasePreviews {
-    
+
     /*
     display: flex;
     flex-direction: row;
@@ -52,6 +52,10 @@
 
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+    @media screen and (max-width: 800px) {
+        grid-template-columns: 1fr;
+    }
 
     justify-content: space-between;
 }
@@ -101,10 +105,12 @@
 
     margin: 10px;
     display: flex;
-        flex-direction: column;
-        flex: 1;
+    flex-direction: column;
+    flex: 1;
+
     @media screen and (max-width: 800px) {
         margin: 10px auto;
+        width: 100%;
     }
 
     a {
@@ -120,7 +126,7 @@
         display: flex;
         flex-direction: column;
         flex: 1;
-        
+
         max-width: 400px;
         max-height: 100px;
 
