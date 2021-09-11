@@ -3,53 +3,84 @@ import Head from "next/head";
 import Link from "next/link";
 import Layout from "../components/Layout";
 
-import { motion } from "framer-motion";
-import {
-    motionContainer,
-    motionChild,
-    motionContainerSlow,
-    horizontalSlideinRight,
-    horizontalSlideinLeft,
-} from "../types/motions";
-
 import style from "../styles/Home.module.scss";
 
 const nest = (x) => {
 
+    if (Array.isArray(x)) {
+        return x.map(c => nest(c))
+    }
+
+    const done = (tag) => {
+        return React.createElement(tag.type, tag.props, <><span className={style.left}>&lt;{tag.type}&gt;</span>{tag.props.children}<span className={style.right}>&lt;/{tag.type}&gt;</span></>)
+    }
 
     switch (x.type) {
         case "h1":
-            return <h1>&lt;h1&gt;{x.props.children}&lt;/h1&gt;</h1>
+        case "h2":
         case "p":
-            return <p>&lt;p&gt;{x.props.children}&lt;/p&gt;</p>
-        case "div":
-            return <div><p>&lt;div&gt;</p>{x.props.children.map(c => nest(c))}<p>&lt;/div&gt;</p></div>
-        case "ul":
-            return <>
-                <p>&lt;ul&gt;</p>
-                <ul>
-                    {x.props.children.map(c => nest(c))}
-                </ul>
-                <p>&lt;/ul&gt;</p>
-            </>
         case "li":
-            return <li>&lt;li&gt;{x.props.children}&lt;/li&gt;</li>
+            return done(x)
+        case "div":
+            return <div {...x.props}><span>&lt;div&gt;</span>{nest(x.props.children)}<span>&lt;/div&gt;</span></div>
+        case "ul":
+            return <div>
+                <span>&lt;ul&gt;</span>
+                <ul>
+                    {nest(x.props.children)}
+                </ul>
+                <span>&lt;/ul&gt;</span>
+            </div>
+        case "hr":
+            return <div className={style.hrdiv}>
+                <span className={style.left}>&lt;hr&gt;</span>
+                    <hr />
+                <span className={style.right}>&lt;/hr&gt;</span>
+            </div>
+
         default:
             throw Error
     }
 }
 
-const page = nest(<div>
-    <h1>Name</h1>
-    <li>Hi</li>
-    <li>There</li>
-</div>)
+
 
 
 const Home = ({ links }) => {
+
     const github = links.find((link) => link.network === "github");
     const linkedIn = links.find((link) => link.network === "linkedin");
     const email = links.find((link) => link.network === "email");
+
+const page = nest(<div className={style.home}>
+
+        <h1>Braden Dubois</h1>
+
+        <p>I'm a computer science student at the University of Saskatchewan, and also a student research assistant. In my free time I enjoy competitive programming and various personal programming projects.</p>
+
+        <hr />
+
+        <h2>Roles & Interests</h2>
+        <ul>
+            <li>Computer Science & Philosophy student</li>
+            <li>Student Research Assistant</li>
+            <li>Teaching / Marking Assistant</li>
+            <li>Software Engineer</li>
+            <li>Competitive Programmer</li>
+        </ul>
+
+        <hr />
+
+        <h2>Relevant Links</h2>
+        <ul>
+            <li><Link href={github.link}>Github</Link></li>
+            <li><Link href={linkedIn.link}>LinkedIn</Link></li>
+            <li><Link href={email.link}>Email</Link></li>
+            <li><Link href={'/showcase'}>Projects</Link></li>
+            <li><Link href={'/resume'}>Resume</Link></li>
+        </ul>
+
+    </div>)
 
     return (
         <Layout>
@@ -66,56 +97,11 @@ const Home = ({ links }) => {
                 />
             </Head>
 
-            <motion.main {...motionContainer} className={style.main}>
-                <motion.h1 {...motionChild}>Braden Dubois</motion.h1>
+            <main>
+                {page}
+            </main>
 
-                <motion.div {...motionContainerSlow} className={style.titles}>
-                    <motion.p {...horizontalSlideinRight}>Computer Science / Philosophy student</motion.p>
-                    <motion.p {...horizontalSlideinRight}>Student Research Assistant</motion.p>
-                    <motion.p {...horizontalSlideinRight}>Web dev hobbyist</motion.p>
-                </motion.div>
 
-                <motion.hr {...motionChild} />
-
-                <motion.div {...motionContainerSlow} className={style.links}>
-                    <motion.div {...horizontalSlideinLeft}>
-                        <motion.a href={github.link}>
-                            <img title={`github/${github.account}`} alt={"Github Icon"} src={"/github-icon.png"} />
-                        </motion.a>
-                    </motion.div>
-
-                    <motion.div {...horizontalSlideinLeft}>
-                        <motion.a href={linkedIn.link}>
-                            <img
-                                title={`linkedin/in/${linkedIn.account}`}
-                                alt={"LinkedIn Icon"}
-                                src={"/linkedin.png"}
-                            />
-                        </motion.a>
-                    </motion.div>
-
-                    <motion.div {...horizontalSlideinLeft}>
-                        <motion.a href={email.link}>
-                            <img title={email.account} alt={"Email Icon"} src={"/envelope.png"} />
-                        </motion.a>
-                    </motion.div>
-                </motion.div>
-
-                <motion.div {...motionContainerSlow}>
-                    <motion.p {...motionChild}>
-                        I'm a computer science student at the University of Saskatchewan, and also a student research
-                        assistant. In my free time I enjoy competitive programming and various personal programming
-                        projects.
-                    </motion.p>
-
-                    {page}
-
-                    <motion.p {...motionChild}>
-                        Check out <Link href={"/showcase"}>some of my projects</Link>, or{" "}
-                        <Link href={"/resume"}>my resume.</Link>
-                    </motion.p>
-                </motion.div>
-            </motion.main>
         </Layout>
     );
 };

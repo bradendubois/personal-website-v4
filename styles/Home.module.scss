@@ -1,88 +1,76 @@
-.main {
-    // background: #1c3c53;
-    // color: white;
+.home {
 
-    padding-top: 50px;
-    padding-bottom: 50px;
-
-    @media screen and (max-width: 1000px) {
-        overflow-x: hidden;
-    }
-
-    h1 {
-        font-size: 48pt;
-        margin: 0 0 20px 0;
-    }
-
-    > div {
-        display: flex;
-        flex-direction: row;
-
-        margin: 10px;
-
-        &:last-of-type {
-            flex-direction: column;
-
-            p {
-                text-align: center;
-                word-break: break-word;
-                max-width: 90%;
-                margin: 15px auto;
-                font-size: 12pt;
-            }
-        }
-    }
-
-    p {
-        margin: 30px;
-    }
+    $offset: 30px;
 
     display: flex;
     flex-direction: column;
+    justify-content: left;
+    text-align: left !important;
+
+    max-width: 1200px;
+    margin: auto;
+
+    * {
+        margin: 0;
+        font-weight: 300;
+        font-size: 14pt;
+    }
+
+    &, div {
+        padding: $offset;
+    }
+
+    h1 span, h2 span {
+        vertical-align: middle;
+    }
+
 
     h1 {
-        text-align: center;
+        font-size: 24pt;
+        margin-top: $offset * 0.75;
     }
 
-    hr {
-        width: 100%;
-        margin: 20px 0;
+    h2 {
+        font-size: 18pt;
     }
 
-    .titles {
-        justify-content: space-between;
-        margin-top: 50px;
-    }
-    .links {
-        justify-content: space-around;
+    div, .left {
+        padding: 0 0 0 $offset;
     }
 
-    div {
+
+    .left { margin-right: 5px; }
+    .right { margin-left: 5px; }
+
+    p {
+        font-weight: 200;
+        margin-top: $offset;
+    }
+
+    li {
+
+        font-weight: 200;
+        list-style: none;
+
+        span {
+            padding: 0 !important;
+        }
+    }
+
+    .hrdiv {
+
         display: flex;
         flex-direction: row;
 
-        &:not(:last-of-type) p {
-            text-align: center;
-            flex: 1 1 0;
-            width: max-content;
-            margin: 5px;
-            padding: 0;
+        margin-top: $offset;
+        margin-bottom: $offset;
 
-            font-size: 13pt;
-            font-weight: 600;
-        }
+        .left { padding: 0; }
 
-        img {
-            visibility: visible;
-            height: 48px;
-
-            filter: grayscale(1);
-            transition: 0.2s;
-
-            &:hover {
-                cursor: pointer;
-                filter: grayscale(0);
-            }
+        hr {
+            flex: 1;
+            height: 1px;
+            margin: auto 15px;
         }
     }
 }
