@@ -2,6 +2,10 @@
 
     $offset: 30px;
 
+    @media screen and (max-width: 800px) {
+        $offset: 10px;
+    }
+
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -14,6 +18,12 @@
         margin: 0;
         font-weight: 300;
         font-size: 14pt;
+    }
+
+    @media screen and (max-width: 800px) {
+        * {
+            font-size: 12pt;
+        }
     }
 
     &, div {
@@ -45,6 +55,10 @@
     p {
         font-weight: 200;
         margin-top: $offset;
+    }
+
+    ul {
+        padding-left: $offset;
     }
 
     li {
