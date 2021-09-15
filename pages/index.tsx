@@ -18,8 +18,8 @@ const nest = (x) => {
     switch (x.type) {
         case "h1":
         case "h2":
-        case "p":
         case "li":
+        case "p":
             return done(x)
         case "div":
             return <div {...x.props}><span>&lt;div&gt;</span>{nest(x.props.children)}<span>&lt;/div&gt;</span></div>
@@ -56,7 +56,7 @@ const page = nest(<div className={style.home}>
 
         <h1>Braden Dubois</h1>
 
-        <p>I'm a computer science student at the University of Saskatchewan, and also a student research assistant. In my free time I enjoy competitive programming and various personal programming projects.</p>
+        <p>I'm a &#123;computer science, philosophy&#125; undergraduate student and &#123;student research, teaching, marking&#125; assistant at the University of Saskatchewan. In my free time I enjoy competitive programming and various personal programming projects.</p>
 
         <hr />
 
