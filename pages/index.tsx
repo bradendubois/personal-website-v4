@@ -97,7 +97,7 @@ const page = nest(<div className={style.home}>
                 />
             </Head>
 
-            <main>
+            <main className={style.main}>
                 {page}
             </main>
 
