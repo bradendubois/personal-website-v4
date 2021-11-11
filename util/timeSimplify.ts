@@ -24,4 +24,6 @@ export const TimeReduce = (sy, sd, ey, ed) => {
     if (sy == ey && season1 === season2) {
         return `${season1} ${sy}`;
     }
+
+    return `${sd} ${sy} - ${ed} ${ey}`
 };
