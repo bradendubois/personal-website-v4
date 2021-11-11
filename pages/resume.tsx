@@ -64,7 +64,7 @@ const Resume = ({ employments, programs, skills }) => {
             .filter(skill => skill.category === category)
             .sort((a, b) => (ExperiencePosition(a) - ExperiencePosition(b)))
             .filter((skill, i) => i % 2 == column)
-            .map((skill, i) => <li>{skill.name} &nbsp;<span>{"☆".repeat(ExperiencePosition(skill.experience))}</span></li>)}
+            .map((skill, i) => <li key={i}>{skill.name} &nbsp;<span>{"☆".repeat(ExperiencePosition(skill.experience))}</span></li>)}
         </ul>
 
     return (
@@ -115,7 +115,7 @@ const Resume = ({ employments, programs, skills }) => {
                 {/* Skills - Languages & Frameworks */}
                 <Section title={"Skills"}>
                     {Array.from(new Set(skills.map(skill => skill.category))).map((category, i) =>
-                        <SubSection title={category} className={style.skills}>
+                        <SubSection key={i} title={category} className={style.skills}>
                             {skillColumn(0, category)}
                             {skillColumn(1, category)}
                         </SubSection>)
