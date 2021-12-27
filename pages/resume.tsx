@@ -92,7 +92,11 @@ const Resume = ({ employments, programs, skills }) => {
                         .map((employment, i) => (
                             <motion.div key={i} {...motionChild} className={style.employment}>
                                 <div className={style.header}>
-                                    <h3>{employment.title}</h3>
+                                    <div>
+                                        <h3>{employment.title}</h3>
+                                        <h4>{employment.institution}</h4>
+                                    </div>
+
                                     <h4>
                                         {TimeReduce(
                                             employment.duration.start.year,
@@ -104,7 +108,7 @@ const Resume = ({ employments, programs, skills }) => {
                                 </div>
 
                                 <ul>
-                                    {employment.description.map((description, i) => (
+                                    {employment.description?.map((description, i) => (
                                         <li key={i}>{description}</li>
                                     ))}
                                 </ul>
@@ -232,6 +236,8 @@ export const getStaticProps = async (context) => {
 
             title
             description
+            institution
+            location
             
             duration {
               start {

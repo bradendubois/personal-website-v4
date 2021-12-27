@@ -125,6 +125,26 @@
     .header {
         * { margin-bottom: 0; }
         h3 { font-size: 16pt; }
+
+        display: flex;
+        flex-direction: row;
+
+        > div {
+
+            margin-left: 0;
+
+            h4 {
+                &::before {
+                    font-weight: 200;
+                    content: "@ ";
+                }
+
+                font-size: 11pt;
+                font-style: normal;
+                font-weight: 300 !important;
+                text-align: left;
+            }
+        }
     }
 }
 
