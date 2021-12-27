@@ -107,7 +107,7 @@ const Resume = ({ employments, programs, skills }) => {
                                     </h4>
                                 </div>
 
-                                <ul>
+                                <ul className={employment.description?.length <= 1 ? style.singleLength : style.multiLength}>
                                     {employment.description?.map((description, i) => (
                                         <li key={i}>{description}</li>
                                     ))}
