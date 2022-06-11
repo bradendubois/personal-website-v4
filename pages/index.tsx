@@ -56,18 +56,19 @@ const Home = ({ links }) => {
 
         <h1>Braden Dubois</h1>
 
-        <p>I'm a <strong>software developer</strong> at <strong>Siemens EDA</strong>, and a <strong>&#123;</strong>computer science, philosophy<strong>&#125;</strong> undergraduate student at the <strong>University of Saskatchewan</strong>. I've been a <strong>&#123;</strong>student research, teaching, marking<strong>&#125;</strong> <strong>assistant</strong>, and in my free time I enjoy competitive programming and various personal programming projects.</p>
+        <p>I'm a <strong>software developer</strong> at <strong>Siemens EDA</strong>.</p>
+        
+        <p>During my time as a <strong>&#123;</strong>computer science, philosophy<strong>&#125;</strong> undergraduate student at the <strong>University of Saskatchewan</strong>, I was also a <strong>&#123;</strong>student research, teaching, marking<strong>&#125;</strong> <strong>assistant</strong>. In my free time I enjoy competitive programming and various personal programming projects.</p>
 
         <hr />
 
         <h2>Roles & Interests</h2>
         <ul>
             <li>Software Developer</li>
-            <li>Computer Science & Philosophy student</li>
-            <li>Student Research Assistant</li>
-            <li>Teaching / Marking Assistant</li>
-            <li>Competitive Programming</li>
             <li>Emulator Development</li>
+            <li style={{textDecoration: "line-through"}}>Computer Science & Philosophy student</li>
+            <li style={{textDecoration: "line-through"}}>Student Research Assistant</li>
+            <li style={{textDecoration: "line-through"}}>Teaching / Marking Assistant</li>
         </ul>
 
         <hr />
