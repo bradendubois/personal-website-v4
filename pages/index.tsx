@@ -92,10 +92,10 @@ const Home = ({ links }) => {
                 <meta charSet="UTF-8" />
                 <meta property="og:title" content="Braden Dubois | Software Developer" />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://www.bradendubois.dev" />
+                <meta property="og:url" content="https://www.braden.sh" />
                 <meta
                     property="og:description"
-                    content="Portfolio and Resume of Braden Dubois | Software Developer, Research Assistant"
+                    content="Portfolio and Resume of Braden Dubois | Software Developer"
                 />
             </Head>
 

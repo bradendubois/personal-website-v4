@@ -71,16 +71,14 @@ const Showcase = ({ projects, socials }) => {
                 <motion.div className={style.headerDiv} {...motionContainer}>
                     <motion.h1 {...motionChild}>Showcase</motion.h1>
                     <motion.p {...motionChild}>
-                        Selected projects from my research or done out of personal interest.
+                        Selected projects from my <Link href={"/resume"}>research</Link> or done out of personal interest.
                     </motion.p>
                 </motion.div>
 
                 <motion.div className={style.mainTextContainer} {...motionChild}>
                     <p>
-                        I write software as a part of my <Link href={"/resume"}>research</Link>, as well in various
-                        projects of personal interest. Any publicly-available project is accessible from my{" "}
-                        <a href={github.link}>Github (/{github.account})</a>. Particular areas of interest are{" "}
-                        <strong>web-projects</strong> and <strong>competitive programming</strong>.
+                        Any publicly-available project is accessible from my <a href={github.link}>Github (/{github.account})</a>. 
+                        Particular areas of interest are <strong>web-projects</strong> and <strong>competitive programming</strong>.
                     </p>
                 </motion.div>
 
