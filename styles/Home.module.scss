@@ -1,7 +1,7 @@
 $offset: 30px;
 
-$content-weight: 300;
-$meta-weight: 200;
+$content-weight: 200;
+$meta-weight: 100;
 $emphasis-weight: 400;
 
 @media screen and (max-width: 800px) {
@@ -13,6 +13,7 @@ $emphasis-weight: 400;
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
+    cursor:default;
 }
 
 .main {
@@ -66,10 +67,12 @@ $emphasis-weight: 400;
 
     h1 {
         font-size: 32pt;
+        font-weight: $content-weight;
     }
 
     h2 {
         font-size: 18pt;
+        font-weight: $content-weight;
     }
 
     // h1, h2 { font-weight: $emphasis-weight; }

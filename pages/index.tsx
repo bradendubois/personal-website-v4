@@ -5,42 +5,33 @@ import Layout from "../components/Layout";
 
 import style from "../styles/Home.module.scss";
 
-const nest = (x) => {
+const nest = (tag) => {
 
-    if (Array.isArray(x)) {
-        return x.map(c => nest(c))
+    if (Array.isArray(tag)) {
+        return tag.map(t => nest(t))
     }
 
-    const done = (tag) => {
-        return React.createElement(tag.type, tag.props, (
-            <>
-                <span className={style.left}>&lt;{tag.type}&gt;</span>
-                    {tag.props.children}
-                <span className={style.right}>&lt;/{tag.type}&gt;</span>
-            </>))
-    }
-
-    switch (x.type) {
+    switch (tag.type) {
         case "article":
         case "body":
         case "head":
         case "html":
         case "div":
             return <div className={style.outer}>
-                <span className={style.span}>&lt;{x.type}&gt;</span>
-                <div className={style[x.type]}>
-                    {nest(x.props.children)}
+                <span className={style.span}>&lt;{tag.type}&gt;</span>
+                <div className={style[tag.type]}>
+                    {nest(tag.props.children)}
                 </div>
-                <span className={style.span}>&lt;/{x.type}&gt;</span>
+                <span className={style.span}>&lt;/{tag.type}&gt;</span>
             </div>
 
         case "ul":
             return <div>
-                <span className={style.no_select}>&lt;ul&gt;</span>
+                <span className={style.span}>&lt;ul&gt;</span>
                 <ul className={style.ul}>
-                    {nest(x.props.children)}
+                    {nest(tag.props.children)}
                 </ul>
-                <span className={style.no_select}>&lt;/ul&gt;</span>
+                <span className={style.span}>&lt;/ul&gt;</span>
             </div>
         case "hr":
             return <div className={style.hr}>
@@ -53,14 +44,18 @@ const nest = (x) => {
             return (
                 <p className={style.meta}>
                     <span>&lt;meta</span>
-                        <span>name="</span>{x.props.name}<span>"</span>
-                        <span>content="</span>{x.props.content}<span>"</span>
+                        <span>name="</span>{tag.props.name}<span>"</span>
+                        <span>content="</span>{tag.props.content}<span>"</span>
                     <span>/&gt;</span>
                 </p>)
 
         default:
-            console.log(x)
-            return done(x)
+            return React.createElement(tag.type, tag.props, (
+                <>
+                    <span className={style.left}>&lt;{tag.type}&gt;</span>
+                        {tag.props.children}
+                    <span className={style.right}>&lt;/{tag.type}&gt;</span>
+                </>))
     }
 }
 
