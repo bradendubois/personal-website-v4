@@ -78,11 +78,11 @@ const Resume = ({ employments, programs, skills }) => {
                 {/* Resume-related links */}
                 <motion.header {...motionChild}>
                     <a target={"_blank"} href={"/resume.pdf"}>
-                        PDF
+                        View PDF
                     </a>
-                    <a target={"_blank"} href={process.env.graphql_page}>
+                    {/* <a target={"_blank"} href={process.env.graphql_page}>
                         Looking for something more fun? See my resume in GraphQL.
-                    </a>
+                    </a> */}
                 </motion.header>
 
                 {/* Work / Research Experience */}

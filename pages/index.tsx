@@ -12,34 +12,55 @@ const nest = (x) => {
     }
 
     const done = (tag) => {
-        return React.createElement(tag.type, tag.props, <><span className={style.left}>&lt;{tag.type}&gt;</span>{tag.props.children}<span className={style.right}>&lt;/{tag.type}&gt;</span></>)
+        return React.createElement(tag.type, tag.props, (
+            <>
+                <span className={style.left}>&lt;{tag.type}&gt;</span>
+                    {tag.props.children}
+                <span className={style.right}>&lt;/{tag.type}&gt;</span>
+            </>))
     }
 
     switch (x.type) {
-        case "h1":
-        case "h2":
-        case "li":
-        case "p":
-            return done(x)
+        case "article":
+        case "body":
+        case "head":
+        case "html":
         case "div":
-            return <div {...x.props}><span>&lt;div&gt;</span>{nest(x.props.children)}<span>&lt;/div&gt;</span></div>
+            return <div className={style.outer}>
+                <span className={style.span}>&lt;{x.type}&gt;</span>
+                <div className={style[x.type]}>
+                    {nest(x.props.children)}
+                </div>
+                <span className={style.span}>&lt;/{x.type}&gt;</span>
+            </div>
+
         case "ul":
             return <div>
-                <span>&lt;ul&gt;</span>
-                <ul>
+                <span className={style.no_select}>&lt;ul&gt;</span>
+                <ul className={style.ul}>
                     {nest(x.props.children)}
                 </ul>
-                <span>&lt;/ul&gt;</span>
+                <span className={style.no_select}>&lt;/ul&gt;</span>
             </div>
         case "hr":
-            return <div className={style.hrdiv}>
+            return <div className={style.hr}>
                 <span className={style.left}>&lt;hr&gt;</span>
                     <hr />
                 <span className={style.right}>&lt;/hr&gt;</span>
             </div>
 
+        case "meta":
+            return (
+                <p className={style.meta}>
+                    <span>&lt;meta</span>
+                        <span>name="</span>{x.props.name}<span>"</span>
+                        <span>content="</span>{x.props.content}<span>"</span>
+                    <span>/&gt;</span>
+                </p>)
+
         default:
-            throw Error
+            console.log(x)
+            return done(x)
     }
 }
 
@@ -52,37 +73,43 @@ const Home = ({ links }) => {
     const linkedIn = links.find((link) => link.network === "linkedin");
     const email = links.find((link) => link.network === "email");
 
-    const page = nest(<div className={style.home}>
+    const page = nest(<html>
 
-        <h1>Braden Dubois</h1>
+        <head>
+            <meta name="author" content="Braden Dubois" />
+            <meta name="occupation" content="Software Developer" />
+            <meta name="residence" content="Saskatchewan, Canada" />
+        </head>
 
-        <p>I'm a <strong>software developer</strong> at <strong>Siemens EDA</strong>.</p>
+        <body>
+
+            <h1>Braden Dubois</h1>
+
+            <article>
+
+                <p>I'm a <strong>software developer</strong> at <strong>Siemens EDA</strong>. I work on the <strong>Solido IPQA</strong> team (a.k.a. Solido Crosscheck, formerly Fractal Technologies / Crossfire) as a Product Developer.</p>
+
+                <p>During my time as a <strong>&#123;</strong>computer science, philosophy<strong>&#125;</strong> undergraduate student at the <strong>University of Saskatchewan</strong>, I was also a <strong>&#123;</strong>student research, teaching, marking<strong>&#125;</strong> <strong>assistant</strong>. I worked as a research assistant under the supervision of <strong>Dr. Eric Neufeld</strong>, primarily studying causal inference in statistics. I graduated in June 2022. During this time, I also completed a Certificate in <strong>Ethics, Justice, and Law</strong>.</p>
+
+                <p>Outside of work, I enjoy reading, physical activity such as rock climbing, and personal programming projects.</p>
+
+            </article>
+
+            <hr />
+
+            <h2>Relevant Links</h2>
+            <ul>
+                <li><Link href={github.link}>Github</Link></li>
+                <li><Link href={linkedIn.link}>LinkedIn</Link></li>
+                <li><Link href={email.link}>Email</Link></li>
+                <li><Link href={'/showcase'}>Projects</Link></li>
+                <li><Link href={'/resume'}>Resume</Link></li>
+            </ul>
+
+        </body>
         
-        <p>During my time as a <strong>&#123;</strong>computer science, philosophy<strong>&#125;</strong> undergraduate student at the <strong>University of Saskatchewan</strong>, I was also a <strong>&#123;</strong>student research, teaching, marking<strong>&#125;</strong> <strong>assistant</strong>. In my free time I enjoy competitive programming and various personal programming projects.</p>
 
-        <hr />
-
-        <h2>Roles & Interests</h2>
-        <ul>
-            <li>Software Developer</li>
-            <li>Emulator Development</li>
-            <li style={{textDecoration: "line-through"}}>Computer Science & Philosophy student</li>
-            <li style={{textDecoration: "line-through"}}>Student Research Assistant</li>
-            <li style={{textDecoration: "line-through"}}>Teaching / Marking Assistant</li>
-        </ul>
-
-        <hr />
-
-        <h2>Relevant Links</h2>
-        <ul>
-            <li><Link href={github.link}>Github</Link></li>
-            <li><Link href={linkedIn.link}>LinkedIn</Link></li>
-            <li><Link href={email.link}>Email</Link></li>
-            <li><Link href={'/showcase'}>Projects</Link></li>
-            <li><Link href={'/resume'}>Resume</Link></li>
-        </ul>
-
-    </div>)
+    </html>)
 
     return (
         <Layout>
