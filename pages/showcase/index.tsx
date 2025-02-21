@@ -24,7 +24,7 @@ const project = {
 const ProjectStub = (data: ProjectSummary) => {
     return (
         <motion.div {...motionChild} className={style.stubContainer} id={data.id + "-stub"}>
-            <Link href={`/showcase/${data.id}`}>
+            <Link href={`/showcase/${data.id}`} legacyBehavior={true}>
                 <a>
                     <motion.div
                         className={style.projectStub}
