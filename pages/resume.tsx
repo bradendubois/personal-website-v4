@@ -160,7 +160,7 @@ const Resume = ({ employments, programs, skills }) => {
                                     {Array.from(new Set(program.courses.map((course) => course.subject))).map(
                                         (subject, i) => (
                                             <div key={i}>
-                                                <h3>{subject}</h3>
+                                                <h3>{subject as String}</h3>
                                                 <ul>
                                                     {program.courses
                                                         .filter((course) => course.subject === subject)
@@ -212,7 +212,7 @@ const Resume = ({ employments, programs, skills }) => {
                                         {group.details?.length > 0 && (
                                             <ul>
                                                 {Object.values(group.details).map((detail, i) => (
-                                                    <li key={i}>{detail}</li>
+                                                    <li key={i}>{detail as String}</li>
                                                 ))}
                                             </ul>
                                         )}
